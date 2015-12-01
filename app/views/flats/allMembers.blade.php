@@ -13,7 +13,7 @@
     }
 </style>
 
-@foreach($user as $user)
+@foreach($user as $users)
 <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6">
@@ -23,22 +23,19 @@
 
                     <div class="col-sm-6 col-md-4">
 
-                        {{ HTML::image($user->userInfo->avatar_url, 'alt', array('class' =>'img-rounded img-responsive' )) }}
+                        {{ HTML::image($users->userInfo->avatar_url, 'alt', array('class' =>'img-rounded img-responsive' )) }}
                     </div>
+
+
                     <div class="col-sm-6 col-md-8">
-                        <h4>{{$user->userInfo->fullName}}</h4>
-
-
-
-                            <small><cite title="San Francisco, USA"> {{$user->flats->name}}, Uniliver,Sylhet <i class="glyphicon glyphicon-map-marker">
-
-
+                        <h4>{{$users->userInfo->fullName}}</h4>
+                        <small><cite title="San Francisco, USA">{{$users->flats->name}}, Uniliver Mess, Akhalia, Surma, Sylhet <i class="glyphicon glyphicon-map-marker">
                                 </i></cite></small>
                         <p>
-                            <i class="glyphicon glyphicon-envelope"></i>{{$user->email}}
+                            <i class="glyphicon glyphicon-envelope"></i>{{$users->email}}
                             <br />
 
-                            <i class="glyphicon glyphicon-gift"></i>{{$user->userInfo->date_of_birth}}</p>
+                            <i class="glyphicon glyphicon-gift"></i>{{$users->userInfo->date_of_birth}}</p>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
@@ -48,7 +45,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
 
-                                <li><a href="https://www.facebook.com/{{$user->userInfo->fb_account}}">Facebook</a></li>
+                                <li><a href="https://www.facebook.com/{{$users->userInfo->fb_account}}">Facebook</a></li>
 
                             </ul>
                         </div>
@@ -60,5 +57,7 @@
         </div>
     </div>
 </div>
+
 @endforeach
+
 @stop

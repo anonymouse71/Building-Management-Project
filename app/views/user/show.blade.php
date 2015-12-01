@@ -2,25 +2,77 @@
 @section('content')
     @include('includes.alert')
 
-    <div class="col-md-13">
-        <section class="panel">
-            <div class="panel-body">
+
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
 
 
-                <div class="col-md-5">
-                    <div class="col-md-11" >
-                     {{ HTML::image(Auth::user()->userInfo->avatar_url, 'alt', array('class'=>" img-thumbnail")) }}
-                        <br><br> <br><br>
-                        <a href="{{route('upload.avatar')}}"><button type="button" class="btn btn-info"><i class="fa fa-image"></i> Change Profile Image</button></a>
-                    </div>
+                    {{ HTML::image(Auth::user()->userInfo->avatar_url, 'alt', array('class'=>"  img-responsive")) }}
                 </div>
 
 
-                <div class="col-md-7">
-                     <h4 class="pro-d-title">
-                         <h2><b> {{Auth::user()->userInfo->fullName}} </b></h2>
-                     </h4>
+                <div class="profile-usertitle">
 
+                    <div class="profile-usertitle-name">
+                        <p><b> {{Auth::user()->userInfo->fullName}} </b></p>
+                    </div>
+
+                    <div class="profile-usertitle-job">
+                     {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4>
+                    </div>
+
+                </div>
+
+
+
+
+            <!--    <div class="profile-userbuttons">
+                    <button type="button" class="btn btn-success btn-sm">Follow</button>
+                    <button type="button" class="btn btn-danger btn-sm">Message</button>
+                </div>
+
+-->
+
+
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a href="#">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Profile </a>
+                        </li>
+                        <li>
+
+                            <a href="{{route('user.edit')}}" target="">
+                                <i class="glyphicon glyphicon-ok"></i>
+                                Edit Profile </a>
+
+
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="glyphicon glyphicon-ok"></i>
+                                Tasks </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Help </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="profile-content">
+                <div>
+
+                    <h4><b>Basic Information</b></h4>
                     <div class="product_meta">
                         <span class="posted_in"> <strong>User Name:</strong> {{Auth::user()->user_name}}</span>
                         <span class="posted_in"> <strong>Email:</strong>  {{Auth::user()->email}}</span>
@@ -29,13 +81,13 @@
                     </div>
 
                     <h4><b>Personal Information</b></h4>
-                     <div class="product_meta">
-                         <span class="posted_in"> <strong>Father Name:</strong> {{Auth::user()->userInfo->father}}</span>
-                         <span class="posted_in"> <strong>Mother Name:</strong> {{Auth::user()->userInfo->mother}}</span>
-                         <span class="posted_in"> <strong>Father Contact:</strong> {{Auth::user()->userInfo->father_contact}}</span>
-                         <span class="posted_in"> <strong>Father Occupation:</strong> {{Auth::user()->userInfo->father_occup}}</span>
-                         <span class="posted_in"> <strong>Mother Contact:</strong> {{Auth::user()->userInfo->mother_contact}}</span>
-                         <span class="posted_in"> <strong>Mother Occupation:</strong> {{Auth::user()->userInfo->mother_occup}}</span>
+                    <div class="product_meta">
+                        <span class="posted_in"> <strong>Father Name:</strong> {{Auth::user()->userInfo->father}}</span>
+                        <span class="posted_in"> <strong>Mother Name:</strong> {{Auth::user()->userInfo->mother}}</span>
+                        <span class="posted_in"> <strong>Father Contact:</strong> {{Auth::user()->userInfo->father_contact}}</span>
+                        <span class="posted_in"> <strong>Father Occupation:</strong> {{Auth::user()->userInfo->father_occup}}</span>
+                        <span class="posted_in"> <strong>Mother Contact:</strong> {{Auth::user()->userInfo->mother_contact}}</span>
+                        <span class="posted_in"> <strong>Mother Occupation:</strong> {{Auth::user()->userInfo->mother_occup}}</span>
 
                     </div>
 
@@ -55,7 +107,7 @@
                         <span class="posted_in"> <strong>City Corporation:</strong> {{Auth::user()->userInfo->city_corpo}}</span>
 
                     </div>
-                   <h4><b>Academic Information</b></h4>
+                    <h4><b>Academic Information</b></h4>
 
                     <div class="product_meta">
                         <span class="posted_in"> <strong>Division:</strong> {{Auth::user()->userInfo->study_level}}</span>
@@ -66,13 +118,125 @@
                         <span class="posted_in"> <strong>City Corporation:</strong> {{Auth::user()->userInfo->cgpa}}</span>
 
                     </div>
-
-
-                    <p class="product_meta">
-                        <a href="{{route('user.edit')}}"><button class="btn btn-round btn-danger" type="button"><i class="fa fa-pencil"></i> Edit Profile</button></a>
-                    </p>
-                </div>
             </div>
-        </section>
+        </div>
     </div>
+</div>
+
+<br>
+<br>
+
+
+<style>
+
+
+    body {
+        background: #F1F3FA;
+    }
+
+    /* Profile container */
+    .profile {
+        margin: 20px 0;
+    }
+
+    /* Profile sidebar */
+    .profile-sidebar {
+        padding: 20px 0 10px 0;
+        background: #fff;
+    }
+
+    .profile-userpic img {
+        float: none;
+        margin: 0 auto;
+        width: 50%;
+        height: 50%;
+        -webkit-border-radius: 50% !important;
+        -moz-border-radius: 50% !important;
+        border-radius: 50% !important;
+    }
+
+    .profile-usertitle {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .profile-usertitle-name {
+        color: #5a7391;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 7px;
+    }
+
+    .profile-usertitle-job {
+        text-transform: uppercase;
+        color: #5b9bd1;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .profile-userbuttons {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .profile-userbuttons .btn {
+        text-transform: uppercase;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 6px 15px;
+        margin-right: 5px;
+    }
+
+    .profile-userbuttons .btn:last-child {
+        margin-right: 0px;
+    }
+
+    .profile-usermenu {
+        margin-top: 30px;
+    }
+
+    .profile-usermenu ul li {
+        border-bottom: 1px solid #f0f4f7;
+    }
+
+    .profile-usermenu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .profile-usermenu ul li a {
+        color: #93a3b5;
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    .profile-usermenu ul li a i {
+        margin-right: 8px;
+        font-size: 14px;
+    }
+
+    .profile-usermenu ul li a:hover {
+        background-color: #fafcfd;
+        color: #5b9bd1;
+    }
+
+    .profile-usermenu ul li.active {
+        border-bottom: none;
+    }
+
+    .profile-usermenu ul li.active a {
+        color: #5b9bd1;
+        background-color: #f6f9fb;
+        border-left: 2px solid #5b9bd1;
+        margin-left: -2px;
+    }
+
+    /* Profile Content */
+    .profile-content {
+        padding: 20px;
+        background: #fff;
+        min-height: 460px;
+    }
+</style>
+
 @stop

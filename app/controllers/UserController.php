@@ -281,23 +281,21 @@ class UserController extends \BaseController {
 
 
 	public function member(){
-		//return	$user= User::all();
 
-		DB::table('flats')
-			->join('users', 'flats.id', '=', 'users.flat_id')
+		$all= Auth::user()->flat_id;
+		$user = User::where('flat_id', '=', $all)
+			 ->whereNotNull('flat_id')
 			->get();
-
-		DB::table('flats')->groupBy('name')->get();
-
-		 $users = User::orderBy('email', 'desc')
-			->groupBy('flat_id')
-
-			->get();
-
-
-
+		return View::make('flats.members',compact('user'))->with('title','Flat Members');
 
 	}
 
+	public function allMember(){
+
+
+		$user= User::where('flat_id', '!=', 0)->get();
+		return View::make('flats.allMembers',compact('user'))->with('title','All Members');
+
+	}
 
 }

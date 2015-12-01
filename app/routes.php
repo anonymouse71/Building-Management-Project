@@ -58,8 +58,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('myfinance',['as' => 'finance.index.normal', 'uses' => 'MoneyController@index_normal']);
 
 
-//All flat members
-	Route::get('flat_members',['as' => 'flats.members', 'uses' => 'UserController@member']);
+//My flat members
+	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
 
@@ -115,6 +115,8 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('flats/{id}/edit',['as' => 'flats.edit', 'uses' => 'FlatsController@edit']);
 	Route::put('flats/{id}',['as' => 'flats.update', 'uses' => 'FlatsController@update']);
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
+	//all members
+	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
 
 });
 

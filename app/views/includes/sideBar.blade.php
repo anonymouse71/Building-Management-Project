@@ -64,6 +64,7 @@
                                   <span>Member</span>
                               </a>
                               <ul class="sub">
+                                  <li><a href="{{ route('flats.allMembers') }}">All Flat member List</a></li>
                                   <li><a href="{{ route('members.view.distributor') }}">Owner List</a></li>
                                   <li><a href="{{ route('members.view.client') }}">Member List</a></li>
                                   <li><a href="{{ route('members') }}">Waiting List</a></li>
@@ -133,6 +134,19 @@
                               </ul>
                           </li>
 
+                          {{-- log --}}
+                          <li class="sub-menu">
+
+                              <a href="javascript:">
+                                  <i class="fa fa-tasks"></i>
+                                  <span>Flat Members</span>
+                              </a>
+                              <ul class="sub">
+                                  <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
+
+                              </ul>
+                          </li>
+
                       @endif
 
 
@@ -157,9 +171,21 @@
 
 
 
+                          {{-- Flat --}}
+                          <li class="sub-menu">
+
+                              <a href="javascript:">
+                                  <i class="fa fa-tasks"></i>
+                                  <span>Flat Members</span>
+                              </a>
+                              <ul class="sub">
+                                  <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
+
+                              </ul>
+                          </li>
+
 
                    @endif
-
 
 
               </ul>

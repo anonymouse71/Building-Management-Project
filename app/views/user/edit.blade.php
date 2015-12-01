@@ -82,7 +82,7 @@
             </div>
 
             <div class="form-group">
-                {{ Form::label('fb_account', 'Facebook Account *') }}
+                {{ Form::label('fb_account', 'Facebook UserName *') }}
                 {{ Form::text('fb_account', null, array('class' => 'form-control')) }}
 
                 {{$errors->first('fb_account')}}
