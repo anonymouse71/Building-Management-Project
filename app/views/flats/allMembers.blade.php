@@ -16,7 +16,7 @@
 @foreach($user as $users)
 <div class="container">
     <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="col-sm-offset-2 col-md-7">
             <div class="well well-sm">
                 <div class="row">
 

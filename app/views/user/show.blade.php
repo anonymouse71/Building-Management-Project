@@ -21,10 +21,20 @@
                         <p><b> {{Auth::user()->userInfo->fullName}} </b></p>
                     </div>
 
+                    @if(Auth::user()->flat_id != 0 && Auth::user()->role_id != 2)
                     <div class="profile-usertitle-job">
                      {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4>
                     </div>
+                    @elseif(Auth::user()->role_id == 2)
+                        <div class="profile-usertitle-job">
+                            {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4> {{'(ADMIN)'}}
 
+                        </div>
+                     @else
+                        <div class="profile-usertitle-job">
+                            {{'Owner of The Building'}}{{'(General Member)'}}
+                        </div>
+                     @endif
                 </div>
 
 

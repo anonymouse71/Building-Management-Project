@@ -7,7 +7,7 @@
                 <div class="col-md-9 col-md-offset-1">
                     <div class="card">
                         <div class="card-image">
-                            <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+                            <img class="img-responsive" src="https://dc778.4shared.com/img/aOl-lJrB/s7/1388092ce08/city-high-rise-buildings-vecto">
                             <span class="card-title">Uniliver Mess</span>
                         </div>
 

@@ -48,8 +48,8 @@ class UserInfoTableSeeder extends Seeder {
 				'cgpa' => null,
 
 
-				'avatar_url' => null,
-				'icon_url'     => null,
+				'avatar_url' => 'uploads/image/defaultAvatar.png',
+				'icon_url'     => 'uploads/image/defaultAvatar.png',
 
 
 				'created_at' => date('Y-m-d H:i:s'),
@@ -103,8 +103,8 @@ class UserInfoTableSeeder extends Seeder {
 				'cgpa' => null,
 
 
-				'avatar_url' => null,
-				'icon_url'     => null,
+				'avatar_url' => 'uploads/image/defaultAvatar.png',
+				'icon_url'     => 'uploads/image/defaultAvatar.png',
 
 
 				'created_at' => date('Y-m-d H:i:s'),
@@ -153,8 +153,8 @@ class UserInfoTableSeeder extends Seeder {
 				'cgpa' => null,
 
 
-				'avatar_url' => null,
-				'icon_url'     => null,
+				'avatar_url' => 'uploads/image/defaultAvatar.png',
+				'icon_url'     => 'uploads/image/defaultAvatar.png',
 
 
 				'created_at' => date('Y-m-d H:i:s'),

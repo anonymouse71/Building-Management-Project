@@ -1,5 +1,5 @@
     <!--footer start-->
-    <footer class="site-footer">
+    <footer class="footer site-footer">
           <div class="text-center">
               2013 &copy; FlatLab by VectorLab.
               <a href="#" class="go-top">
@@ -23,4 +23,9 @@
   	{{ HTML::script('js/custom.js') }}
 
     
+<style>
+.site-footer{
+background-color:  #026f7a;
+}
 
+</style>
