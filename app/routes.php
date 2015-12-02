@@ -77,12 +77,12 @@ Route::group(array('before' => 'auth|admin'), function()
 
 	// members
 	Route::get('members', array('as' => 'members', 'uses' => 'MemberController@index'));
-	Route::get('view-distributors', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
-	Route::get('view-clients', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
+	Route::get('view-allOwner', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
+	Route::get('view-Members', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
 	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@doRegister'));
 	Route::delete('members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@delete'));
-	Route::delete('view-distributors/{id}', array('as' => 'users.delete', 'uses' => 'MemberController@userDelete'));
-	Route::delete('view-clients/{id}', array('as' => 'users.delete', 'uses' => 'MemberController@userDelete'));
+	Route::delete('view-owner/{id}', array('as' => 'users.delete', 'uses' => 'MemberController@userDelete'));
+	Route::delete('view-member/{id}', array('as' => 'users.delete', 'uses' => 'MemberController@userDelete'));
 
 
 	Route::get('issuedepts',['as' => 'issuedept.index', 'uses' => 'IssueDeptsController@index']);

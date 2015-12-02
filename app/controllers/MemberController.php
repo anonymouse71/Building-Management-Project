@@ -41,10 +41,10 @@ class MemberController extends BaseController {
 	public function userDelete($id){
 		$member = User::where('id', '=', $id);
 		if($member->delete())
-			return Redirect::route('home')
+			return Redirect::route('members.view.client')
 				->with('success', "The member has been deleted.");
 		else
-			return Redirect::route('home')
+			return Redirect::route('members.view.client')
 				->with('errors', 'Some error occured. Try again.');
 	}
 

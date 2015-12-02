@@ -94,8 +94,8 @@
             <legend class="scheduler-border">Permanent Address </legend>
 
             <div class="form-group">
-                {{ Form::label('division', 'Division') }}
-                {{ Form::select('gender', UserInfo::$division, $users->division, array('class' => 'form-control','readonly')) }}
+                {{ Form::label('division', 'division') }}
+                {{ Form::select('division', UserInfo::$division, $users->division, array('class' => 'form-control')) }}
 
                 {{$errors->first('division')}}
             </div>
@@ -125,7 +125,7 @@
 
             <div class="form-group">
                 {{ Form::label('house', 'House No.') }}
-                {{ Form::text('state',null , array('class' => 'form-control')) }}
+                {{ Form::text('house',null , array('class' => 'form-control')) }}
 
                 {{$errors->first('house')}}
             </div>

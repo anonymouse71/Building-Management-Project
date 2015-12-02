@@ -23,7 +23,7 @@
 
                     @if(Auth::user()->flat_id != 0 && Auth::user()->role_id != 2)
                     <div class="profile-usertitle-job">
-                     {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4>
+                     {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4> {{'(General Member)'}}
                     </div>
                     @elseif(Auth::user()->role_id == 2)
                         <div class="profile-usertitle-job">
@@ -32,7 +32,7 @@
                         </div>
                      @else
                         <div class="profile-usertitle-job">
-                            {{'Owner of The Building'}}{{'(General Member)'}}
+                            {{'Owner of The Building'}}
                         </div>
                      @endif
                 </div>
@@ -120,12 +120,12 @@
                     <h4><b>Academic Information</b></h4>
 
                     <div class="product_meta">
-                        <span class="posted_in"> <strong>Division:</strong> {{Auth::user()->userInfo->study_level}}</span>
-                        <span class="posted_in"> <strong>District:</strong> {{Auth::user()->userInfo->reg}}</span>
-                        <span class="posted_in"> <strong>Upazilla:</strong> {{Auth::user()->userInfo->institute}}</span>
-                        <span class="posted_in"> <strong>Village:</strong> {{Auth::user()->userInfo->department}}</span>
-                        <span class="posted_in"> <strong>House Address:</strong> {{Auth::user()->userInfo->session}}</span>
-                        <span class="posted_in"> <strong>City Corporation:</strong> {{Auth::user()->userInfo->cgpa}}</span>
+                        <span class="posted_in"> <strong>Study Level:</strong> {{Auth::user()->userInfo->study_level}}</span>
+                        <span class="posted_in"> <strong>Registration:</strong> {{Auth::user()->userInfo->reg}}</span>
+                        <span class="posted_in"> <strong>Institute:</strong> {{Auth::user()->userInfo->institute}}</span>
+                        <span class="posted_in"> <strong>Department:</strong> {{Auth::user()->userInfo->department}}</span>
+                        <span class="posted_in"> <strong>Sessoin:</strong> {{Auth::user()->userInfo->session}}</span>
+                        <span class="posted_in"> <strong>CGPA:</strong> {{Auth::user()->userInfo->cgpa}}</span>
 
                     </div>
             </div>

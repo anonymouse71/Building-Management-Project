@@ -178,6 +178,7 @@ class UserController extends \BaseController {
 					'phone' => $data['phone'],
 					'fb_account' => $data['fb_account'],
 
+					'division' => $data['division'],
 					'district' => $data['district'],
 					'sub_district' => $data['sub_district'],
 					'village' => $data['village'],

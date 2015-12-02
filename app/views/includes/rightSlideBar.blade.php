@@ -1,3 +1,4 @@
+<aside>
 <div class="sb-slidebar sb-right sb-style-overlay">
           <h5 class="side-title">Online Customers</h5>
           <ul class="quick-chat-list">
@@ -139,4 +140,4 @@
                   <a href="#">See All Tasks</a>
               </li>
           </ul>
-      </div>
+      </div></aside>
