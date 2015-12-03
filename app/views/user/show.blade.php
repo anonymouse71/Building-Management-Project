@@ -50,24 +50,27 @@
 
                 <div class="profile-usermenu">
                     <ul class="nav">
-                        <li class="active">
+                        <li class="">
                             <a href="#">
                                 <i class="glyphicon glyphicon-home"></i>
                                 Profile </a>
                         </li>
+						
+						 <li>
+                            <a href="{{route('upload.avatar')}}" target="">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Change Profile Pic </a>
+                        </li>
+						
                         <li>
 
                             <a href="{{route('user.edit')}}" target="">
-                                <i class="glyphicon glyphicon-ok"></i>
+                                <i class="glyphicon glyphicon-refresh"></i>
                                 Edit Profile </a>
 
 
                         </li>
-                        <li>
-                            <a href="#" target="_blank">
-                                <i class="glyphicon glyphicon-ok"></i>
-                                Tasks </a>
-                        </li>
+                       
                         <li>
                             <a href="#">
                                 <i class="glyphicon glyphicon-flag"></i>
