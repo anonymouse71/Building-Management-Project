@@ -4,9 +4,9 @@
     <div>
         <div class="col-md-8 col-md-offset-2">
         
-         <h4 align="center">
+         <h3 align="center" >
              {{$title}}
-         </h4>
+         </h3>
          <div align="center">
          <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.create') }}">Record New Transaction</a>
        <a class="btn btn-success btn-sm btn-new-user" href="{{-- URL::route('finance.list') --}}">Report by Flat List</a>

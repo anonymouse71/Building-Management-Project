@@ -4,7 +4,7 @@
     <div>
         <div class="col-md-8 col-md-offset-2">
         
-         <h4 align="center">
+         <h4  align="center">
              {{$title}}
          </h4>
          @if(Entrust::hasRole(Config::get('globalData.roles.Admin')))

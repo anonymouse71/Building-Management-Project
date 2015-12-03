@@ -56,7 +56,7 @@
 
             <div class="form-group">
                 {{ Form::label('gender', 'Gender') }}
-                {{ Form::select('gender', UserInfo::$genders, $users->gender, array('class' => 'form-control','readonly')) }}
+                {{ Form::select('gender', UserInfo::$genders, $users->gender, array('class' => 'form-control')) }}
 
                 {{$errors->first('gender')}}
             </div>
