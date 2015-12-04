@@ -105,6 +105,10 @@ class UserController extends \BaseController {
 	}
 
 
+	public function allShow($id){
+		$user= User::where('id','=',$id)->get();
+		return View::make('user.allShow',compact('user'))->with(['title'=>'Profile']);
+	}
 
 
 

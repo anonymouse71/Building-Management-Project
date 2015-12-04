@@ -3,6 +3,20 @@
 @section('content')
     <div>
         @if(count($logs))
+
+ <center> <h1 style="
+    color: #EBF4FA;
+    font-family:  inherit;
+    background: #6D7B8D;
+">Log Details</h1></center>
+
+<div class="panel-heading">
+               <span class="pull-right">
+                    <td><a href="{{ route('log.create') }}"><button class="btn btn-success btn-xs btn-archive createBtn">Create New Log</button></a></td>
+                </span>
+
+</div>
+
             <table class="display table table-bordered table-striped" id="example">
                 <thead>
                 <tr>
@@ -13,7 +27,8 @@
                     <th>Debit</th>
                     <th>Credit</th>
                     <th>Description</th>
-                    <th class="text-center">Actions</th>
+                    <th class="text-center">Edit</th>
+                    <th class="text-center">Delete</th>
 
                 </tr>
                 </thead>
@@ -28,10 +43,10 @@
                         <td>>{{ $log->desc }}</td>
 
 
-                        <td class="text-center">
-                            <a class="btn btn-xs btn-success btn-edit" href="{{ URL::route('log.edit', array('id' => $log->id)) }}">Edit</a>
-                            <a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $log->id }}">Delete</a>
-                        </td>
+
+                          <td><a class="btn btn-xs btn-success btn-edit" href="{{ URL::route('log.edit', array('id' => $log->id)) }}">Edit</a></td>
+                          <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $log->id }}">Delete</a></td>
+
 
                     </tr>
                 @endforeach
@@ -41,6 +56,7 @@
         @else
             No Data Found
         @endif
+
     </div>
 
     <!-- Modal -->
@@ -61,7 +77,9 @@
                     {{ Form::close() }}
                 </div>
             </div>
+
         </div>
+
     </div>
 
 

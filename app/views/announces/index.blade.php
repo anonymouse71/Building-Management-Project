@@ -3,6 +3,14 @@
 @section('content')
     <div>
         @if(count($announces))
+
+            <div class="panel-heading">
+
+                <span class="pull-right">
+                    <td><a href="{{ route('announces.create') }}"><button class="btn btn-success btn-xs btn-archive createBtn">Create New Announce</button></a></td>
+                </span>
+            </div>
+
             <table class="display table table-bordered table-striped" id="example">
                 <thead>
                 <tr>
@@ -26,7 +34,7 @@
                         <td>{{ $announces->created_at->format('Y-m-d') }}</td>
 
 
-                        <td><a class="btn btn-small btn-success" href="{{route('announces.edit',$announces->id)}}"  style="margin-right: 3px;">Edit</a></td>
+                        <td><a class="btn btn-info btn-xs btn-archive Editbtn" href="{{route('announces.edit',$announces->id)}}"  style="margin-right: 3px;">Edit</a></td>
                         <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $announces->id }}">Delete</a></td>
                     </tr>
 

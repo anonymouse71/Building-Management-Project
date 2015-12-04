@@ -41,7 +41,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'AuthController@doChangePassword'));
 	Route::get('profile', ['as'=>'user.show', 'uses'=>'UserController@show']);
-    Route::get('edit-profile',['as'=>'user.edit', 'uses'=>'UserController@edit']);
+	Route::get('user-profile/{id}', ['as'=>'user.allShow', 'uses'=>'UserController@allShow']);
+	Route::get('edit-profile',['as'=>'user.edit', 'uses'=>'UserController@edit']);
 	Route::post('update-profile',['as'=>'user.update', 'uses'=>'UserController@update']);
 	Route::get('upload-avatar',['as'=>'upload.avatar', 'uses'=>'UserController@uploadAvatarForm']);
 	Route::post('upload-avatar',['as'=>'upload.avatar', 'uses'=>'UserController@uploadAvatar']);
