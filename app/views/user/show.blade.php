@@ -81,7 +81,7 @@
                 <!-- END MENU -->
             </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
             <div class="profile-content">
                 <div>
 

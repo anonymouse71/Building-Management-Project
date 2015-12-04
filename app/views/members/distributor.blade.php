@@ -31,18 +31,13 @@
 						</td>
 
 
-
-						<td>
-	        				<a href="#" class="btn btn-danger btn-sm deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteMember="{{ $member->id }}">
-	        					<span class="glyphicon glyphicon-trash"></span>
-	        				</a>
-						</td>
+						<td><a href="{{ route('members.delete', $member->id) }}"><button class="btn btn-danger">Delete</button></a></td>
 					</tr>
 				@endforeach
 			</tbody>
 		</table>
 
-		<div class="text-center">{{ $members->links() }}</div>
+
 	</div>
 
 	<!-- Modal -->
@@ -57,7 +52,7 @@
 					Are you sure to delete this Member?
 		      	</div>
 		      	<div class="modal-footer">
-		        	{{ Form::open(array('route' => array('users.delete', 0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
+		        	{{ Form::open(array('route' => array('owner.delete',$member->id), 'method'=> 'delete', 'class' => 'deleteForm')) }}
 		        		<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
 		        		{{ Form::submit('Yes, Delete', array('class' => 'btn btn-success')) }}
 		        	{{ Form::close() }}

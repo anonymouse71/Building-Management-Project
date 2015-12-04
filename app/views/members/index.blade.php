@@ -39,11 +39,7 @@
 					        	<span class="glyphicon glyphicon-zoom-in"></span>
 							</a>
 						</td>
-	        			<td>
-	        				<a href="#" class="btn btn-danger btn-sm deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteMember="{{ $member->id }}">
-	        					<span class="glyphicon glyphicon-trash"></span>
-	        				</a>
-						</td>
+						<td><a href="{{ route('members.delete', $member->id) }}"><button class="btn btn-danger">Delete</button></a></td>
 					</tr>
 				@endforeach
 			</tbody>

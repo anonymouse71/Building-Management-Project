@@ -26,9 +26,9 @@ class MemberController extends BaseController {
 
 
 
-	public function delete($id)
+	public function userDelete($id)
 	{
-		$member = User::where('id', '=', $id);
+		$member = User::findOrFail($id);
 		if($member->delete())
 			return Redirect::route('members')->with('success', "The member has been deleted.");
 		else
@@ -38,8 +38,8 @@ class MemberController extends BaseController {
 
 
 
-	public function userDelete($id){
-		$member = User::where('id', '=', $id);
+	public function clientDelete($id){
+		$member =User::findOrFail($id);
 		if($member->delete())
 			return Redirect::route('members.view.client')
 				->with('success', "The member has been deleted.");
@@ -49,12 +49,21 @@ class MemberController extends BaseController {
 	}
 
 
+	public function ownerDelete($id){
+			$member = User::findOrFail($id);
+		if($member->delete())
+			return Redirect::route('members.view.distributor')
+				->with('success', "The member has been deleted.");
+		else
+			return Redirect::route('members.view.distributor')
+				->with('errors', 'Some error occured. Try again.');
+	}
 
 
 
 
 	public function viewDistributor(){
-		$members = User::where('role_id', '=', 2)->paginate(10);
+		$members = User::where('role_id', '=', 2)->get();
 		return View::make('members.distributor')
 			->with('members', $members)
 			->with('title', "View All Owner");
@@ -64,7 +73,7 @@ class MemberController extends BaseController {
 
 	public function viewClient(){
 
-		$members = User::where('role_id', '!=', 1  )->paginate(10);
+		$members = User::where('role_id', '!=', '1'  )->get();
 		return View::make('members.client')
 			->with('members', $members)
 			->with('title', "View All Members");
