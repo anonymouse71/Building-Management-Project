@@ -63,26 +63,17 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
-
-
-
-
 });
-
-
 
 
 Route::group(array('before' => 'auth|admin'), function()
 {
-
-
 	// members
 	Route::get('members', array('as' => 'members', 'uses' => 'MemberController@index'));
 	Route::get('view-allOwner', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
 	Route::get('view-Members', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
 	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@doRegister'));
 	Route::get('members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
-
 	Route::get('view-member/{id}', array('as' => 'client.delete', 'uses' => 'MemberController@clientDelete'));
 	Route::get('view-owner/{id}', array('as' => 'owner.delete', 'uses' => 'MemberController@ownerDelete'));
 
@@ -119,17 +110,18 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
 	//all members
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
+	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
 });
 
 
 
 
-Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
+//Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
 
-Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
+//Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
-Route::get('{pageUrl}', array('uses' => 'UserController@pages'));
+
 
 
 

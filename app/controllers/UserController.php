@@ -284,8 +284,8 @@ class UserController extends \BaseController {
 	}
 
 
-
-	public function member(){
+  //Own flat member
+ 	public function member(){
 
 		$all= Auth::user()->flat_id;
 		$user = User::where('flat_id', '=', $all)
@@ -295,11 +295,22 @@ class UserController extends \BaseController {
 
 	}
 
+
+    //all member in the building
 	public function allMember(){
 
 
 		$user= User::where('flat_id', '!=', 0)->get();
 		return View::make('flats.allMembers',compact('user'))->with('title','All Members');
+
+	}
+
+	//flat wise all member
+	public function flatMember()
+	{
+		return $flat= Flat::lists('name','id');
+		return $users = User::lists('flat_id','id');
+
 
 	}
 
