@@ -127,7 +127,8 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider', // Generators
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
 		'Intervention\Image\ImageServiceProvider',
-		'Teepluss\Recaptcha\RecaptchaServiceProvider'
+		'Teepluss\Recaptcha\RecaptchaServiceProvider',
+		'Cmgmyr\Messenger\MessengerServiceProvider'
 	),
 
 	/*

@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration {
 			$table->foreign('flat_id')
 				->references('id')->on('flats')
 				->onDelete('cascade');
-
+			$table->enum('notify', ['y', 'n'])->default('y');
 			$table->string('remember_token')->nullable();
 			$table->timestamps();
 

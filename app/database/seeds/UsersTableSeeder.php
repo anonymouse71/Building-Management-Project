@@ -14,6 +14,7 @@ class UsersTableSeeder extends Seeder {
 				'user_name'   => 'Talha08',
 				'role_id' =>'1',
 				'flat_id' =>null,
+				'notify' =>'y',
 				'created_at' => date('Y-m-d H:i:s'),
 				'updated_at' => date('Y-m-d H:i:s')
 			],
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder {
 			'user_name'   => 'Talha',
 			'role_id' =>'2',
 			'flat_id' =>'1',
+				'notify' =>'y',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
 		],
@@ -35,6 +37,7 @@ class UsersTableSeeder extends Seeder {
 			'user_name'   => 'Bitla',
 			'role_id' =>'3',
 			'flat_id' =>'1',
+				'notify' =>'y',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
 		]

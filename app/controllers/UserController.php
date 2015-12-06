@@ -299,7 +299,6 @@ class UserController extends \BaseController {
     //all member in the building
 	public function allMember(){
 
-
 		$user= User::where('flat_id', '!=', 0)->get();
 		return View::make('flats.allMembers',compact('user'))->with('title','All Members');
 

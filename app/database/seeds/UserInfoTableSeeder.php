@@ -30,7 +30,7 @@ class UserInfoTableSeeder extends Seeder {
 				'date_of_birth' => '1993-06-28',
 
 				'phone' => '98075355',
-				'fb_account' => 'www.fb.com/talha08',
+				'fb_account' => 'talha8.cse',
 
 				'division' =>'Rangpur',
 				'district' =>'kurigram',
@@ -85,7 +85,7 @@ class UserInfoTableSeeder extends Seeder {
 				'date_of_birth' => '1993-06-28',
 
 				'phone' => '98075355',
-				'fb_account' => 'www.fb.com/talha08',
+				'fb_account' => 'talha8.cse',
 
 				'division' =>'Rangpur',
 				'district' =>'kurigram',
@@ -135,7 +135,7 @@ class UserInfoTableSeeder extends Seeder {
 				'date_of_birth' => '1993-06-28',
 
 				'phone' => '98075355',
-				'fb_account' => 'www.fb.com/talha08',
+				'fb_account' => 'talha08.cse',
 
 				'division' =>'Rangpur',
 				'district' =>'kurigram',

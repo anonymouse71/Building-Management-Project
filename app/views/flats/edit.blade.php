@@ -20,8 +20,21 @@
                     <div class="col-md-4">
                         {{ Form::text('name', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Name')) }}
                     </div>
+
+
                     <br><br>
                 </div>
+
+                <div class="form-group">
+                    {{ Form::label('flat_details', 'Flat Details :', array('class' => 'col-md-2 control-label')) }}
+                    <div class="col-md-8">
+                        {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details')) }}
+                    </div>
+
+
+                    <br><br>
+                </div>
+
 
 
                 <br><br>
@@ -29,7 +42,7 @@
 
                 <div class="form-group">
                     <div class="col-lg-10">
-                        {{ Form::submit('Create Flat', array('class' => 'btn btn-primary')) }}
+                        {{ Form::submit('Update Flat', array('class' => 'btn btn-primary')) }}
                     </div>
                 </div>
 

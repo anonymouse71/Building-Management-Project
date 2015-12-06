@@ -29,13 +29,14 @@
 
                     <div class="col-sm-6 col-md-8">
                         <h4>{{$users->userInfo->fullName}}</h4>
-                        <small><cite title="San Francisco, USA">{{$users->flats->name}}, Uniliver Mess, Akhalia, Surma, Sylhet <i class="glyphicon glyphicon-map-marker">
-                                </i></cite></small>
+                        <small><cite title="San Francisco, USA">{{$users->flats->name}}, Uniliver Mess, Akhalia, Surma, Sylhet <i class="glyphicon glyphicon-map-marker"></i></cite></small>
                         <p>
                             <i class="glyphicon glyphicon-envelope"></i>{{$users->email}}
-                            <br />
+                            <br/>
 
                             <i class="glyphicon glyphicon-gift"></i>{{$users->userInfo->date_of_birth}}</p>
+
+                           <li class="glyphicon glyphicon-user"><a href="{{route('user.allShow', $users->id)}}" target="_blank">Profile</a></li>
                         <!-- Split button -->
                         <div class="btn-group">
                             <button type="button" class="btn btn-primary">
@@ -47,8 +48,12 @@
 
                                 <li><a href="https://www.facebook.com/{{$users->userInfo->fb_account}}">Facebook</a></li>
 
+
+
                             </ul>
                         </div>
+
+
                     </div>
                 </div>
 

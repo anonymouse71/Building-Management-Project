@@ -44,6 +44,7 @@ class FlatsController extends \BaseController {
 		$flats = new Flat();
 
 		$flats->name = $data['name'];
+		$flats->flat_details = $data['flat_details'];
 
 
 
@@ -99,6 +100,7 @@ class FlatsController extends \BaseController {
 		$flats = Flat::find($id);
 
 		$flats->name = $data['name'];
+		$flats->flat_details = $data['flat_details'];
 
 
 

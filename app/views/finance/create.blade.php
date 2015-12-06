@@ -4,21 +4,22 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <h4 align="center">
+            <h2 align="center">
              {{$title}}
-         </h4>
+         </h2><br><br>
          <div align="center">
          <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.index') }}">Full Financial Transaction History</a>
-        <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.list') }}">Report by Flat List</a>
+         <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.list') }}">Report by Flat List</a>
          </div>
-         </br>
+
 
             @include('includes.alert')
-            <div class="box box-info">
+            <div class=" box-info">
 
                 {{ Form::open(['route' => 'finance.store', 'method' => 'post']) }}
-                <div class="box-body">
 
+                <div class="box-body">
+<br><br>
                     <div class="form-group col-md-6">
                         {{ Form::label('flat_id', 'Flat', array('class' => 'control-label required')) }}
 

@@ -60,7 +60,7 @@ Route::group(array('before' => 'auth'), function()
 
 
 //My flat members
-	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
+	Route::get('own-flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
 });
@@ -110,7 +110,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
 	//all members
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
-	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
+	Route::get('flat-members',['as' => 'flats.Qmembers', 'uses' => 'UserController@flatMember']);
 
 });
 
@@ -120,8 +120,6 @@ Route::group(array('before' => 'auth|admin'), function()
 //Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
 
 //Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
-
-
 
 
 

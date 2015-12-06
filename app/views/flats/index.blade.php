@@ -25,6 +25,7 @@
                     <th class="text-center">id</th>
 
                     <th>Flat Name</th>
+                    <th>Flat Details</th>
                     <th>Created at</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">Delete</th>
@@ -37,6 +38,7 @@
                     <tr>
                         <td>{{ $flats->id }}</td>
                         <td>{{ $flats->name }}</td>
+                        <td>{{ $flats->flat_details }}</td>
 
                         <td>{{ $flats->created_at->format('Y-m-d') }}</td>
 

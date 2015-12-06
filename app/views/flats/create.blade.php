@@ -22,6 +22,13 @@
                     </div>
                     <br><br>
                 </div>
+                <div class="form-group">
+                    {{ Form::label('flat_details', 'Flat Details* :', array('class' => 'col-md-2 control-label')) }}
+                    <div class="col-md-8">
+                        {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details')) }}
+                    </div>
+                    <br><br>
+                </div>
 
 
                 <br><br>
