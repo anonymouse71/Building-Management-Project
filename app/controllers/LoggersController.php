@@ -11,7 +11,7 @@ class LoggersController extends \BaseController {
 	public function index()
 	{
 
-		return View::make('loggers.index')
+		return View::make('log.index')
 			->with('logs',Logger::where('user_id',Auth::user()->id)->get())
 			->with('title',"Logs");
 	}
@@ -24,7 +24,7 @@ class LoggersController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('loggers.create')
+		return View::make('log.create')
 			->with('title','Create New Log');
 	}
 
@@ -75,10 +75,7 @@ class LoggersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//
-	}
+
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -93,7 +90,7 @@ class LoggersController extends \BaseController {
 
 
 			$log = Logger::findOrFail($id);
-			return View::make('loggers.edit')
+			return View::make('log.edit')
 				->with('log',$log)
 				->with('title','Edit Log');
 		}catch(Exception $ex){
@@ -159,6 +156,19 @@ class LoggersController extends \BaseController {
 		}
 	}
 
+//for show individual logs
+	public function show($id){
+		 $log= Logger::find($id);
+		return View::make('log.show',compact('log'))->with(['title'=>'Logs']);
+	}
+
+
+//for showing all logs
+	public function allShow(){
+		return View::make('log.all')->with(['title'=>'Logs'])
+			->with('logs',Logger::where('user_id',Auth::user()->id)->get())
+			->with('title',"Logs");
+	}
 
 
 }

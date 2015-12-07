@@ -4,13 +4,10 @@
 
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <ul class="breadcrumb">
-                <li class="active">
-                    <h4>
+
+                    <h2>
                         Edit Your Log
-                    </h4>
-                </li>
-            </ul>
+                    </h2>
 
             @include('includes.alert')
             <div class="box box-info">
@@ -67,7 +64,7 @@
             </div>
         </div>
     </div>
-
+    <br><br>
 @stop
 
 

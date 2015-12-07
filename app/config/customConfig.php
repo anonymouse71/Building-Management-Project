@@ -8,5 +8,7 @@ return [
 		'admin' => 'admin',
 		'owner'=>'owner',
 		'member' =>'member'
-	]
+	],
+
+	'user_model' => 'User',
 ];

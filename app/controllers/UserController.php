@@ -1,7 +1,7 @@
 <?php
 
 class UserController extends \BaseController {
-
+//create user view
 		public function create(){
 		    	$flats= Flat::all()->lists('name', 'id');
 		        return View::make('user.create',compact('flats'))->with('title','Register');
@@ -11,7 +11,7 @@ class UserController extends \BaseController {
 
 
 
-
+//For store (create) user data
 	public function store(){
 		$rules =[
 			'email'                 => 'required|email|unique:users',
@@ -99,12 +99,14 @@ class UserController extends \BaseController {
 
 
 
-
+//for showing all users
 	public function show(){
 		return View::make('user.show')->with(['title'=>'Profile']);
+
 	}
 
 
+//for showing single user
 	public function allShow($id){
 		$user= User::where('id','=',$id)->get();
 		return View::make('user.allShow',compact('user'))->with(['title'=>'Profile']);
@@ -112,7 +114,7 @@ class UserController extends \BaseController {
 
 
 
-
+//user data edit view
 	public function edit(){
               $users = Auth::user()->userInfo;
 
@@ -125,7 +127,7 @@ class UserController extends \BaseController {
 
 
 
-
+//user edit submit data store
 
 	public function update(){
 		$rules =[
@@ -214,13 +216,13 @@ class UserController extends \BaseController {
 
 
 
-
+//photo upload view
 
 	public function uploadAvatarForm(){
 		return View::make('user.avatar')->with(['title'=>'Avatar']);
 	}
 
-
+//photo store
 
 	public function uploadAvatar(){
 		//add two extra fields to userinfo table
@@ -305,6 +307,7 @@ class UserController extends \BaseController {
 	}
 
 	//flat wise all member
+	//not complete, just checking
 	public function flatMember()
 	{
 		return $flat= Flat::lists('name','id');

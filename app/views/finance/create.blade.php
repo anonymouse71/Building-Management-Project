@@ -53,7 +53,7 @@
                     </div>
 
                      <div class="form-group col-md-6">
-                        {{ Form::label('title', "Project Name/Reason", array('class' => 'control-label')) }}
+                        {{ Form::label('title', "Payment Name/Reason", array('class' => 'control-label')) }}
 
                         {{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => "", 'autofocus', 'required'   => 'required')) }}
 

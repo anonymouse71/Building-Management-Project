@@ -98,13 +98,11 @@ class MoneyController extends \BaseController {
 
 		$method = [
 			''      => '--select--',
-			'Null' =>'Null',
-			'CentralDeposit' => 'Central Deposit',
-			'Bank' => 'Bank',
 			'BankCheck'   => 'Bank Check',
 			'Cash'   => 'Hand Cash',
 			'bKash'   => 'bKash',
 			'DBBLMobileBank'   => 'DBBL Mobile Bank',
+			'Others' =>'Others',
 
 
 		];

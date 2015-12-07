@@ -4,15 +4,14 @@
     <div>
         @if(count($logs))
 
- <center> <h1 style="
-    color: #EBF4FA;
-    font-family:  inherit;
-    background: #6D7B8D;
-">Log Details</h1></center>
+
 
 <div class="panel-heading">
                <span class="pull-right">
                     <td><a href="{{ route('log.create') }}"><button class="btn btn-success btn-xs btn-archive createBtn">Create New Log</button></a></td>
+                </span>
+              <span class="pull-left">
+                    <center> <h1 style=" color: #25383C; font-family:  inherit;">Log Details</h1></center>
                 </span>
 
 </div>

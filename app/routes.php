@@ -54,6 +54,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('log/{id}/edit',['as'=> 'log.edit','uses'=>'LoggersController@edit']);
 	Route::put('log/{id}',['as'=> 'log.update','uses'=>'LoggersController@update']);
 	Route::delete('logs/{id}',['as'=> 'log.delete','uses'=>'LoggersController@destroy']);
+	Route::get('logs/show/{id}',['as'=> 'log.show','uses'=>'LoggersController@show']);
+	Route::get('logs/all',['as'=> 'log.all','uses'=>'LoggersController@allShow']);
 
 	//finance
 	Route::get('myfinance',['as' => 'finance.index.normal', 'uses' => 'MoneyController@index_normal']);
@@ -120,12 +122,6 @@ Route::group(array('before' => 'auth|admin'), function()
 //Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
 
 //Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
-
-
-
-
-
-
 
 
 

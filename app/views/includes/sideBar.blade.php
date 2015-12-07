@@ -44,7 +44,8 @@
                               <span>Log</span>
                           </a>
                           <ul class="sub">
-                              <li><a href="{{URL::route('log.index') }}">My Daily Log</a></li>
+                              <li><a href="{{URL::route('log.all') }}">My Daily Log</a></li>
+                              <li><a href="{{URL::route('log.create') }}">Create New Log</a></li>
 
                           </ul>
                       </li>
@@ -83,6 +84,7 @@
                               </a>
                               <ul class="sub">
                                   <li><a href="{{URL::route('finance.index') }}">Flat Total Finance</a></li>
+                                  <li><a href="{{URL::route('finance.create') }}">Record New Finance</a></li>
 
                               </ul>
                           </li>
@@ -97,6 +99,7 @@
                               </a>
                               <ul class="sub">
                                   <li><a href="{{URL::route('flats.index') }}">Flat details</a></li>
+                                  <li><a href="{{URL::route('flats.create') }}">Create New Flat</a></li>
 
                               </ul>
                           </li>
@@ -134,7 +137,7 @@
                               </ul>
                           </li>
 
-                          {{-- log --}}
+                          {{-- flats --}}
                           <li class="sub-menu">
 
                               <a href="javascript:">
