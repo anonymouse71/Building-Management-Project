@@ -19,6 +19,7 @@ Route::get('/',function(){
 
 Route::group(['before' => 'guest'], function(){
 
+
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'AuthController@login']);
 	Route::post('login', array('uses' => 'AuthController@doLogin'));
@@ -61,11 +62,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('myfinance',['as' => 'finance.index.normal', 'uses' => 'MoneyController@index_normal']);
 
 
-//My flat members
+   //My flat members
 	Route::get('own-flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
 });
+
 
 
 Route::group(array('before' => 'auth|admin'), function()
