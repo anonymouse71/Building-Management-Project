@@ -11,14 +11,19 @@
 |
 */
 
+
 Route::get('/',function(){
-	return Redirect::route('dashboard');
+
+
+	return Redirect::route('index');
 });
+
 
 
 
 Route::group(['before' => 'guest'], function(){
 
+	Route::get('index', array('as' => 'index', 'uses' => 'HomeController@home'));
 
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'AuthController@login']);
