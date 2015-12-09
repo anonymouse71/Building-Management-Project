@@ -237,20 +237,20 @@
                     <h2>Testimonial</h2>
                     <div class="media">
                         <div class="pull-left">
-                            <a href="#"><img src="home/images/home/profile1.png" alt=""></a>
+                            <a href="#"><img src="home/images/home/profile1.png" alt="" id="circle"></a>
                         </div>
                         <div class="media-body">
-                            <blockquote>Nisi commodo bresaola, leberkas venison eiusmod bacon occaecat labore tail.</blockquote>
-                            <h3><a href="#">- Jhon Kalis</a></h3>
+                            <blockquote>This is an awesome building I ever seen</blockquote>
+                            <h3><a href="#">- Abu Talha</a></h3>
                         </div>
                     </div>
                     <div class="media">
                         <div class="pull-left">
-                            <a href="#"><img src="home/images/home/profile2.png" alt=""></a>
+                            <a href="#"><img src="home/images/home/profile2.png" alt="" id="circle"></a>
                         </div>
                         <div class="media-body">
                             <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
-                            <h3><a href="">- Abraham Josef</a></h3>
+                            <h3><a href="">- Farzad Bin Fazle</a></h3>
                         </div>
                     </div>
                 </div>
@@ -259,17 +259,17 @@
                 <div class="contact-info bottom">
                     <h2>Contacts</h2>
                     <address>
-                        E-mail: <a href="mailto:someone@example.com">email@email.com</a> <br>
-                        Phone: +1 (123) 456 7890 <br>
-                        Fax: +1 (123) 456 7891 <br>
+                        E-mail: <a href="mailto:uniliversylhet@example.com">uniliversylhet@email.com</a> <br>
+                        Phone: +88 01967 402131 <br>
+                        Fax: +88 456 7891 <br>
                     </address>
 
                     <h2>Address</h2>
                     <address>
-                        Unit C2, St.Vincent's Trading Est., <br>
-                        Feeder Road, <br>
-                        Bristol, BS2 0UY <br>
-                        United Kingdom <br>
+                       Uniliver Building,Elahi-8 <br>
+                        Sylhet-Sunamganj Road, <br>
+                       Akhaliya, Shurma, <br>
+                        Sylhet,Bangladesh <br>
                     </address>
                 </div>
             </div>
@@ -310,3 +310,13 @@
 <script type="text/javascript" src="home/js/main.js"></script>
 </body>
 </html>
+
+
+
+<style>
+    #circle {
+        border-radius:50% 50% 50% 50%;
+        width:81px;
+        height:81px;
+    }
+</style>

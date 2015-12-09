@@ -13,17 +13,17 @@
 
 
 Route::get('/',function(){
-
-
-	return Redirect::route('index');
+ if(Auth::check()){
+	 return Redirect::route('dashboard');
+ }
+	else
+		return Redirect::route('index');
 });
-
 
 
 
 Route::group(['before' => 'guest'], function(){
 
-	Route::get('index', array('as' => 'index', 'uses' => 'HomeController@home'));
 
 	Route::controller('password', 'RemindersController');
 	Route::get('login', ['as'=>'login','uses' => 'AuthController@login']);
@@ -33,7 +33,7 @@ Route::group(['before' => 'guest'], function(){
 	Route::get('register/activation/{key}',['uses'=>'ActivationController@activate']);
 	Route::get('activationRequest', ['as'=>'activationRequest', 'uses'=>'ActivationController@viewActivationRequest']);
 	Route::post('sendActivationLink',['as'=>'sendActivationLink','uses'=>'ActivationController@sendActivationLink']);
-
+	Route::get('index', array('as' => 'index', 'uses' => 'HomeController@home'));
 });
 
 
@@ -42,8 +42,8 @@ Route::group(['before' => 'guest'], function(){
 
 Route::group(array('before' => 'auth'), function()
 {
-	Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 	Route::get('dashboard', array('as' => 'dashboard', 'uses' => 'AuthController@dashboard'));
+	Route::get('logout', ['as' => 'logout', 'uses' => 'AuthController@logout']);
 	Route::get('change-password', array('as' => 'password.change', 'uses' => 'AuthController@changePassword'));
 	Route::post('change-password', array('as' => 'password.doChange', 'uses' => 'AuthController@doChangePassword'));
 	Route::get('profile', ['as'=>'user.show', 'uses'=>'UserController@show']);
