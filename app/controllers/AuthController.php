@@ -69,7 +69,7 @@ class AuthController extends \BaseController {
 
 	public function logout(){
 		Auth::logout();
-		return Redirect::route('login')
+		return Redirect::route('index')
 			->with('success',"You are successfully logged out.");
 	}
 

@@ -11,10 +11,18 @@
                         <h4 class="text-center">Latest Announcement</h4>
                         <p>{{DB::table('announces')->orderBy('id', 'DESC')->pluck('details');}}</p>
                     <!--    <a href="" class="btn btn-small ">Older</a> -->
-
                     </div>
+
                 </div>
             </div>
+        </div>
+    </div>
+
+
+
+
+
+
 
 
         @stop

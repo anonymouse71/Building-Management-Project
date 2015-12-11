@@ -32,8 +32,8 @@
                 <div class="social-icons pull-right">
                     <ul class="nav nav-pills">
                         <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                        <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="www.google.com"><i class="fa fa-google-plus"></i></a></li>
                    <!--     <li><a href=""><i class="fa fa-dribbble"></i></a></li>
                         <li><a href=""><i class="fa fa-linkedin"></i></a></li> -->
                     </ul>
@@ -249,7 +249,7 @@
                             <a href="#"><img src="home/images/home/profile2.png" alt="" id="circle"></a>
                         </div>
                         <div class="media-body">
-                            <blockquote>Capicola nisi flank sed minim sunt aliqua rump pancetta leberkas venison eiusmod.</blockquote>
+                            <blockquote>I am the boss and this is my building  </blockquote>
                             <h3><a href="">- Farzad Bin Fazle</a></h3>
                         </div>
                     </div>
