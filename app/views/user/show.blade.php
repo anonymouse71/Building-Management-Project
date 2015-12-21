@@ -87,7 +87,7 @@
 
                     <h4><b>Basic Information</b></h4>
                     <div class="product_meta">
-                        <span class="posted_in"> <strong>User Name:</strong> {{Auth::user()->user_name}}</span>
+                        <span class="posted_in"> <strong>User Name:</strong> {{Auth::user()->name}}</span>
                         <span class="posted_in"> <strong>Email:</strong>  {{Auth::user()->email}}</span>
                         <span class="posted_in"> <strong>Gender:</strong> {{Auth::user()->userInfo->gender}}</span>
                         <span class="posted_in"><strong>Date of Birth:</strong> {{Auth::user()->userInfo->date_of_birth}}</span>

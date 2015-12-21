@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -10,6 +11,8 @@
 | application. Here you may also register your custom route filters.
 |
 */
+
+
 
 App::before(function($request)
 {
@@ -70,30 +73,6 @@ Route::filter('guest', function()
 	if (Auth::check()) return Redirect::to('/');
 });
 
-Route::filter('client', function()
-{
-	if (Auth::user()->role_id != 3) return Redirect::to('/');
-});
-
-Route::filter('distributor', function()
-{
-	if (Auth::user()->role_id != 2) return Redirect::to('/');
-});
-
-Route::filter('admin', function()
-{
-	if (Auth::user()->role_id != 1) return Redirect::to('/');
-});
-
-
-Route::filter('activation', function()
-{
-	if (Auth::user()->userInfo->activation == false){
-		//return 'please activate';
-		return Redirect::route('activationRequest')->with('warning','please activate your account first');
-	}
-});
-
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
@@ -113,11 +92,10 @@ Route::filter('csrf', function()
 	}
 });
 
-
-
-Route::filter('user',function(){
-	if(! Entrust::hasRole(Config::get('customConfig.roles.user'))){
+Route::filter('admin',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.admin'))){
 		return Redirect::to('/');
 	}
 });
+
 

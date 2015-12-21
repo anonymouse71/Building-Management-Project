@@ -194,6 +194,7 @@ class MoneyController extends \BaseController {
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /money/{id}
+	 * DELETE /money/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -204,4 +205,6 @@ class MoneyController extends \BaseController {
 
 		return Redirect::route('finance.list');
 	}
+
+
 }

@@ -49,12 +49,12 @@
                                 <li><a href="https://www.facebook.com/{{$users->userInfo->fb_account}}">Facebook</a></li>
 
 
-
                             </ul>
                         </div>
 
 
                     </div>
+                        Member Since:   {{$time->diffForHumans($users->created_at);}}
                 </div>
 
 

@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder {
 			[
 				'email'      => 'talha@gmail.com',
 				'password'   => Hash::make('a'),
-				'user_name'   => 'Talha08',
+				'name'   => 'Talha08',
 				'role_id' =>'1',
 				'flat_id' =>null,
 				'notify' =>'y',
@@ -23,7 +23,7 @@ class UsersTableSeeder extends Seeder {
 			[
 			'email'      => 'talhaqc@gmail.com',
 			'password'   => Hash::make('a'),
-			'user_name'   => 'Talha',
+			'name'   => 'Talha',
 			'role_id' =>'2',
 			'flat_id' =>'1',
 				'notify' =>'y',
@@ -34,7 +34,7 @@ class UsersTableSeeder extends Seeder {
 			[
 			'email'      => 'tanveer@gmail.com',
 			'password'   => Hash::make('a'),
-			'user_name'   => 'Bitla',
+			'name'   => 'Bitla',
 			'role_id' =>'3',
 			'flat_id' =>'1',
 				'notify' =>'y',

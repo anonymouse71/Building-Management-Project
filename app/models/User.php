@@ -9,8 +9,8 @@ use Cmgmyr\Messenger\Traits\Messagable;
 
 class User extends Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, HasRole,Messagable;
-
+	use UserTrait, RemindableTrait, HasRole;
+     use Messagable;
 	/**
 	 * The database table used by the model.
 	 *
@@ -31,9 +31,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasOne('UserInfo','user_id','id');
 	}
 
-	//public function pins(){
-	//	return $this->hasMany('Pin');
-	//}
+
 
 	public function logs(){
 		return $this->hasMany('Logger','user_id','id');

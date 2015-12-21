@@ -57,7 +57,7 @@
             {{ Form::label('role_id','Member') }}
     </span>
             <br/>
-            <p class="error">{{$errors->first('role')}}</p>
+
         </div>
 
             <!--start captcha -->
@@ -76,7 +76,7 @@
                     </tr>
                 </table>
 		 		</span>
-            <p class="error">{{$errors->first('agree')}}</p>
+           <!-- <p class="error">{{--$errors->first('agree')--}}</p> -->
         </div>
 
         <label class="checkbox">

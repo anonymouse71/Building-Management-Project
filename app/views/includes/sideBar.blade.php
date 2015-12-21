@@ -52,7 +52,19 @@
 
 
 
+                      {{-- Whole Message --}}
+                      <li class="sub-menu">
 
+                          <a href="javascript:">
+                              <i class="fa fa-tasks"></i>
+                              <span>Messenger</span>
+                          </a>
+                          <ul class="sub">
+                              <li><a href="{{URL::route('messages') }}">All Message</a></li>
+                              <li><a href="{{URL::route('messages.create') }}">New message</a></li>
+
+                          </ul>
+                      </li>
 
 
                   @if(Auth::user()->role_id == '1')

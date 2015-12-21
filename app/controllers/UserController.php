@@ -1,5 +1,5 @@
 <?php
-
+use Carbon\Carbon;
 class UserController extends \BaseController {
 //create user view
 		public function create(){
@@ -21,7 +21,7 @@ class UserController extends \BaseController {
 			'role_id'	=>	'Required',
 			'flat_id'	=>	'Required',
 			'agree'	=>	'Required',
-			//'g-recaptcha-response' => 'required|recaptcha',
+			'g-recaptcha-response' => 'required',
 
 		];
 
@@ -301,8 +301,9 @@ class UserController extends \BaseController {
     //all member in the building
 	public function allMember(){
 
+		$time=Carbon::now();
 		$user= User::where('flat_id', '!=', 0)->get();
-		return View::make('flats.allMembers',compact('user'))->with('title','All Members');
+		return View::make('flats.allMembers',compact('user','time'))->with('title','All Members');
 
 	}
 

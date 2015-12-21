@@ -53,7 +53,7 @@
                             <li class="">
 
                             <li>
-                                <a href="#">
+                                <a href="{{route('messages.create')}}">
                                     <i class="glyphicon glyphicon-envelope"></i>
                                     Send Message </a>
                             </li>
@@ -68,7 +68,7 @@
 
                         <h4><b>Basic Information</b></h4>
                         <div class="product_meta">
-                            <span class="posted_in"> <strong>User Name:</strong> {{$user->user_name}}</span>
+                            <span class="posted_in"> <strong>User Name:</strong> {{$user->name}}</span>
                             <span class="posted_in"> <strong>Email:</strong>  {{$user->email}}</span>
                             <span class="posted_in"> <strong>Gender:</strong> {{$user->userInfo->gender}}</span>
                             <span class="posted_in"><strong>Date of Birth:</strong> {{$user->userInfo->date_of_birth}}</span>

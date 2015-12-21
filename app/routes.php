@@ -12,7 +12,17 @@
 */
 
 
+//Show all the query
+/*
+  Event::listen('illuminate.query', function($query)
+ {
+	var_dump($query);
+  });
+*/
+
+
 Route::get('/',function(){
+
  if(Auth::check()){
 	 return Redirect::route('dashboard');
  }
@@ -21,6 +31,8 @@ Route::get('/',function(){
 });
 
 
+   Route::get('contact',['as'=>'contact','uses'=>'ContactController@viewContact']);
+   Route::post('contact','ContactController@getContactUsForm');
 
 Route::group(['before' => 'guest'], function(){
 
@@ -35,7 +47,6 @@ Route::group(['before' => 'guest'], function(){
 	Route::post('sendActivationLink',['as'=>'sendActivationLink','uses'=>'ActivationController@sendActivationLink']);
 	Route::get('index', array('as' => 'index', 'uses' => 'HomeController@home'));
 });
-
 
 
 
@@ -71,6 +82,15 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('own-flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
+		Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+		Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+		Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+		Route::get('messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+		Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+
+
+
+
 });
 
 
@@ -95,7 +115,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('issuedepts/{id}',['as' => 'issuedept.delete', 'uses' => 'IssueDeptsController@destroy']);
 
 
-   //Developer Based Finance Module {Old Method}
+   //Flat Based Finance Module
 	Route::get('finance',['as' => 'finance.index', 'uses' => 'MoneyController@index']);
 	Route::get('finance/list',['as' => 'finance.list', 'uses' => 'MoneyController@devlist']);
 	Route::get('finance/show/{id}',['as' => 'finance.show', 'uses' => 'MoneyController@show']);
@@ -123,12 +143,6 @@ Route::group(array('before' => 'auth|admin'), function()
 
 });
 
-
-
-
-//Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
-
-//Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
 
