@@ -181,9 +181,11 @@
             <div class="col-md-4 col-sm-6">
                 <div class="contact-form bottom">
                     <h2>Send a message</h2>
+
                     {{ Form:: open(array('url' => 'contact')) }}
 
-                    @foreach($errors->all(':message') as $message) {{ $message }}
+
+                    @include('includes.alert')
 
 
                     <div class="form-group">
@@ -204,7 +206,8 @@
                         {{ Form::submit('Send', array('class' => 'you css class for button')) }}
                     </div>
                     {{ Form:: close() }}
-                    @endforeach
+
+
                 </div>
             </div>
             <!-- Contact Form End -->

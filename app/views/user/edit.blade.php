@@ -194,8 +194,8 @@
              </div>
 
 
+ {{ Form::close() }}
 
-    {{ Form::close() }}
 
 
 @stop
