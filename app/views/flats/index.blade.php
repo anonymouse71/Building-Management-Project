@@ -38,6 +38,7 @@
                     <tr>
                         <td>{{ $flats->id }}</td>
                         <td>{{ $flats->name }}</td>
+
                         <td>{{ $flats->flat_details }}</td>
 
                         <td>{{ $flats->created_at->format('Y-m-d') }}</td>

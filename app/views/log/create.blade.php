@@ -9,10 +9,10 @@
                     <h2>
                         Add New Log
                     </h2>
-
+<br>
 
             @include('includes.alert')
-            <div class="box box-info">
+            <div class="">
 
                 {{ Form::open(['route' => 'log.store', 'method' => 'post']) }}
                 <div class="box-body">

@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <div class="col-lg-10">
                             <br><br>
-                            {{ Form::submit('Create Article', array('class' => 'btn btn-primary')) }}
+                            {{ Form::submit('Create Announce', array('class' => 'btn btn-primary')) }}
                         </div>
                     </div>
 

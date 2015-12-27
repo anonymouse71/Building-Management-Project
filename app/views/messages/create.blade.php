@@ -17,6 +17,8 @@
         {{ Form::textarea('message', null, ['class' => 'form-control']) }}
     </div>
 
+
+
     @if($users->count() > 0)
     <div class="checkbox">
         @foreach($users as $user)
@@ -24,11 +26,20 @@
         @endforeach
     </div>
     @endif
-    
+
+
+
     <!-- Submit Form Input -->
     <div class="form-group">
         {{ Form::submit('Submit', ['class' => 'btn btn-primary form-control']) }}
     </div>
 </div>
 {{Form::close()}}
+
+
+
+
 @stop
+
+
+

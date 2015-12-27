@@ -166,7 +166,7 @@ class LoggersController extends \BaseController {
 //for showing all logs
 	public function allShow(){
 		return View::make('log.all')->with(['title'=>'Logs'])
-			->with('logs',Logger::where('user_id',Auth::user()->id)->orderBy('date','desc')->get())
+			->with('log',Logger::where('user_id',Auth::user()->id)->orderBy('date','desc')->get())
 			->with('title',"Logs");
 	}
 

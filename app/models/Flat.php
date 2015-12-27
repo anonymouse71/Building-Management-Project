@@ -15,4 +15,8 @@ class Flat extends \Eloquent {
 		return $this->hasMany('User','flat_id','id');
 	}
 
+
+	public function money(){
+		return $this->hasMany('Money','flat_id','id');
+	}
 }

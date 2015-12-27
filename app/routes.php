@@ -148,5 +148,12 @@ Route::group(array('before' => 'auth|admin'), function()
 
 
 
+Route::get('test',function(){
 
+	//$string = "2010-11-24";
+	//$date = DateTime::createFromFormat("Y-m-d", $string);
+	//return $date->format("d");
+
+
+});
 

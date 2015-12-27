@@ -69,12 +69,18 @@ class AuthController extends \BaseController {
 
 	public function logout(){
 		Auth::logout();
+
 		return Redirect::route('index')
 			->with('success',"You are successfully logged out.");
 	}
 
 	public function dashboard(){
-		return View::make('dashboard')
+		$log= DB::table('loggers')
+			->where('user_id','=',Auth::user()->id)
+			->orderBy('date','desc')
+			->take(6)
+			->get();
+		return View::make('dashboard',compact('log'))
 			->with('title','Dashboard');
 	}
 
