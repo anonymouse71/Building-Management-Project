@@ -21,6 +21,17 @@ class HomeController extends BaseController {
 		return View::make('index')
 			->with('title','Uniliver || Home');
 	}
+
+	public  function missing(){
+		return View::make('errors.404')
+			->with('title','Error!!');
+	}
+
+
+	public  function error(){
+		return View::make('errors.500')
+			->with('title','Error!!');
+	}
 }
 
 

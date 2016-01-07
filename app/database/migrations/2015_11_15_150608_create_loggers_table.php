@@ -19,7 +19,7 @@ class CreateLoggersTable extends Migration {
 			$table->double('credit')->unsigned();
 
 
-			$table->string('desc');
+			$table->text('desc');
 			$table->string('work');
 			$table->date('date');
 

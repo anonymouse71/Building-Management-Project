@@ -57,29 +57,23 @@
 @section('script')
 
     {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
-    {{ HTML::script('assets/icheck/icheck.min.js') }}
     {{ HTML::script('js/ckeditor/ckeditor.js') }}
 
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
-
     <script type="text/javascript">
-
-        $('#status').select2();
-
-        $(document).ready(function(){
-            $('input').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_flat-red',
-                increaseArea: '20%'
-            });
+        $(document).ready(function() {
 
             CKEDITOR.replace( 'editor', {
-                "filebrowserImageUploadUrl": "{{asset('admin/js/ckeditor/plugins/imgupload.php')}}"
+                "filebrowserImageUploadUrl": "{{asset('js/ckeditor/plugins/imgupload.php')}}"
             } );
+            $("#status").chosen();
+
+
         });
+
+
+
     </script>
 @stop
-
 
 
 

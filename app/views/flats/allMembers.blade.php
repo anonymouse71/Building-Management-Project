@@ -51,10 +51,11 @@
 
                             </ul>
                         </div>
-
+                        Member Since:   {{$users->created_at->diffForHumans()}}
 
                     </div>
-                        Member Since:   {{$time->diffForHumans($users->created_at);}}
+
+
                 </div>
 
 

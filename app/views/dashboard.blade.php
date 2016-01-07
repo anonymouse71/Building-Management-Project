@@ -171,6 +171,7 @@
                                                 <span class="timeline-icon red"></span>
                                                 <span class="timeline-date">{{$logs->date}}</span>
                                                 <h1 class="red">{{$logs->work}} | <a href="{{ route('log.show', $logs->id) }}"><span class="glyphicon glyphicon-eye-open  btn btn-danger btn-xs"></span></a></h1>
+
                                                 <p>{{$logs->desc}}</p>
 
                                             </div>
@@ -210,6 +211,12 @@
 
 
 
+
+
+
+
+
+
     </section>
 </section>
 
@@ -234,7 +241,7 @@
 <script src="js/sparkline-chart.js"></script>
 <script src="js/easy-pie-chart.js"></script>
 <!--<script src="js/count.js"></script>-->
-
+<script src="js/jquery.chat.js"></script>
 <script>
 
     //owl carousel

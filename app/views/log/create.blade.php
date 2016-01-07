@@ -54,7 +54,7 @@
                     <div class="form-group">
                         {{ Form::label('desc', "Description", array('class' => 'control-label')) }}
 
-                        {{ Form::textarea('desc', null, array('class' => 'form-control', 'placeholder' => "Description of Your Log", 'autofocus')) }}
+                        {{ Form::textarea('desc', null, array('class' => 'form-control', 'placeholder' => "Description of Your Log",'id' => 'editor')) }}
 
                     </div>
 
@@ -75,15 +75,23 @@
 
 @section('style')
     {{ HTML::style('assets/bootstrap-datepicker/css/datepicker.css') }}
+    {{ HTML::style('css/chosen_dropdown/chosen.css') }}
 @stop
 
 @section('script')
 
-
+    {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
+    {{ HTML::script('js/ckeditor/ckeditor.js') }}
     {{ HTML::script('assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
 
     <script type="text/javascript">
         $(document).ready(function() {
+
+            CKEDITOR.replace( 'editor', {
+                "filebrowserImageUploadUrl": "{{asset('js/ckeditor/plugins/imgupload.php')}}"
+            } );
+            $("#status").chosen();
+
             $("#date").datepicker({
                 format: 'yyyy-mm-dd'
             });

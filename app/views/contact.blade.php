@@ -67,14 +67,7 @@
 
                 </ul>
             </div>
-            <div class="search">
-                <form role="form">
-                    <i class="fa fa-search"></i>
-                    <div class="field-toggle">
-                        <input type="text" class="search-form" autocomplete="off" placeholder="Search">
-                    </div>
-                </form>
-            </div>
+
         </div>
     </div>
 
@@ -198,7 +191,7 @@
                     </div>
                     <div class="form-group">
                         {{ Form:: label ('message', 'Message*' )}}
-                        {{ Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required','placeholder' => 'Message must contain 25 alphabets'))}}
+                        {{ Form:: textarea ('message', '',array('class'=>'form-control', 'required'=>'required|min:25','placeholder' => 'Message must contain 25 alphabets'))}}
                     </div>
 
                     <div class="form-group">

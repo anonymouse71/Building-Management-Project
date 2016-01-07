@@ -128,6 +128,7 @@ class LoggersController extends \BaseController {
 		$log->debit = $data['debit'];
 		$log->credit = $data['credit'];
 		$log->date = $data['date'];
+
 		$log->user_id = Auth::user()->id;
 
 

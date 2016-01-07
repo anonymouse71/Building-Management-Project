@@ -87,6 +87,8 @@ Route::group(array('before' => 'auth'), function()
 		Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
 		Route::get('messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
 		Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+	    Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
+
 
 
 
@@ -139,21 +141,20 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
 	//all members
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
-	Route::get('flat-members',['as' => 'flats.Qmembers', 'uses' => 'UserController@flatMember']);
+	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
 });
 
+      Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
+      Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);
 
 
 
 
 
-Route::get('test',function(){
 
-	//$string = "2010-11-24";
-	//$date = DateTime::createFromFormat("Y-m-d", $string);
-	//return $date->format("d");
+Route::get('error',function(){
 
 
+		//return View::make('error.500')->with('title','jkJ');
 });
-

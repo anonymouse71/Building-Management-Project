@@ -13,22 +13,25 @@ use Illuminate\Support\Facades\View;
 
 class MessagesController extends BaseController
 {
+
+    //php artisan migrate --package=cmgmyr/messenger
+    //php artisan config:publish cmgmyr/messenger
+
+
     /**
      * Just for testing - the user should be logged in. In a real
      * app, please use standard authentication practices
      */
     public function __construct()
     {
-        $user = User::find(1);
-       // $user=Auth::user();
+       // $user = User::find(1);
+        $user=Auth::user();
        // Auth::login($user);
     }
 
-    /**
-     * Show all of the message threads to the user
-     *
-     * @return mixed
-     */
+
+
+
     public function index()
     {
         $currentUserId = Auth::user()->id;
@@ -45,12 +48,12 @@ class MessagesController extends BaseController
         return View::make('messages.index', compact('threads', 'currentUserId'))->with('title','Message');
     }
 
-    /**
-     * Shows a message thread
-     *
-     * @param $id
-     * @return mixed
-     */
+
+
+
+
+
+
     public function show($id)
     {
 
@@ -60,7 +63,7 @@ class MessagesController extends BaseController
         } catch (ModelNotFoundException $e) {
             Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
 
-            return Redirect::to('messages')->with('title','Paypal Account');
+            return Redirect::to('messages')->with('title','Messages');
         }
 
         // show current user in list if not a current participant
@@ -75,11 +78,14 @@ class MessagesController extends BaseController
         return View::make('messages.show', compact('thread', 'users','user'))->with('title','Message');
     }
 
-    /**
-     * Creates a new message thread
-     *
-     * @return mixed
-     */
+
+
+
+
+
+
+
+
     public function create()
     {
         $users = User::where('id', '!=', Auth::id())->get();
@@ -87,11 +93,11 @@ class MessagesController extends BaseController
         return View::make('messages.create', compact('users'))->with('title','Message');
     }
 
-    /**
-     * Stores a new message thread
-     *
-     * @return mixed
-     */
+
+
+
+
+
     public function store()
     {
         $input = Input::all();
@@ -125,15 +131,15 @@ class MessagesController extends BaseController
             $thread->addParticipants($input['recipients']);
         }
 
-        return Redirect::to('messages')->with('title','Message');
+        return Redirect::to('messages.all')->with('title','Message');
     }
 
-    /**
-     * Adds a new message to a current thread
-     *
-     * @param $id
-     * @return mixed
-     */
+
+
+
+
+
+
     public function update($id)
     {
         try {
@@ -172,4 +178,45 @@ class MessagesController extends BaseController
 
         return Redirect::to('messages/' . $id)->with('title','Message');
     }
+
+
+
+
+
+
+
+    public function all($id)
+    {
+
+
+        try {
+            $thread = Thread::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
+
+            return Redirect::to('messages.all')->with('title', 'Messages');
+        }
+
+        // show current user in list if not a current participant
+        // $users = User::whereNotIn('id', $thread->participantsUserIds())->get();
+
+        // don't show the current user in list
+        $userId = Auth::user()->id;
+
+        $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
+
+        $thread->markAsRead($userId);
+
+        if(Auth::user()->name == $thread->creator()->name && $thread->participantsString(Auth::id()))
+        {
+            return View::make('messages.all', compact('thread', 'users','user'))->with('title','Message');
+        }
+       else
+         return Redirect::to('errors');
+     //  return Response::make(View::make('errors.500'), 500);
+
+    }
+
+
+
 }

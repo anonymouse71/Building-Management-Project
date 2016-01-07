@@ -25,7 +25,7 @@
                 <div class="form-group">
                     {{ Form::label('flat_details', 'Flat Details* :', array('class' => 'col-md-2 control-label')) }}
                     <div class="col-md-8">
-                        {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details')) }}
+                        {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details','id' => 'editor')) }}
                     </div>
                     <br><br>
                 </div>
@@ -53,14 +53,23 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 @stop
 
-
 @section('script')
 
     {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+    {{ HTML::script('js/ckeditor/ckeditor.js') }}
 
     <script type="text/javascript">
+        $(document).ready(function() {
 
-        $('#status').select2();
+            CKEDITOR.replace( 'editor', {
+                "filebrowserImageUploadUrl": "{{asset('js/ckeditor/plugins/imgupload.php')}}"
+            } );
+            $("#status").chosen();
+
+
+        });
+
+
+
     </script>
-@stop
+    @stop

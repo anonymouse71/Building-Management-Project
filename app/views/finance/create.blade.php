@@ -23,7 +23,7 @@
                     <div class="form-group col-md-6">
                         {{ Form::label('flat_id', 'Flat', array('class' => 'control-label required')) }}
 
-                        {{ Form::select('flat_id', $flats, '', array('class' => 'form-control', 'id' => 'user_id', 'required'   => 'required')) }}
+                        {{ Form::select('flat_id', $flats, '', array('class' => 'form-control', 'id' => 'user_id', 'required'   => 'required','id' => 'status')) }}
 
                     </div>
 
@@ -39,7 +39,7 @@
                     <div class="form-group col-md-6">
                         {{ Form::label('type', 'Transaction Type', array('class' => 'control-label required')) }}
 
-                        {{ Form::select('type', $types, '', array('class' => 'form-control', 'id' => 'type', 'required'   => 'required')) }}
+                        {{ Form::select('type', $types, '', array('class' => 'form-control', 'id' => 'type', 'required'   => 'required', 'id' => 'status')) }}
 
                     </div>
 
@@ -48,7 +48,7 @@
                     <div class="form-group col-md-6">
                         {{ Form::label('method', 'Transaction Method', array('class' => 'control-label required')) }}
 
-                        {{ Form::select('method', $method, '', array('class' => 'form-control', 'id' => 'method', 'required'   => 'required')) }}
+                        {{ Form::select('method', $method, '', array('class' => 'form-control', 'id' => 'method', 'required'   => 'required', 'id' => 'status')) }}
 
                     </div>
 
@@ -89,18 +89,26 @@
 
 @section('style')
     {{ HTML::style('assets/bootstrap-datepicker/css/datepicker.css') }}
+    {{ HTML::style('css/chosen_dropdown/chosen.css') }}
 
 @stop
 
 
 @section('script')
 
-
+    {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
     {{ HTML::script('assets/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
 
 
     <script type="text/javascript">
+        $('#status').select2();
         $(document).ready(function() {
+
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_flat-red',
+                increaseArea: '20%'
+            });
             $("#date").datepicker({
                 format: 'yyyy-mm-dd'
             });
