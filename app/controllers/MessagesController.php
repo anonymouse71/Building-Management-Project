@@ -176,7 +176,7 @@ class MessagesController extends BaseController
             $thread->addParticipants(Input::get('recipients'));
         }
 
-        return Redirect::to('messages/' . $id)->with('title','Message');
+        return Redirect::to('Messages/' . $id)->with('title','Message');
     }
 
 
@@ -194,7 +194,7 @@ class MessagesController extends BaseController
         } catch (ModelNotFoundException $e) {
             Session::flash('error_message', 'The thread with ID: ' . $id . ' was not found.');
 
-            return Redirect::to('messages.all')->with('title', 'Messages');
+            return Redirect::to('messages')->with('title', 'Messages');
         }
 
         // show current user in list if not a current participant

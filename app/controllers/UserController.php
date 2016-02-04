@@ -47,7 +47,7 @@ class UserController extends \BaseController {
 
 			if($user->save()){
 				if($user->role_id == '2' ) {
-					$role = Role::find(1);
+					$role = Role::find(2);
 					$user->attachRole($role);
 				}
 
@@ -198,8 +198,6 @@ class UserController extends \BaseController {
 					'department' => $data['department'],
 					'session' => $data['session'],
 					'cgpa' => $data['cgpa'],
-
-
 					'first_login' => true,
 				));
 

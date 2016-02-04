@@ -143,6 +143,9 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
 	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
+	Route::get('1', 'UserInfoController@getIndex');
+	Route::get('api', 'UserInfoController@getApi');
+
 });
 
       Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);

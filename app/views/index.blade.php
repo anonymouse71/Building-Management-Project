@@ -109,8 +109,8 @@
                     <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="300ms">
                         <img src="home/images/home/icon1.png" alt="">
                     </div>
-                    <h2>Incredibly Responsive</h2>
-                    <p>Ground round tenderloin flank shank ribeye. Hamkevin meatball swine. Cow shankle beef sirloin chicken ground round.</p>
+                    <h2>Apartment</h2>
+                    <p>This is an apartment building. We have 16 flats in our building.</p>
                 </div>
             </div>
             <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
@@ -118,8 +118,8 @@
                     <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="600ms">
                         <img src="home/images/home/icon2.png" alt="">
                     </div>
-                    <h2>Superior Typography</h2>
-                    <p>Hamburger ribeye drumstick turkey, strip steak sausage ground round shank pastrami beef brisket pancetta venison.</p>
+                    <h2>Security</h2>
+                    <p>When you are the member of our family our vision to give you best security at home.</p>
                 </div>
             </div>
             <div class="col-sm-4 text-center padding wow fadeIn" data-wow-duration="1000ms" data-wow-delay="900ms">
@@ -127,8 +127,8 @@
                     <div class="wow scaleIn" data-wow-duration="500ms" data-wow-delay="900ms">
                         <img src="home/images/home/icon3.png" alt="">
                     </div>
-                    <h2>Swift Page Builder</h2>
-                    <p>Venison tongue, salami corned beef ball tip meatloaf bacon. Fatback pork belly bresaola tenderloin bone pork kevin shankle.</p>
+                    <h2>24/7 Care</h2>
+                    <p>We provide you 24-hours a day, 7 days a week care including holidays.</p>
                 </div>
             </div>
         </div>
@@ -136,18 +136,21 @@
 </section>
 <!--/#services-->
 
+
+
+
 <section id="action" class="responsive">
     <div class="vertical-center">
         <div class="container">
             <div class="row">
                 <div class="action take-tour">
                     <div class="col-sm-7 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                        <h1 class="title">Triangle Corporate Template</h1>
-                        <p>A responsive, retina-ready &amp; wide multipurpose template.</p>
+                        <h1 class="title">Uniliver Buliding For You</h1>
+                        <p>Your choice, Our safety &amp; security.</p>
                     </div>
                     <div class="col-sm-5 text-center wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
                         <div class="tour-button">
-                            <a href="#" class="btn btn-common">TAKE THE TOUR</a>
+                            <a href="{{route('contact')}}" class="btn btn-common">Contact For Your Apartment</a>
                         </div>
                     </div>
                 </div>
@@ -157,36 +160,44 @@
 </section>
 <!--/#action-->
 
+
+
+
 <section id="features">
     <div class="container">
         <div class="row">
+
             <div class="single-features">
                 <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <img src="home/images/home/image1.png" class="img-responsive" alt="">
+                    <img src="home/images/home/image1.jpg" class="img-responsive" alt="">
                 </div>
                 <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <h2>Experienced and Enthusiastic</h2>
+                    <h2>24/7 Electricity & Water</h2>
                     <P>Pork belly leberkas cow short ribs capicola pork loin. Doner fatback frankfurter jerky meatball pastrami bacon tail sausage. Turkey fatback ball tip, tri-tip tenderloin drumstick salami strip steak.</P>
                 </div>
             </div>
+
             <div class="single-features">
                 <div class="col-sm-6 col-sm-offset-1 align-right wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <h2>Built for the Responsive Web</h2>
+                    <h2>Strong Security</h2>
                     <P>Mollit eiusmod id chuck turducken laboris meatloaf pork loin tenderloin swine. Pancetta excepteur fugiat strip steak tri-tip. Swine salami eiusmod sint, ex id venison non. Fugiat ea jowl cillum meatloaf.</P>
                 </div>
                 <div class="col-sm-5 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
                     <img src="home/images/home/image2.png" class="img-responsive" alt="">
                 </div>
             </div>
+
+            <br>  <br>
             <div class="single-features">
                 <div class="col-sm-5 wow fadeInLeft" data-wow-duration="500ms" data-wow-delay="300ms">
                     <img src="home/images/home/image3.png" class="img-responsive" alt="">
                 </div>
                 <div class="col-sm-6 wow fadeInRight" data-wow-duration="500ms" data-wow-delay="300ms">
-                    <h2>Experienced and Enthusiastic</h2>
+                    <h2>Only For Bachelor's</h2>
                     <P>Ut officia cupidatat anim excepteur fugiat cillum ea occaecat rump pork chop tempor. Ut tenderloin veniam commodo. Shankle aliquip short ribs, chicken eiusmod exercitation shank landjaeger spare ribs corned beef.</P>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
@@ -198,29 +209,10 @@
             <div class="col-sm-12">
                 <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                     <p><img src="home/images/home/clients.png" class="img-responsive" alt=""></p>
-                    <h1 class="title">Happy Clients</h1>
-                    <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br> Ut enim ad minim veniam, quis nostrud </p>
+                    <h1 class="title">Thank You</h1>
+                    <p>Need a apartment!<br> Contact with us as soon as possible. <br> We will notify you, if any of our apartment remain empty  </p>
                 </div>
-                <div class="clients-logo wow fadeIn" data-wow-duration="1000ms" data-wow-delay="600ms">
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client1.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client2.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client3.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client4.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client5.png" class="img-responsive" alt=""></a>
-                    </div>
-                    <div class="col-xs-3 col-sm-2">
-                        <a href="#"><img src="home/images/home/client6.png" class="img-responsive" alt=""></a>
-                    </div>
-                </div>
+               <br><br><br>
             </div>
         </div>
     </div>
@@ -234,22 +226,23 @@
 
 <!--Footer Starts -->
 
-<footer id="footer">
-    <div class="container">
 
+<div id="container">
+    <div id="header"></div>
+    <div id="body"></div>
 
+    <div id="footer">
 
-            <div class="col-sm-12">
-                <div class="copyright-text text-center">
-                    <p>&copy; Uniliver Building Management. All Rights Reserved.</p>
-                    <p>Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
-                </div>
+            <div class="copyright-text text-center">
+                <p style="
+                   color: #31302E;
+                 ">&copy; Uniliver Building Management. All Rights Reserved.</p>
+                 <p>Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
             </div>
 
     </div>
-</footer>
+</div>
 <!-- End of footer-->
-
 
 
 
@@ -264,11 +257,29 @@
 
 
 <style>
-    .copyright-text p {
+
+
+    #container {
+        min-height:100%;
+        position:relative;
+    }
+
+    #footer {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:200px;  /* Height of the footer */
+
+        background: url(../home/images/footer.jpg) repeat-x left bottom;
+    }
+    .copyright-text {
         color: tomato;
         font-family: cursive;
-        font-size: xx-small;
+        font-size: small;
+        text-align: center;
+        top: 20px;
     }
+
 
 
 </style>

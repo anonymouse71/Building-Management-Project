@@ -39,7 +39,10 @@ return array(
 	|
 	*/
 
-	'timezone' => 'UTC',
+	'timezone' => 'UTC+6',
+
+
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -128,7 +131,8 @@ return array(
 		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
 		'Intervention\Image\ImageServiceProvider',
 		'Teepluss\Recaptcha\RecaptchaServiceProvider',
-		'Cmgmyr\Messenger\MessengerServiceProvider'
+		'Cmgmyr\Messenger\MessengerServiceProvider',
+		"Khill\Lavacharts\Laravel\LavachartsServiceProvider"
 	),
 
 	/*
