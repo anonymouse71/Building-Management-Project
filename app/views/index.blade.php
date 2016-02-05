@@ -31,11 +31,9 @@
             <div class="col-sm-12 overflow">
                 <div class="social-icons pull-right">
                     <ul class="nav nav-pills">
-                        <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="www.google.com"><i class="fa fa-google-plus"></i></a></li>
-                   <!--     <li><a href=""><i class="fa fa-dribbble"></i></a></li>
-                        <li><a href=""><i class="fa fa-linkedin"></i></a></li> -->
+                        <li><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" href="http://www.themeum.com"><i class="fa fa-google-plus"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -210,7 +208,7 @@
                 <div class="clients text-center wow fadeInUp" data-wow-duration="500ms" data-wow-delay="300ms">
                     <p><img src="home/images/home/clients.png" class="img-responsive" alt=""></p>
                     <h1 class="title">Thank You</h1>
-                    <p>Need a apartment!<br> Contact with us as soon as possible. <br> We will notify you, if any of our apartment remain empty  </p>
+                    <p>Need an apartment!<br> Contact with us as soon as possible. <br> We will notify you, if any of our apartment remain empty.  </p>
                 </div>
                <br><br><br>
             </div>
