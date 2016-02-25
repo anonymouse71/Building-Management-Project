@@ -79,14 +79,14 @@ Route::group(array('before' => 'auth'), function()
 
 
    //My flat members
-	Route::get('own-flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
+	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
 		Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 		Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
 		Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-		Route::get('messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-		Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+		Route::get('Messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+		Route::put('Messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 	    Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
 
 
@@ -141,12 +141,13 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
 	//all members
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
-	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
+	//Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
 	Route::get('1', 'UserInfoController@getIndex');
 	Route::get('api', 'UserInfoController@getApi');
 
 });
+
 
       Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
       Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);

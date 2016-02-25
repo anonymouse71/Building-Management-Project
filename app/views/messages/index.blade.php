@@ -17,7 +17,7 @@
 
         <div class="media alert {{$class}}">
 
-            <h4 class="media-heading">{{link_to('messages/' . $thread->id, $thread->subject)}}</h4>
+            <h4 class="media-heading">{{link_to('Messages/' . $thread->id, $thread->subject)}}</h4>
 
             <p>{{$thread->latestMessage->body}}</p>
 

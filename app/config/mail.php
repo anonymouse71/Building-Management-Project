@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'infancy.itbd@gmail.com', 'name' => 'Infancy Template'),
+	'from' => array('address' => 'infancy.itbd@gmail.com', 'name' => 'Uniliver Building Sign Up'),
 
 	/*
 	|--------------------------------------------------------------------------

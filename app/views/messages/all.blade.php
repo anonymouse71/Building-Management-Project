@@ -24,13 +24,23 @@
     <div class="window-area">
         <div class="conversation-list">
             <ul class="">
-                <li class="item"><a href="#"><i class="fa fa-list-alt"></i><span>Dashboard</span></a></li>
-                <li class="item active"><a href="#"><i class="fa fa-user"></i><span>Team chat</span><i class="fa fa-times"></i></a></li>
-                <li><a href="#"><i class="fa fa-circle-o online"></i></i><span>Cucu Ionel</span><i class="fa fa-times"></i></a></li>
-                <li><a href="#"><i class="fa fa-circle-o idle"></i></i><span>Jan Dvo?ák</span><i class="fa fa-times"></i></a></li>
-                <li><a href="#"><i class="fa fa-circle-o offline"></i></i><span>Clark Kent</span><i class="fa fa-times"></i></a></li>
-                <li><a href="#"><i class="fa fa-circle-o offline"></i></i><span>Ioana Marcu</span><i class="fa fa-times"></i></a></li>
+
+                @if($users->count() > 0)
+                @foreach($users as $user)
+                        <li>
+                            <a title=" {{$user->name}}">
+                                <input type="radio" name="recipients[]"  value="{{$user->id}}">
+
+                                <span>{{$user->name}}</span>
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </li>
+
+
+                @endforeach
+                @endif
             </ul>
+
 
 
             <div class="my-account">
@@ -102,14 +112,15 @@
             </ul>
 
 
-
               <!--All User List -->
+
+            <!--
             <ul class="tabs-container">
                 <li class="">
                     <ul class="member-list">
                         @if($users->count() > 0)
                             @foreach($users as $user)
-                          <!--   <li><span class="status online"><i class="fa fa-circle-o"></i></span><span>{{--$user->name--}}</span></li> -->
+
                                 <label title=" {{$user->name}}"><input type="checkbox" name="recipients[]" value="{{$user->id}}">{{$user->name}}</label>
                             @endforeach
                         @endif
@@ -119,8 +130,8 @@
                 <li></li>
                 <li></li>
             </ul>
+            -->
             <!--End of All User List -->
-
 
 
 
@@ -138,6 +149,13 @@
 
 
 
+<style>
+    input[type=radio] {
+        border: 0px;
+        width: 20%;
+        height: 1.5em;
+    }
+</style>
 
 <script>
     $(function()

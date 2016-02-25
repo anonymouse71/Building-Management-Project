@@ -48,7 +48,7 @@
                             </button>
                             <ul class="dropdown-menu" role="menu">
 
-                                <li><a href="https://www.facebook.com/{{$user->userInfo->fb_account}}">Facebook</a></li>
+                                <li><a href="https://www.facebook.com/" target="_blank"{{$user->userInfo->fb_account}}>Facebook</a></li>
 
                             </ul>
                         </div>

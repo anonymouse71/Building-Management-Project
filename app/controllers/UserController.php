@@ -17,7 +17,7 @@ class UserController extends \BaseController {
 			'email'                 => 'required|email|unique:users',
 			'password'              => 'required|confirmed',
 			'password_confirmation' => 'required',
-			'user_name'             =>'required|unique:users',
+			'name'             =>'required|unique:users',
 			'role_id'	=>	'Required',
 			'flat_id'	=>	'Required',
 			'agree'	=>	'Required',
@@ -38,7 +38,7 @@ class UserController extends \BaseController {
 			$user = new User();
 
 			$user->email = $data['email'];
-			$user->user_name = $data['user_name'];
+			$user->name = $data['name'];
 			$user->password = Hash::make($data['password']);
 			$user->role_id        = Input::get('role_id');
 			$user->flat_id        = Input::get('flat_id');

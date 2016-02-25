@@ -113,8 +113,8 @@
         {{ Form::label('email', 'Email', array('' => '')) }}
         {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) }}
         <br>
-        {{ Form::label('user_name', 'Username', array('' => '')) }}
-        {{ Form::text('user_name', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus')) }}
+        {{ Form::label('name', 'Username', array('' => '')) }}
+        {{ Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus')) }}
         <br>
 
         {{ Form::label('flat_id', 'Flat Name ', array('' => '')) }}
@@ -139,7 +139,7 @@
 
     <span>
             {{ Form::radio('role_id','2') }}
-        {{ Form::label('role_id','Owner        ') }}
+        {{ Form::label('role_id','Manager        ') }}
 
 
         {{ Form::radio('role_id','3') }}
