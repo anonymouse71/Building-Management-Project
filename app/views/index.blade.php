@@ -222,6 +222,7 @@
 
 
 
+
 <!--Footer Starts -->
 
 
@@ -232,10 +233,11 @@
     <div id="footer">
 
             <div class="copyright-text text-center">
+                <br><br><br><br>
                 <p style="
                    color: #31302E;
-                 ">&copy; Uniliver Building Management. All Rights Reserved.</p>
-                 <p>Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
+                 ">&copy; Uniliver Building Management. All Rights Reserved.
+                 Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
             </div>
 
     </div>

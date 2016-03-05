@@ -61,12 +61,15 @@ class UserController extends \BaseController {
 				$user_info->user_id = $user->id;
 				$user_info->activation = false;
 				$user_info->first_login = false;
-				$user_info->owner_status = true;
 
 
-				//if($user->role_id == '3' ) {
-				//	$user_info->owner_approve = 1;
-				//}
+
+				if($user->role_id == '2' ) {
+					$user_info->owner_status = true;
+				}
+				else{
+					$user_info->owner_status = false;
+				}
 
 				$user_info->activation_key = $confirmation_code;
 				//set a default avatar

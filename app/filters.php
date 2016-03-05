@@ -70,7 +70,8 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Auth::check())
+		return Redirect::to('/');
 });
 
 /*
@@ -99,3 +100,8 @@ Route::filter('admin',function(){
 });
 
 
+Route::filter('owner',function(){
+	if(! Entrust::hasRole(Config::get('customConfig.roles.owner'))){
+		return Redirect::to('/');
+	}
+});

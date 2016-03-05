@@ -86,7 +86,7 @@ class MemberController extends BaseController {
 
 
 
-	public function doRegister($id)
+	public function acceptManager($id)
 	{
 
 		if(UserInfo::find($id)->update(['owner_approve'=>'1'])){

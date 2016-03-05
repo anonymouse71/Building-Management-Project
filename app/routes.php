@@ -23,9 +23,13 @@
 
 Route::get('/',function(){
 
- if(Auth::check()){
+ if(Auth::check() && Auth::user()->userInfo->owner_approve== 1){
 	 return Redirect::route('dashboard');
  }
+ elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 0){
+	 return Redirect::route('user.show');
+ }
+
 	else
 		return Redirect::route('index');
 });
@@ -82,15 +86,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
 
-		Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
-		Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
-		Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-		Route::get('Messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-		Route::put('Messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
-	    Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
-
-
-
+	Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
+	Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
+	Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
+	Route::get('Messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+	Route::put('Messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+	Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
 
 
 });
@@ -103,7 +104,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('members', array('as' => 'members', 'uses' => 'MemberController@index'));
 	Route::get('view-allOwner', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
 	Route::get('view-Members', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
-	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@doRegister'));
+	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@acceptManager'));
 	Route::get('members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
 	Route::get('view-member/{id}', array('as' => 'client.delete', 'uses' => 'MemberController@clientDelete'));
 	Route::get('view-owner/{id}', array('as' => 'owner.delete', 'uses' => 'MemberController@ownerDelete'));
@@ -149,16 +150,25 @@ Route::group(array('before' => 'auth|admin'), function()
 });
 
 
-      Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
-      Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);
+//Route::group(array('before' => 'owner'), function(){
+
+	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
+    Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptMember'));
+//});
 
 
 
+	//for unknown url
+	Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
+    Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);
 
+
+	 // for user accept mail sending
+	Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
+	Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
 Route::get('error',function(){
-
 
 		//return View::make('error.500')->with('title','jkJ');
 });

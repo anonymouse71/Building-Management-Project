@@ -168,7 +168,7 @@
 		 		</span>
             <!-- <p class="error">{{--$errors->first('agree')--}}</p> -->
         </div>
-        {{ Form::submit('Register',array('class' => 'btn btn-success btn-lg', 'data-loading-text' => 'Loading...', )) }}
+        {{ Form::submit('Register',array('class' => 'btn btn-lg btn-login btn-block', 'data-loading-text' => 'Loading...', )) }}
 
 
     </div>
@@ -180,22 +180,37 @@
 
 </div>
 
+
+
+
+
 <!--Footer Starts -->
+<br><br><br><br><br><br><br><br>
 
-<br><br><br><br>
+<div id="container">
+    <div id="header"></div>
+    <div id="body"></div>
 
-<div class="col-sm-12">
-    <div class="copyright-text text-center">
-        <p>&copy; Uniliver Building Management. All Rights Reserved.</p>
-        <p>Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
+    <div id="footer">
+
+        <div class="copyright-text text-center">
+            <br><br><br><br>
+            <p style="
+                   color: #31302E;
+                 ">&copy; Uniliver Building Management. All Rights Reserved.
+                Designed by <a target="_blank" href="http://www.themeum.com">Themeum</a></p>
+        </div>
+
     </div>
+</div>
+<!-- End of footer-->
 
 
 
 
 
 
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="home/js/gmaps.js"></script>
     <script type="text/javascript" src="home/js/jquery.js"></script>
     <script type="text/javascript" src="home/js/bootstrap.min.js"></script>
@@ -227,14 +242,31 @@
 
 
 
+
 <style>
+
+
+    #container {
+        min-height:100%;
+        position:relative;
+    }
+
+    #footer {
+        position:absolute;
+        bottom:0;
+        width:100%;
+        height:200px;  /* Height of the footer */
+
+        background: url(../home/images/footer.jpg) repeat-x left bottom;
+    }
     .copyright-text {
         color: tomato;
         font-family: cursive;
-        font-size: xx-small;
         font-size: small;
         text-align: center;
         top: 20px;
     }
-</style>
 
+
+
+</style>

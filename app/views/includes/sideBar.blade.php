@@ -9,32 +9,22 @@
                       <li><a href="{{ URL::route('register') }}">Register</a></li>
                    @endif
 
-                <!-- dashboard -->
-
-                    <li>
-
-                      <a href="{{ URL::route('dashboard') }}">
-                          <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
-                      </a>
-
-                    </li>
 
 
-                  {{-- Profile --}}
-                  <li class="sub-menu">
+                      @if(Auth::user()->userInfo->owner_approve== 1)
 
-                      <a href="javascript:">
-                          <i class="fa fa-tasks"></i>
-                          <span>Profile</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a href="{{ route('user.show') }}">Profile</a></li>
-                          <li><a href="{{ route('user.edit') }}">Edit Profile</a></li>
+                           <!-- dashboard -->
+
+                      <li>
+
+                          <a href="{{ URL::route('dashboard') }}">
+                              <i class="fa fa-dashboard"></i>
+                              <span>Dashboard</span>
+                          </a>
+
+                      </li>
 
 
-                      </ul>
-                  </li>
 
                       {{-- log --}}
                       <li class="sub-menu">
@@ -65,7 +55,23 @@
 
                           </ul>
                       </li>
+                        @else
+                      {{-- Profile --}}
+                      <li class="sub-menu">
 
+                          <a href="javascript:">
+                              <i class="fa fa-tasks"></i>
+                              <span>Profile</span>
+                          </a>
+                          <ul class="sub">
+                              <li><a href="{{ route('user.show') }}">Profile</a></li>
+                              <li><a href="{{ route('user.edit') }}">Edit Profile</a></li>
+
+
+                          </ul>
+                      </li>
+
+                  @endif
 
                   @if(Auth::user()->role_id == '1')
 
@@ -134,7 +140,7 @@
 
                   @endif
 
-                   @if(Auth::user()->role_id == '2')
+                      @if(Auth::user()->role_id == '2' && Auth::user()->userInfo->owner_approve== 1)
 
                           {{-- Finance --}}
                           <li class="sub-menu">
@@ -158,6 +164,7 @@
                               </a>
                               <ul class="sub">
                                   <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
+                                  <li><a href="{{URL::route('manager.index') }}">Waiting Members</a></li>
 
                               </ul>
                           </li>
@@ -166,7 +173,7 @@
 
 
 
-                   @if(Auth::user()->role_id == '3')
+                   @if(Auth::user()->role_id == '3' && Auth::user()->userInfo->owner_approve== 1)
 
 
 
@@ -198,7 +205,6 @@
 
                               </ul>
                           </li>
-
 
                    @endif
 

@@ -18,7 +18,7 @@
                 <thead>
                 <tr>
 
-                    <th>User </th>
+
                     <th>Date</th>
                     <th>Work</th>
                     <th>Debit</th>
@@ -32,7 +32,7 @@
                 <tbody>
                 @foreach($logs as $log)
                     <tr>
-                        <td>{{ $log->user->user_name}}</td>
+
                         <td>{{ $log->date}}</td>
                         <td>{{ $log->work}}</td>
                         <td>{{ $log->debit}}</td>
