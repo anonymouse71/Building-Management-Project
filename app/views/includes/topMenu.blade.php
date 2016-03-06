@@ -7,8 +7,12 @@
           <!--logo end-->
 
           <div class="top-nav ">
+
+
               <ul class="nav pull-right top-menu">
 
+                  @include('includes.notificationMenu')
+                  @include('includes.inboxMenu')
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -77,6 +81,9 @@
 
         color: #ffffff;
     }
+
+    .top-nav ul.top-menu > li > a {
+        background: ghostwhite;
 
 
 </style>

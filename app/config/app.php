@@ -132,7 +132,8 @@ return array(
 		'Intervention\Image\ImageServiceProvider',
 		'Teepluss\Recaptcha\RecaptchaServiceProvider',
 		'Cmgmyr\Messenger\MessengerServiceProvider',
-		"Khill\Lavacharts\Laravel\LavachartsServiceProvider"
+		'Khill\Lavacharts\Laravel\LavachartsServiceProvider',
+
 	),
 
 	/*
@@ -201,6 +202,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Entrust'           => 'Zizaco\Entrust\EntrustFacade',
 		'Image' => 'Intervention\Image\Facades\Image',
+
 
 	),
 

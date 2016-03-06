@@ -15,34 +15,55 @@
             <i class="fa fa-circle"></i>
         </div>
         <div class="title">
-            <span>Uniliver Building Messenger</span>
+            <span>Uniliver Building Messenger(Alpha)</span>
         </div>
         <div class="expand">
             <i class="fa fa-expand"></i>
         </div>
     </div>
+
+
     <div class="window-area">
+
+
         <div class="conversation-list">
-            <ul class="">
+<!-- left panel -->
+            <ul class="active">
 
-                @if($users->count() > 0)
-                @foreach($users as $user)
-                        <li>
-                            <a title=" {{$user->name}}">
-                                <input type="radio" name="recipients[]"  value="{{$user->id}}">
-
-                                <span>{{$user->name}}</span>
-                                <i class="fa fa-times"></i>
-                            </a>
-                        </li>
+                @if($threads->count() > 0)
 
 
-                @endforeach
+                    @foreach($threads as $thread)
+                        @if(Auth::user()->name == $thread->creator()->name && $thread->participantsString(Auth::id()) )
+
+                            {{ $class = $thread->isUnread($userId) ? 'alert-info' : ''; }}
+
+                            <div class="media alert {{$class}}">
+
+                                <h4 class="media-heading">{{link_to('Messages/' . $thread->id, $thread->subject)}}</h4>
+
+                                <p>{{$thread->latestMessage->body}}</p>
+
+
+                                <p><small><strong>Creator:</strong> {{ $thread->creator()->name }}</small></p>
+                                <p><small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small></p>
+
+
+                            </div>
+                        @endif
+
+                    @endforeach
+
+
+
+                @else
+                    <p>Sorry, no threads.</p>
                 @endif
             </ul>
+            <!--end of left panel -->
 
 
-
+            <!-- left panel bottom -->
             <div class="my-account">
                 <div class="image">
                     {{ HTML::image(Auth::user()->userInfo->icon_url, 'alt', array( 'width' => 25, 'height' => 25 )) }}>
@@ -51,12 +72,9 @@
 
                 <div class="name">
                     <span>{{Auth::user()->name}}</span>
-
-
                 </div>
-
-
             </div>
+            <!-- left panel  bottom-->
 
         </div>
 
@@ -64,7 +82,10 @@
 
         <!-- Message Main Body -->
         <div class="chat-area">
-            <div class="title"><b>{{$thread->subject}}</b><i class="fa fa-search"></i></div>
+            <div class="title"><b>{{$thread->subject}}</b><i class="fa fa-search">
+
+                    <a class="btn btn-xs btn-success btn-edit" href="{{URL::route('messages.create') }}">Create +</a>
+                </i></div>
 
 
             <div class="chat-list">
@@ -78,6 +99,7 @@
                         </div>
                         <div class="message">
                             <p>{{$message->body}}</p>
+
                             <span class="msg-time">Posted {{$message->created_at->diffForHumans()}}</span>
                         </div>
                     </li>
@@ -104,17 +126,17 @@
 
         <div class="right-tabs">
             <ul class="tabs" >
-                <li class="active">
+                <li >
                     <a href="#"><i class="fa fa-users"></i></a>
                 </li>
-                <li><a href="#" id="flip"><i class="fa fa-paperclip"></i></a></li>
+                <li class="active"><a href="#" id="flip"><i class="fa fa-paperclip"></i></a></li>
                 <li><a href="#"><i class="fa fa-link"></i></a></li>
             </ul>
 
 
-              <!--All User List -->
+              <!--All User List who waiting for add -->
 
-            <!--
+
             <ul class="tabs-container">
                 <li class="">
                     <ul class="member-list">
@@ -130,7 +152,7 @@
                 <li></li>
                 <li></li>
             </ul>
-            -->
+
             <!--End of All User List -->
 
 

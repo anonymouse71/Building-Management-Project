@@ -30,7 +30,7 @@
                       <li class="sub-menu">
 
                           <a href="javascript:">
-                              <i class="fa fa-tasks"></i>
+                              <i class="fa fa-sitemap"></i>
                               <span>Log</span>
                           </a>
                           <ul class="sub">
@@ -39,6 +39,10 @@
 
                           </ul>
                       </li>
+
+
+
+
 
 
 

@@ -27,21 +27,29 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+
+	//Userinfo Model
 	public function userInfo(){
 		return $this->hasOne('UserInfo','user_id','id');
 	}
 
 
-
+    //for log system
 	public function logs(){
 		return $this->hasMany('Logger','user_id','id');
 	}
+
+	//for the flat system
 	public function flats(){
 		return $this->belongsTo('Flat','flat_id','id');
 	}
 
 
-
+// In your User model - 1 User has Many Notifications
+	public function notifications()
+	{
+		return $this->hasMany('Notification');
+	}
 
 
 }

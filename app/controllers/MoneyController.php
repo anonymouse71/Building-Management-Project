@@ -156,6 +156,19 @@ class MoneyController extends \BaseController {
 
 
 		if($money->save()){
+
+
+//for notification
+			$notify= new Notification();
+			$notify->type='money';
+			//$notify->user_id= $data['flat_id'];
+			$notify->flat_id= $data['flat_id'];
+			$notify->subject='Money Transaction by Admin';
+			$notify->body= 'Transaction for: '.$data['title'].', Total Money:'.$data['amount'].'Tk';
+			$notify->is_read=0;
+			$notify->save();
+//for notification
+
 			return Redirect::route('finance.list')->with('success',"Transaction saved Successfully")->with('devs',Flat::orderBy('id','asc')->get());
 		}else{
 			return Redirect::route('finance.create')->with('error',"Something went wrong.Try again");

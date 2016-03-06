@@ -89,8 +89,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 	Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
 	Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
-	Route::get('Messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
-	Route::put('Messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
+	Route::get('messages/{id}', ['as' => 'messages.show', 'uses' => 'MessagesController@show']);
+	Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 	Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
 
 
@@ -172,3 +172,9 @@ Route::get('error',function(){
 
 		//return View::make('error.500')->with('title','jkJ');
 });
+
+
+
+
+//php artisan migrate --package=cmgmyr/messenger
+//php artisan config:publish cmgmyr/messenger

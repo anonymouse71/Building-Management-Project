@@ -66,9 +66,30 @@ class UserController extends \BaseController {
 
 				if($user->role_id == '2' ) {
 					$user_info->owner_status = true;
+					//for notification
+					$notify= new Notification();
+					$notify->type='manager_request';
+					//$notify->flat_id= $data['flat_id'];
+					$notify->user_id= 1;
+					$notify->subject='Manager Approval Request';
+					$notify->body= $data['email'].'waiting for approval';
+					$notify->is_read=0;
+					$notify->save();
+					//for notification
 				}
 				else{
 					$user_info->owner_status = false;
+
+					//for notification
+					$notify= new Notification();
+					$notify->type='user_request';
+					$notify->flat_id= $data['flat_id'];
+					//$notify->user_id= $data['flat_id'];
+					$notify->subject='User Approval Request';
+					$notify->body= $data['email'].'waiting for approval';
+					$notify->is_read=0;
+					$notify->save();
+					//for notification
 				}
 
 				$user_info->activation_key = $confirmation_code;

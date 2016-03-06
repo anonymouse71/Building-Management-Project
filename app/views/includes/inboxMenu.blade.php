@@ -2,7 +2,10 @@
               <li id="header_inbox_bar" class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                       <i class="fa fa-envelope-o"></i>
-                      <span class="badge bg-important">5</span>
+                      <span class="badge bg-important">
+                            {{--\Cmgmyr\Messenger\Models\Message::msgCount();--}}
+
+                      </span>
                   </a>
                   <ul class="dropdown-menu extended inbox">
                       <div class="notify-arrow notify-arrow-red"></div>
@@ -11,7 +14,7 @@
                       </li>
                       <li>
                           <a href="#">
-                              <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
+                              <span class="photo"><img alt="avatar" src="./uploads/image/defaultAvatar.png"></span>
                                     <span class="subject">
                                     <span class="from">Jonathan Smith</span>
                                     <span class="time">Just now</span>
@@ -23,7 +26,7 @@
                       </li>
                       <li>
                           <a href="#">
-                              <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
+                              <span class="photo"><img alt="avatar" src="./uploads/image/defaultAvatar.png"></span>
                                     <span class="subject">
                                     <span class="from">Jhon Doe</span>
                                     <span class="time">10 mins</span>
@@ -35,7 +38,7 @@
                       </li>
                       <li>
                           <a href="#">
-                              <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
+                              <span class="photo"><img alt="avatar" src="./uploads/image/defaultAvatar.png"></span>
                                     <span class="subject">
                                     <span class="from">Jason Stathum</span>
                                     <span class="time">3 hrs</span>
@@ -47,7 +50,7 @@
                       </li>
                       <li>
                           <a href="#">
-                              <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
+                              <span class="photo"><img alt="avatar" src="./uploads/image/defaultAvatar.png"></span>
                                     <span class="subject">
                                     <span class="from">Jondi Rose</span>
                                     <span class="time">Just now</span>

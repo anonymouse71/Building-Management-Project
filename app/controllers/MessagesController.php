@@ -34,7 +34,7 @@ class MessagesController extends BaseController
 
     public function index()
     {
-        $currentUserId = Auth::user()->id;
+           $currentUserId = Auth::user()->id;
 
         // All threads, ignore deleted/archived participants
         $threads = Thread::getAllLatest()->get();
@@ -131,7 +131,7 @@ class MessagesController extends BaseController
             $thread->addParticipants($input['recipients']);
         }
 
-        return Redirect::to('messages.all')->with('title','Message');
+        return Redirect::to('Messages/' . $thread->id)->with('title','Message');
     }
 
 
@@ -202,14 +202,14 @@ class MessagesController extends BaseController
 
         // don't show the current user in list
         $userId = Auth::user()->id;
-
         $users = User::whereNotIn('id', $thread->participantsUserIds($userId))->get();
 
         $thread->markAsRead($userId);
+        $threads = Thread::getAllLatest()->get();
 
         if(Auth::user()->name == $thread->creator()->name && $thread->participantsString(Auth::id()))
         {
-            return View::make('messages.all', compact('thread', 'users','user'))->with('title','Message');
+            return View::make('messages.all', compact('thread', 'users','userId','threads'))->with('title','Message');
         }
        else
          return Redirect::to('errors');

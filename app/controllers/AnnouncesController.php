@@ -52,6 +52,18 @@ class AnnouncesController extends \BaseController {
 
 
 		if($announce->save()){
+
+			//for notification
+			$notify= new Notification();
+			$notify->type='announce';
+			//$notify->user_id= Auth::user()->id;
+			//$notify->flat_id;
+			$notify->subject='New Announce From Admin';
+			$notify->body=$data['details'];
+			$notify->is_read=0;
+			$notify->save();
+             //for notification
+
 			return Redirect::route('announces.index')->with('success',"Announce Updated Successfully")->with('title',"Announce");
 		}else{
 			return Redirect::route('announces.index')->with('error',"Something went wrong.Try again")->with('title',"Announce");

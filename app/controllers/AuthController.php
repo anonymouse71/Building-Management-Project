@@ -7,6 +7,8 @@ class AuthController extends \BaseController {
 			->with('title', 'Login');
 	}
 
+
+
 	public function doLogin()
 	{
 		$rules = array
@@ -67,12 +69,17 @@ class AuthController extends \BaseController {
 		}
 	}
 
+
+
 	public function logout(){
 		Auth::logout();
 
 		return Redirect::route('index')
 			->with('success',"You are successfully logged out.");
 	}
+
+
+
 
 	public function dashboard(){
 		$log= DB::table('loggers')
@@ -83,6 +90,9 @@ class AuthController extends \BaseController {
 		return View::make('dashboard',compact('log'))
 			->with('title','Dashboard');
 	}
+
+
+
 
 	public function changePassword(){
 		return View::make('auth.changePassword')
@@ -113,6 +123,17 @@ class AuthController extends \BaseController {
 					->with('error',"Something went wrong.Please Try again.");
 			}
 		}
+	}
+
+
+
+	public function allNotify()
+	{
+		$notify =	Notification::where('flat_id','=', Auth::user()->flat_id)
+			->where('is_read', '=', 0)
+			->orWhere('user_id','=', Auth::user()->id)
+			->orWhere('user_id','=', Null)->get();
+		return $notify;
 	}
 
 
