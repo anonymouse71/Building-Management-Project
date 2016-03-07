@@ -17,13 +17,45 @@
 
         <div class="media alert {{$class}}">
 
-            <h4 class="media-heading">{{link_to('Messages/' . $thread->id, $thread->subject)}}</h4>
-
-            <p>{{$thread->latestMessage->body}}</p>
 
 
-            <p><small><strong>Creator:</strong> {{ $thread->creator()->name }}</small></p>
-            <p><small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small></p>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-offset-2 col-md-7">
+                        <div class="well well-sm">
+                            <div class="row">
+
+
+
+
+
+                                <div class="col-sm-6 col-md-8">
+                                    <h4>{{link_to('Messages/' . $thread->id, $thread->subject)}}</h4>
+
+                                    <p>{{$thread->latestMessage->body}}</p>
+
+
+                                    <p><small><strong>Creator:</strong> {{ $thread->creator()->name }}</small></p>
+                                    <p><small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small></p>
+
+
+
+                                </div>
+                                    Created   {{$thread->created_at->diffForHumans()}}
+                                <br>
+                                <a class="btn btn-xs btn-success btn-edit" href="{{URL::route('messages.create') }}">Create +</a>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
         </div>
@@ -40,3 +72,15 @@
 
 
 @stop
+
+<style>
+    body{padding-top:30px;}
+
+    .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
+
+    small {
+        display: block;
+        line-height: 1.428571429;
+        color: #999;
+    }
+</style>

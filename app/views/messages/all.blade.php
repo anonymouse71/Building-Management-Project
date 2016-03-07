@@ -33,20 +33,20 @@
                 @if($threads->count() > 0)
 
 
-                    @foreach($threads as $thread)
-                        @if(Auth::user()->name == $thread->creator()->name && $thread->participantsString(Auth::id()) )
+                    @foreach($threads as $thready)
+                        @if(Auth::user()->name == $thready->creator()->name && $thready->participantsString(Auth::id()) )
 
-                            {{ $class = $thread->isUnread($userId) ? 'alert-info' : ''; }}
+                            {{ $class = $thready->isUnread($userId) ? 'alert-info' : ''; }}
 
                             <div class="media alert {{$class}}">
 
-                                <h4 class="media-heading">{{link_to('Messages/' . $thread->id, $thread->subject)}}</h4>
+                                <h4 class="media-heading">{{link_to('Messages/' . $thready->id, $thready->subject)}}</h4>
 
-                                <p>{{$thread->latestMessage->body}}</p>
+                                <p>{{$thready->latestMessage->body}}</p>
 
 
-                                <p><small><strong>Creator:</strong> {{ $thread->creator()->name }}</small></p>
-                                <p><small><strong>Participants:</strong> {{ $thread->participantsString(Auth::id()) }}</small></p>
+                                <p><small><strong>Creator:</strong> {{ $thready->creator()->name }}</small></p>
+                                <p><small><strong>Participants:</strong> {{ $thready->participantsString(Auth::id()) }}</small></p>
 
 
                             </div>

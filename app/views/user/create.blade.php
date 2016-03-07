@@ -102,13 +102,14 @@
 
 
 
-
 <div class="container">
     <br><br><br>
     {{ Form::open(array('route' => 'user.create', 'method' => 'post', 'class' => 'form-signin')) }}
 
     <div class="col-sm-offset-2 col-md-7">
         @include('includes.alert')
+
+
 
         {{ Form::label('email', 'Email', array('' => '')) }}
         {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) }}
@@ -149,13 +150,20 @@
 
         </div>
 
-        <!--start captcha -->
 
-        {{ Form::label('Please confirm that you are not a Robot:') }}
-        {{Recaptcha::render();}}
+<br>
 
-              <!--end captcha -->
-        <br>        <!--end captcha -->
+<div style="background-color:silver ; color:white; padding:5px; width:650px; ">
+
+    <h2>Terms of Service and Privacy Policy</h2>
+
+    <p>1. You have to pay your all kinds of bill within 5'th day of a month.</p>
+    <p>2. Every 6 months later the authority can increase all kinds of bill.</p>
+    <p>3. London is the capital city of England. It is the most populous cit.</p>
+
+</div>
+
+<br>
         <div class="form-group">
 		 		<span>
 		 		<table width="100%" border="0">
@@ -168,6 +176,16 @@
 		 		</span>
             <!-- <p class="error">{{--$errors->first('agree')--}}</p> -->
         </div>
+
+
+
+        <!--start captcha -->
+
+        {{ Form::label('Please confirm that you are not a Robot:') }}
+        {{Recaptcha::render();}}
+
+                <!--end captcha -->
+        <br><!--end captcha -->
         {{ Form::submit('Register',array('class' => 'btn btn-lg btn-login btn-block', 'data-loading-text' => 'Loading...', )) }}
 
 

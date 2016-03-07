@@ -168,6 +168,12 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
+//Notifications
+Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@index']);
+
+
+
+
 Route::get('error',function(){
 
 		//return View::make('error.500')->with('title','jkJ');

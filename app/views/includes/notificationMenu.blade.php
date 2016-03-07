@@ -79,7 +79,7 @@
                         @endforeach
 
                       <li>
-                          <a href="#">See all notifications</a>
+                          <a href="{{ route('notifications.index') }}">See all notifications</a>
                       </li>
                   </ul>
               </li>
