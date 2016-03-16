@@ -17,6 +17,8 @@ class CreateFlatsTable extends Migration {
 			$table->increments('id');
 			$table->string('name');
 			$table->text('flat_details');
+			$table->string('rent_amount');
+			$table->boolean('payment_status')->default(false);
 			$table->timestamps();
 		});
 	}

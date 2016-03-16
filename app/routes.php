@@ -24,6 +24,8 @@
 Route::get('/',function(){
 
  if(Auth::check() && Auth::user()->userInfo->owner_approve== 1){
+
+
 	 return Redirect::route('dashboard');
  }
  elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 0){
@@ -140,12 +142,19 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('flats/{id}/edit',['as' => 'flats.edit', 'uses' => 'FlatsController@edit']);
 	Route::put('flats/{id}',['as' => 'flats.update', 'uses' => 'FlatsController@update']);
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
+//payment from flat page
+	Route::get('flats/{id}/payment',['as' => 'flats.payment', 'uses' => 'FlatsController@paymentVerification']);
+
+
 	//all members
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
 	//Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
 	Route::get('1', 'UserInfoController@getIndex');
 	Route::get('api', 'UserInfoController@getApi');
+
+
+
 
 });
 
@@ -174,12 +183,22 @@ Route::get('notification',['as' => 'notifications.index', 'uses' => 'Notificatio
 
 
 
-Route::get('error',function(){
+Route::get('time',function(){
 
-		//return View::make('error.500')->with('title','jkJ');
+	return$user= User::where('role_id','=',2)->get();
+
+	/*
+	 * use Carbon\Carbon;
+	 * $date = Carbon::now()->addMinutes(1);
+    Mail::later($date,'hello', array(), function ($message) {
+		$message->from('talhaqc@gmail.com')->to('talha2012331008@gmail.com')->subject('hey');
+	}) ;
+*/
+
 });
 
-
+Route::get('mailInTime',['as' => 'mail.create', 'uses' => 'MailController@create']);
+Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
 
 
 //php artisan migrate --package=cmgmyr/messenger

@@ -1,11 +1,11 @@
-@extends('layouts.default');
-@section('content');
+@extends('layouts.default')
+@section('content')
 <div class="row">
     <div class="col-md-12">
         @include('includes.alert')
         <section class="panel">
             <header class="panel-heading">
-
+{{$title}}
                 <span class="pull-right">
                     <a href="{{ route('flats.index') }}"><button class="btn btn-success">Flat List</button></a>
                 </span>
@@ -22,6 +22,17 @@
                     </div>
                     <br><br>
                 </div>
+
+                <div class="form-group">
+                    {{ Form::label('rent_amount', 'Rent Amount/Month* :', array('class' => 'col-md-2 control-label')) }}
+                    <div class="col-md-8">
+                        {{ Form::number('rent_amount', null, array('class' => 'form-control', 'placeholder' => 'Enter Per Month Rent Amount')) }}
+                    </div>
+                    <br><br>
+                </div>
+
+
+
                 <div class="form-group">
                     {{ Form::label('flat_details', 'Flat Details* :', array('class' => 'col-md-2 control-label')) }}
                     <div class="col-md-8">
@@ -29,6 +40,7 @@
                     </div>
                     <br><br>
                 </div>
+
 
 
                 <br><br>

@@ -26,7 +26,8 @@
 
                     <th>Flat Name</th>
                     <th>Flat Details</th>
-                    <th>Created at</th>
+                    <th>Rent Amount/Month</th>
+                    <th>Payment</th>
                     <th class="text-center">Edit</th>
                     <th class="text-center">Delete</th>
 
@@ -40,8 +41,18 @@
                         <td>{{ $flats->name }}</td>
 
                         <td>{{ $flats->flat_details }}</td>
+                        <td>{{ $flats->rent_amount }} Taka</td>
 
-                        <td>{{ $flats->created_at->format('Y-m-d') }}</td>
+
+                        @if($flats->payment_status == true )
+                            <td style="color:green">Paymet Complete</td>
+                        @else
+                            <td><a href="{{ route('flats.payment', $flats->id) }}"><button class="btn btn-warning btn-xs btn-archive createBtn">Payment Incomplete</button></a></td>
+                        @endif
+
+
+
+                        <td>{{-- $flats->created_at->format('Y-m-d') --}}</td>
 
 
                         <td><a class="btn btn-info btn-xs btn-archive editBtn" href="{{route('flats.edit',$flats->id)}}"  style="margin-right: 3px;">Edit</a></td>

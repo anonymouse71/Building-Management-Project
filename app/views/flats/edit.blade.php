@@ -26,6 +26,14 @@
                 </div>
 
                 <div class="form-group">
+                    {{ Form::label('rent_amount', 'Rent Amount/Month* :', array('class' => 'col-md-2 control-label')) }}
+                    <div class="col-md-8">
+                        {{ Form::number('rent_amount', null, array('class' => 'form-control', 'placeholder' => 'Enter Per Month Rent Amount')) }}
+                    </div>
+                    <br><br>
+                </div>
+
+                <div class="form-group">
                     {{ Form::label('flat_details', 'Flat Details :', array('class' => 'col-md-2 control-label')) }}
                     <div class="col-md-8">
                         {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details','id' => 'editor')) }}
@@ -34,6 +42,8 @@
 
                     <br><br>
                 </div>
+
+
 
 
 

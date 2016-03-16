@@ -161,8 +161,9 @@ class MoneyController extends \BaseController {
 //for notification
 			$notify= new Notification();
 			$notify->type='money';
-			//$notify->user_id= $data['flat_id'];
 			$notify->flat_id= $data['flat_id'];
+			$notify->user_id= Null;
+			$notify->role_id= 1;
 			$notify->subject='Money Transaction by Admin';
 			$notify->body= 'Transaction for: '.$data['title'].', Total Money:'.$data['amount'].'Tk';
 			$notify->is_read=0;

@@ -69,8 +69,10 @@ class UserController extends \BaseController {
 					//for notification
 					$notify= new Notification();
 					$notify->type='manager_request';
-					//$notify->flat_id= $data['flat_id'];
-					$notify->user_id= 1;
+					//if any problem occurs its here the next line
+					$notify->flat_id= Input::get('flat_id');
+					$notify->user_id= Null;
+					$notify->role_id= Input::get('role_id');
 					$notify->subject='Manager Approval Request';
 					$notify->body= $data['email'].'waiting for approval';
 					$notify->is_read=0;
@@ -83,8 +85,9 @@ class UserController extends \BaseController {
 					//for notification
 					$notify= new Notification();
 					$notify->type='user_request';
-					$notify->flat_id= $data['flat_id'];
-					//$notify->user_id= $data['flat_id'];
+					$notify->flat_id= Input::get('flat_id');
+					$notify->user_id= Null;
+					$notify->role_id= Input::get('role_id');
 					$notify->subject='User Approval Request';
 					$notify->body= $data['email'].'waiting for approval';
 					$notify->is_read=0;

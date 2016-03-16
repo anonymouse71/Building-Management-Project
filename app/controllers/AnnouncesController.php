@@ -56,8 +56,9 @@ class AnnouncesController extends \BaseController {
 			//for notification
 			$notify= new Notification();
 			$notify->type='announce';
-			//$notify->user_id= Auth::user()->id;
-			//$notify->flat_id;
+			$notify->flat_id= Null;
+			$notify->user_id= Null;
+			$notify->role_id= 1;
 			$notify->subject='New Announce From Admin';
 			$notify->body=$data['details'];
 			$notify->is_read=0;

@@ -13,6 +13,8 @@ class FlatsTableSeeder extends Seeder {
 
 
 			'name' => 'A1',
+			'rent_amount' => '23000',
+			'payment_status' => false,
 			'flat_details' => 'A wiki is run using wiki software, otherwise known as
 								a wiki engine. There are dozens of different wiki engines in use, both standalone
 							 and part of other software, such as bug tracking systems. Some wiki engines are

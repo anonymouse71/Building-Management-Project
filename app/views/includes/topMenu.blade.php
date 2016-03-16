@@ -11,8 +11,10 @@
 
               <ul class="nav pull-right top-menu">
 
-                  @include('includes.notificationMenu')
-                  @include('includes.inboxMenu')
+
+                @include('includes.notificationMenu')
+                {{--@include('includes.inboxMenu')--}}
+
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
