@@ -113,6 +113,7 @@
 
         {{ Form::label('email', 'Email', array('' => '')) }}
         {{ Form::text('email', '', array('class' => 'form-control', 'placeholder' => 'Email Address', 'autofocus')) }}
+
         <br>
         {{ Form::label('name', 'Username', array('' => '')) }}
         {{ Form::text('name', '', array('class' => 'form-control', 'placeholder' => 'Username', 'autofocus')) }}
@@ -153,17 +154,37 @@
 
 <br>
 
-<div style="background-color:silver ; color:white; padding:5px; width:650px; ">
 
-    <h2>Terms of Service and Privacy Policy</h2>
 
-    <p>1. You have to pay your all kinds of bill within 5'th day of a month.</p>
-    <p>2. Every 6 months later the authority can increase all kinds of bill.</p>
-    <p>3. London is the capital city of England. It is the most populous cit.</p>
 
-</div>
+
+        <div style="width:650px; height:180px; overflow: auto; background:gainsboro " >
+            <h2><b>Terms of Service and Privacy Policy</b></h2>
+
+            <p>1. You have to pay your all kinds of bill within 5'th day of a month.</p>
+            <p>2. Every 6 months later the authority can increase all kinds of bill.</p>
+            <p>3. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
+            <p>4. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it
+                to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum..</p>
+            <p>5. London is the capital city of England. It is the most populous cit.</p>
+            <p>6. London is the capital city of England. It is the most populous cit.</p>
+            <p>7. London is the capital city of England. It is the most populous cit.</p>
+        </div>
+
+
 
 <br>
+
+
+
+
         <div class="form-group">
 		 		<span>
 		 		<table width="100%" border="0">
@@ -227,7 +248,6 @@
 
 
 
-
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="home/js/gmaps.js"></script>
     <script type="text/javascript" src="home/js/jquery.js"></script>
@@ -263,6 +283,9 @@
 
 <style>
 
+    .btn{
+        background: lightslategray;
+    }
 
     #container {
         min-height:100%;

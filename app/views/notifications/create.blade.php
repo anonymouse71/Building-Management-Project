@@ -1,1 +1,0 @@
-C:\Users\talha\Desktop\git\Building-Management-Project\app/views/notifications/create.blade.php

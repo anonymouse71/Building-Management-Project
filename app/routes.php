@@ -178,22 +178,18 @@ Route::group(array('before' => 'auth|admin'), function()
 
 
 //Notifications
-Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@index']);
+Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
+Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
+Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
 
 
 
 
 Route::get('time',function(){
 
-	return$user= User::where('role_id','=',2)->get();
-
-	/*
-	 * use Carbon\Carbon;
-	 * $date = Carbon::now()->addMinutes(1);
-    Mail::later($date,'hello', array(), function ($message) {
-		$message->from('talhaqc@gmail.com')->to('talha2012331008@gmail.com')->subject('hey');
-	}) ;
-*/
+	return $countNoti = Notification::where('type','=','money')
+		->orWhere('type','=','announce')
+		->count();
 
 });
 

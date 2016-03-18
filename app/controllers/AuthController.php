@@ -127,14 +127,6 @@ class AuthController extends \BaseController {
 
 
 
-	public function allNotify()
-	{
-		$notify =	Notification::where('flat_id','=', Auth::user()->flat_id)
-			->where('is_read', '=', 0)
-			->orWhere('user_id','=', Auth::user()->id)
-			->orWhere('user_id','=', Null)->get();
-		return $notify;
-	}
 
 
 

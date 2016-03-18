@@ -4,10 +4,15 @@
 
                       <i class="fa fa-bell-o"></i>
                       <span class="badge bg-warning">
-                        @if(Auth::user()->role_id==1)
-                              {{Notification:: adminNcount()}}
-                              @else
-                              {{Notification::count()}}
+                        @if(Auth::user()->role_id==1 )
+                              {{Notification::adminNcount()}}
+
+                         @elseif(Auth::user()->role_id==2 && Auth::user()->userInfo->owner_approve == 1)
+                               {{Notification::managerNcount()}}
+                          @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
+                              {{Notification::userNcount()}}
+                           @else
+                            {{0}}
 
                           @endif
 
@@ -17,10 +22,15 @@
                       <div class="notify-arrow notify-arrow-yellow"></div>
                       <li>
                           <p class="yellow">You have
-                              @if(Auth::user()->role_id==1)
-                                  {{Notification:: adminNcount()}}
+                              @if(Auth::user()->role_id==1 )
+                                  {{Notification::adminNcount()}}
+
+                              @elseif(Auth::user()->role_id==2 && Auth::user()->userInfo->owner_approve == 1)
+                                  {{Notification::managerNcount()}}
+                              @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
+                                  {{Notification::userNcount()}}
                               @else
-                                  {{Notification::count()}}
+                                  {{0}}
 
                               @endif
 
@@ -29,69 +39,77 @@
 
 
 
-                      @foreach(Notification::allNotify() as $notification)
 
 
 
+   @if(Auth::user()->role_id==1)
 
-
-                          @if($notification->type == 'user_request'&& ! Auth::user()->role_id ==1 )
+                      @foreach(Notification::adminNoty() as $notification)
                               <li>
-                                  <a href="{{ route('manager.index') }}">
+                                  <a href="{{ route('notifications.index') }}">
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-
-                                      {{str_limit($notification->subject, 19);}}
-
-
-
+                                      {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
                                   </a>
                               </li>
-                          @elseif($notification->type == 'money' && ! Auth::user()->role_id ==1 )
+                          @endforeach
+
+
+    @elseif(Auth::user()->role_id==2 && Auth::user()->userInfo->owner_approve == 1)
+
+
+
+                          @foreach(Notification::managerNoty() as $notification)
                               <li>
-                                  <a href="{{ route('finance.index.normal') }}">
+                                  <a href="{{ route('notifications.index') }}">
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-
-                                      {{str_limit($notification->subject, 19);}}
-
-
-
+                                      {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
                                   </a>
                               </li>
+                          @endforeach
 
-                          @elseif($notification->type == 'announce' && ! Auth::user()->role_id ==1 )
+
+
+
+    @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
+
+
+                          @foreach(Notification::userNoty() as $notification)
                               <li>
-                                  <a href="{{ route('dashboard') }}">
+                                  <a href="{{ route('notifications.index') }}">
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-
-                                      {{str_limit($notification->subject, 19);}}
-
-
-
+                                      {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
                                   </a>
                               </li>
+                          @endforeach
 
-                          @elseif($notification->type == 'manager_request' && ! Auth::user()->role_id == 2 )
-                              <li>
-                                  <a href="{{ route('members') }}">
-                                      <span class="label label-danger"><i class="fa fa-bolt"></i></span>
-
-                                      {{str_limit($notification->subject, 19);}}
-
-
-
-                                      <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
-                                  </a>
-                              </li>
-                          @endif
+    @else
+                          <li>
+                              <a href="#{{-- route('manager.index') --}}">
+                                  <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                  {{ 'No New Notification'}}
+                                  <span class="small italic"> {{--$notification->created_at->diffForHumans()--}}</span>
+                              </a>
+                          </li>
+    @endif
 
 
-                        @endforeach
+
+
+
+
+
 
                       <li>
-                          <a href="{{ route('notifications.index') }}">See all notifications</a>
+                          @if(Auth::user()->role_id ==1)
+                                <a href="{{ route('notifications.admin') }}">See all notifications</a>
+                          @elseif(Auth::user()->role_id ==2)
+                                <a href="{{ route('notifications.manager') }}">See all notifications</a>
+                           @else
+                                <a href="{{ route('notifications.user') }}">See all notifications</a>
+                           @endif
                       </li>
                   </ul>
               </li>
