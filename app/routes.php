@@ -193,6 +193,7 @@ Route::get('time',function(){
 
 });
 
+
 Route::get('mailInTime',['as' => 'mail.create', 'uses' => 'MailController@create']);
 Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
 

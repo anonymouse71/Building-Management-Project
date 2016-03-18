@@ -46,7 +46,14 @@
 
                       @foreach(Notification::adminNoty() as $notification)
                               <li>
-                                  <a href="{{ route('notifications.index') }}">
+                                  @if(Auth::user()->role_id ==1)
+                                      <a href="{{ route('notifications.index') }}">
+                                          @elseif(Auth::user()->role_id ==2)
+                                              <a href="{{ route('notifications.manager') }}">
+                                                  @else
+                                                      <a href="{{ route('notifications.user') }}">
+                                                          @endif
+
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                       {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
@@ -61,7 +68,13 @@
 
                           @foreach(Notification::managerNoty() as $notification)
                               <li>
-                                  <a href="{{ route('notifications.index') }}">
+                                  @if(Auth::user()->role_id ==1)
+                                      <a href="{{ route('notifications.index') }}">
+                                          @elseif(Auth::user()->role_id ==2)
+                                              <a href="{{ route('notifications.manager') }}">
+                                                  @else
+                                                      <a href="{{ route('notifications.user') }}">
+                                                          @endif
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                       {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
@@ -77,7 +90,13 @@
 
                           @foreach(Notification::userNoty() as $notification)
                               <li>
-                                  <a href="{{ route('notifications.index') }}">
+                                  @if(Auth::user()->role_id ==1)
+                                      <a href="{{ route('notifications.index') }}">
+                                          @elseif(Auth::user()->role_id ==2)
+                                              <a href="{{ route('notifications.manager') }}">
+                                                  @else
+                                                      <a href="{{ route('notifications.user') }}">
+                                                          @endif
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                       {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
@@ -104,7 +123,7 @@
 
                       <li>
                           @if(Auth::user()->role_id ==1)
-                                <a href="{{ route('notifications.admin') }}">See all notifications</a>
+                                <a href="{{ route('notifications.index') }}">See all notifications</a>
                           @elseif(Auth::user()->role_id ==2)
                                 <a href="{{ route('notifications.manager') }}">See all notifications</a>
                            @else
