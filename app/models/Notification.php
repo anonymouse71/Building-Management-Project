@@ -101,4 +101,13 @@ class Notification extends \Eloquent {
 	}
 
 
+	public static function zeroToOne($id){
+		User::where('id','=',$id)
+			->update(['notify'=> 'n']);
+
+	}
+
+
+
+
 }

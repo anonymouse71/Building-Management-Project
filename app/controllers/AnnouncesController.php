@@ -62,7 +62,9 @@ class AnnouncesController extends \BaseController {
 			$notify->subject='New Announce From Admin';
 			$notify->body=$data['details'];
 			$notify->is_read=0;
-			$notify->save();
+			if($notify->save()){
+				User::where('notify','=','n')->update(['notify' => 'y']);
+			}
              //for notification
 
 			return Redirect::route('announces.index')->with('success',"Announce Updated Successfully")->with('title',"Announce");

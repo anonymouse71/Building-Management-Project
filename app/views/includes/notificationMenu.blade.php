@@ -1,9 +1,25 @@
 <!-- notification dropdown start-->
               <li id="header_notification_bar" class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#"  onClick="test1();">
 
                       <i class="fa fa-bell-o"></i>
+
                       <span class="badge bg-warning">
+
+
+                                 <script>
+                                     function test1()
+                                     {
+                                         <?php  Notification::zeroToOne(Auth::user()->id);
+
+                                         ?>
+                                      }
+
+                                 </script>
+
+
+ @if(Auth::user()->notify == 'y')
+
                         @if(Auth::user()->role_id==1 )
                               {{Notification::adminNcount()}}
 
@@ -15,7 +31,9 @@
                             {{0}}
 
                           @endif
-
+@else
+                                         {{0}}
+ @endif
                       </span>
                   </a>
                   <ul class="dropdown-menu extended notification">
@@ -133,3 +151,10 @@
                   </ul>
               </li>
               <!-- notification dropdown end -->
+
+
+
+
+
+
+
