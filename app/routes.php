@@ -153,7 +153,12 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('1', 'UserInfoController@getIndex');
 	Route::get('api', 'UserInfoController@getApi');
 
+	//terms and condition
+	Route::get('terms_conditions',['as' => 'terms', 'uses' => 'TermsController@view']);
 
+	Route::get('terms',['as' => 'terms.index', 'uses' => 'FlatsController@index']);
+	Route::get('terms/edit',['as' => 'terms.edit', 'uses' => 'FlatsController@edit']);
+	Route::put('terms',['as' => 'terms.update', 'uses' => 'FlatsController@update']);
 
 
 });
