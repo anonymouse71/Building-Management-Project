@@ -142,7 +142,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('flats/{id}/edit',['as' => 'flats.edit', 'uses' => 'FlatsController@edit']);
 	Route::put('flats/{id}',['as' => 'flats.update', 'uses' => 'FlatsController@update']);
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
-//payment from flat page
+	//payment from flat page
 	Route::get('flats/{id}/payment',['as' => 'flats.payment', 'uses' => 'FlatsController@paymentVerification']);
 
 
@@ -154,21 +154,22 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('api', 'UserInfoController@getApi');
 
 	//terms and condition
-	Route::get('terms_conditions',['as' => 'terms', 'uses' => 'TermsController@view']);
+	Route::get('terms/edit',['as' => 'terms.edit', 'uses' => 'TermsController@edit']);
+	Route::put('terms/update',['as' => 'terms.update', 'uses' => 'TermsController@update']);
 
-	Route::get('terms',['as' => 'terms.index', 'uses' => 'FlatsController@index']);
-	Route::get('terms/edit',['as' => 'terms.edit', 'uses' => 'FlatsController@edit']);
-	Route::put('terms',['as' => 'terms.update', 'uses' => 'FlatsController@update']);
+	// sending mail later
+	Route::get('mailInTime',['as' => 'mail.create', 'uses' => 'MailController@create']);
+	Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
 
 
 });
+	//terms of Condition
+	Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
 
-
-//Route::group(array('before' => 'owner'), function(){
-
+	//Route::group(array('before' => 'owner'), function(){
 	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
     Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptMember'));
-//});
+	//});
 
 
 
@@ -182,25 +183,29 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
-//Notifications
-Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
-Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
-Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
+	//Notifications
+	Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
+	Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
+	Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
 
 
 
 
-Route::get('time',function(){
-
-	return $countNoti = Notification::where('type','=','money')
+	Route::get('time',function(){
+		return $countNoti = Notification::where('type','=','money')
 		->orWhere('type','=','announce')
 		->count();
 
-});
+	});
 
 
-Route::get('mailInTime',['as' => 'mail.create', 'uses' => 'MailController@create']);
-Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
+
+
+
+
+
+
+
 
 
 //php artisan migrate --package=cmgmyr/messenger

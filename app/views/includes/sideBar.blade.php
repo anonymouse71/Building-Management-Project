@@ -50,7 +50,7 @@
                       <li class="sub-menu">
 
                           <a href="javascript:">
-                              <i class="fa fa-tasks"></i>
+                              <i class="fa fa-laptop "></i>
                               <span>Messenger</span>
                           </a>
                           <ul class="sub">
@@ -64,7 +64,7 @@
                       <li class="sub-menu">
 
                           <a href="javascript:">
-                              <i class="fa fa-tasks"></i>
+                              <i class="fa fa-user-plus"></i>
                               <span>Profile</span>
                           </a>
                           <ul class="sub">
@@ -83,7 +83,7 @@
                           <li class="sub-menu">
 
                               <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
+                                  <i class="fa fa-users"></i>
                                   <span>Member</span>
                               </a>
                               <ul class="sub">
@@ -101,7 +101,7 @@
                           <li class="sub-menu">
 
                               <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
+                                  <i class="fa fa-money "></i>
                                   <span>Flat Finance Care </span>
                               </a>
                               <ul class="sub">
@@ -116,7 +116,7 @@
                           <li class="sub-menu">
 
                               <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
+                                  <i class="fa fa-building-o"></i>
                                   <span>Flat</span>
                               </a>
                               <ul class="sub">
@@ -127,11 +127,11 @@
                           </li>
 
 
-                          {{-- Whole Finance --}}
+                          {{-- Announce --}}
                           <li class="sub-menu">
 
                               <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
+                                  <i class="fa fa-bullhorn"></i>
                                   <span>Announcement</span>
                               </a>
                               <ul class="sub">
@@ -140,6 +140,29 @@
                               </ul>
                           </li>
 
+
+                      {{-- T&C --}}
+                      <li class="sub-menu">
+
+                          <a href="javascript:">
+                              <i class="fa fa-microphone-slash"></i>
+                              <span>Terms Of Con..</span>
+                          </a>
+                          <ul class="sub">
+                              <li><a href="{{URL::route('terms.index') }}">T&C</a></li>
+                              <li><a href="{{URL::route('terms.edit') }}">Edit T&C</a></li>
+
+                          </ul>
+                      </li>
+
+
+                      <li>
+                          <a href="{{ URL::route('mail.create') }}">
+                              <i class="fa fa-envelope-o"></i>
+                              <span>Mail In Time</span>
+                          </a>
+
+                      </li>
 
 
                   @endif

@@ -106,7 +106,7 @@ class FlatsController extends \BaseController {
 
 
 		if($flats->save()){
-			return Redirect::route('flats.index')->with('success',"Log Inserted Successfully");
+			return Redirect::route('flats.index')->with('success',"Flat  Updated Successfully");
 		}else{
 			return Redirect::route('flats.index')->with('error',"Something went wrong.Try again");
 		}
@@ -126,43 +126,7 @@ class FlatsController extends \BaseController {
 	}
 
 
-	/**
-	 * payment system
-	 * return 1/0 to payment_ststus
-	 * update the money Transaction table
-     */
-	public function paymentVerification($id){
 
-		try {
-			$flat = Flat::find($id);
-			$flat->payment_status = true;
-
-			if ($flat->save()) {
-
-				$money = new Money();
-
-				$money->title = 'Direct Paid';
-				$money->type = 'credit';
-				$money->method = 'Cash';
-				$money->amount = $flat->rent_amount;
-				$money->date = \Carbon\Carbon::now() ;
-				$money->flat_id = $flat->id;
-				if($money->save()){
-					return Redirect::back()->with('success',"Payment Completed Successfully");
-				}else
-				{
-					return Redirect::back()->with('error',"Something went wrong, Please try again");
-				}
-			}
-			else{
-				return Redirect::back()->with('error',"Something went wrong, Please try again");
-			}
-		}catch(Exception $e){
-			return Redirect::back()->with('error', "Something went wrong.");
-		}
-
-
-	}
 
 
 

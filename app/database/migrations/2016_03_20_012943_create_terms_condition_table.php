@@ -15,6 +15,7 @@ class CreateTermsConditionTable extends Migration {
 		Schema::create('terms_condition', function(Blueprint $table)
 		{
 			$table->increments('id');
+			$table->text('details');
 			$table->timestamps();
 		});
 	}
