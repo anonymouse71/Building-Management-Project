@@ -14,7 +14,7 @@ class UsersTableSeeder extends Seeder {
 				
 				'name'   => 'Talha08',
 				'role_id' =>'1',
-				'flat_id' =>null,
+				'flat_id' =>Null,
 				'notify' =>'y',
 				'created_at' => date('Y-m-d H:i:s'),
 				'updated_at' => date('Y-m-d H:i:s')
@@ -41,7 +41,19 @@ class UsersTableSeeder extends Seeder {
 				'notify' =>'y',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
-		]
+		],
+
+			[
+				'email'      => 'farzad@gmail.com',
+				'password'   => Hash::make('a'),
+				'name'   => 'Farzad',
+				'role_id' =>'4',
+				'flat_id' =>Null,
+				'notify' =>'y',
+				'created_at' => date('Y-m-d H:i:s'),
+				'updated_at' => date('Y-m-d H:i:s')
+			]
+
 
 		];
 

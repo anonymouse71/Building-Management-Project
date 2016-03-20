@@ -9,7 +9,8 @@ return [
 	'roles' =>[
 		'admin' => 'admin',
 		'owner'=>'owner',
-		'member' =>'member'
+		'member' =>'member',
+		'worker' =>'worker'
 	],
 
 

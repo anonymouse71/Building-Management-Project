@@ -165,6 +165,7 @@ class UserInfoTableSeeder extends Seeder {
 
 
 
+
 		];
 
 		DB::table('userinfo')->insert($userInfo);

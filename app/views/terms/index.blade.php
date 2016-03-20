@@ -177,6 +177,10 @@
         padding-top: 30px;
         position: relative;
     }
+
+    .btn-common:hover, .btn-common:focus{
+        background: yellowgreen;
+    }
 </style>
 
 
