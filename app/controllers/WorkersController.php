@@ -7,7 +7,7 @@ class WorkersController extends \BaseController {
 	{
 		$workers = Worker::all();
 
-		return View::make('workers.index', compact('workers'));
+		return View::make('workers.index', compact('workers'))->with('title','User Need');
 	}
 
 
