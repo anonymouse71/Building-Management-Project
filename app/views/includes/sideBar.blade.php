@@ -112,6 +112,14 @@
                                                   </li>
 
 
+                                                      <li>
+                                                          <a href="{{ URL::route('workers.create') }}">
+                                                              <i class="fa fa-dashboard"></i>
+                                                              <span>Problem??</span>
+                                                          </a>
+                                                      </li>
+
+
                                 @endif
 
                                 @if(Auth::user()->role_id == '2' && Auth::user()->userInfo->owner_approve== 1)
@@ -152,6 +160,13 @@
 
                                                       </ul>
                                                   </li>
+
+                                                      <li>
+                                                          <a href="{{ URL::route('workers.create') }}">
+                                                              <i class="fa fa-dashboard"></i>
+                                                              <span>Problem??</span>
+                                                          </a>
+                                                      </li>
 
                               @endif
 
@@ -198,7 +213,25 @@
                                                   </ul>
                                               </li>
 
-                              @endif
+
+                                                  <li>
+                                                      <a href="{{ URL::route('workers.create') }}">
+                                                          <i class="fa fa-dashboard"></i>
+                                                          <span>Problem??</span>
+                                                      </a>
+                                                  </li>
+                             @endif
+
+                               @if(Auth::user()->role_id == '4' && Auth::user()->userInfo->owner_approve== 1)
+
+                                                  <li>
+                                                      <a href="{{ URL::route('workers.index') }}">
+                                                          <i class="fa fa-dashboard"></i>
+                                                          <span>Flat Problem</span>
+                                                      </a>
+                                                  </li>
+
+                                  @endif
 
                   @if(Auth::user()->userInfo->owner_approve== 1)
 
@@ -232,6 +265,9 @@
 
                           </ul>
                       </li>
+
+
+
 
 
                   @else

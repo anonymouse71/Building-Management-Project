@@ -30,10 +30,15 @@
                             {{'Flat Name'}}    <h4> <b>{{Auth::user()->flats->name}}</b></h4> {{'(ADMIN)'}}
 
                         </div>
+                    @elseif(Auth::user()->role_id == 4)
+                        <div class="profile-usertitle-job">
+                            {{'Building Worker'}}
+                        </div>
                      @else
                         <div class="profile-usertitle-job">
                             {{'Owner of The Building'}}
                         </div>
+
                      @endif
                 </div>
 

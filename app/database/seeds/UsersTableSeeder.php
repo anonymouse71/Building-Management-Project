@@ -9,10 +9,10 @@ class UsersTableSeeder extends Seeder {
 	{
 		$users = [
 			[
-				'email'      => 'talha@gmail.com',
+				'email'      => 'admin@gmail.com',
 				'password'   => Hash::make('a'),
 				
-				'name'   => 'Talha08',
+				'name'   => 'Admin',
 				'role_id' =>'1',
 				'flat_id' =>Null,
 				'notify' =>'y',
@@ -22,9 +22,9 @@ class UsersTableSeeder extends Seeder {
 
 
 			[
-			'email'      => 'talhaqc@gmail.com',
+			'email'      => 'manager@gmail.com',
 			'password'   => Hash::make('a'),
-			'name'   => 'Talha',
+			'name'   => 'Manager',
 			'role_id' =>'2',
 			'flat_id' =>'1',
 				'notify' =>'y',
@@ -33,9 +33,9 @@ class UsersTableSeeder extends Seeder {
 		],
 
 			[
-			'email'      => 'tanveer@gmail.com',
+			'email'      => 'member@gmail.com',
 			'password'   => Hash::make('a'),
-			'name'   => 'Bitla',
+			'name'   => 'Member',
 			'role_id' =>'3',
 			'flat_id' =>'1',
 				'notify' =>'y',
@@ -44,9 +44,9 @@ class UsersTableSeeder extends Seeder {
 		],
 
 			[
-				'email'      => 'farzad@gmail.com',
+				'email'      => 'worker@gmail.com',
 				'password'   => Hash::make('a'),
-				'name'   => 'Farzad',
+				'name'   => 'Worker',
 				'role_id' =>'4',
 				'flat_id' =>Null,
 				'notify' =>'y',
