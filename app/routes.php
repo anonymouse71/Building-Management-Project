@@ -24,9 +24,10 @@
 Route::get('/',function(){
 
 	//for worker mode
-if(Auth::user()->role_id == 4){
+if( Auth::check() && Auth::user()->role_id == 4){
 
 	return Redirect::route('workers.index');
+
 }
 
  elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 1){
@@ -93,7 +94,8 @@ Route::group(array('before' => 'auth'), function()
    //My flat members
 	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
-
+    //mesenger system
+	//group message
 	Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 	Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
 	Route::post('messages/', ['as' => 'messages.store', 'uses' => 'MessagesController@store']);
@@ -101,11 +103,24 @@ Route::group(array('before' => 'auth'), function()
 	Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 	Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
 
+	//for member waiting list and approval
+	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
+	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptMember'));
 
 
 
-//for worker role_id==4
+	//Notifications
+	Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
+	Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
+	Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
+
+
+   //for worker role_id==4
 	Route::get('work/index', ['as' => 'workers.index', 'uses' => 'WorkersController@index']);
+	Route::get('work/create', ['as' => 'workers.create', 'uses' => 'WorkersController@create']);
+	Route::post('work/', ['as' => 'workers.store', 'uses' => 'WorkersController@store']);
+	Route::get('work/{id}/status', ['as' => 'workers.status', 'uses' => 'WorkersController@changeStatus']);
+	Route::get('work/{id}/show', ['as' => 'workers.show', 'uses' => 'WorkersController@show']);
 
 });
 
@@ -161,6 +176,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('all-members',['as' => 'flats.allMembers', 'uses' => 'UserController@allMember']);
 	//Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
+
 	Route::get('1', 'UserInfoController@getIndex');
 	Route::get('api', 'UserInfoController@getApi');
 
@@ -168,19 +184,16 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('terms/edit',['as' => 'terms.edit', 'uses' => 'TermsController@edit']);
 	Route::put('terms/update',['as' => 'terms.update', 'uses' => 'TermsController@update']);
 
-	// sending mail later
+	// sending mail later to all user
 	Route::get('mailInTime',['as' => 'mail.create', 'uses' => 'MailController@create']);
 	Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
 
 
 });
 	//terms of Condition
-	Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
+   Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
 
-	//Route::group(array('before' => 'owner'), function(){
-	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
-    Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptMember'));
-	//});
+
 
 
 
@@ -194,10 +207,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
-	//Notifications
-	Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
-	Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
-	Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
+
 
 
 

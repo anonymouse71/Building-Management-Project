@@ -2,17 +2,23 @@
           <div class="sidebar-toggle-box ">
               <div data-original-title="Toggle Navigation" data-placement="right" class="fa fa-bars tooltips" ></div>
           </div>
+
+
+
+    @if(Auth::user()->id ==4)
           <!--logo start-->
-          <a href="{{route('dashboard')}}" class="logo" ><span  style="color:white">Building</span><span>Management</span></a>
+          <a href="#" class="logo" ><span  style="color:white">Building</span><span>Management</span></a>
           <!--logo end-->
+      @else
+        <a href="{{route('dashboard')}}" class="logo" ><span  style="color:white">Building</span><span>Management</span></a>
+      @endif
+
+
+
 
           <div class="top-nav ">
-
-
               <ul class="nav pull-right top-menu">
-
-
-                @include('includes.notificationMenu')
+                  @include('includes.notificationMenu')
                 {{--@include('includes.inboxMenu')--}}
 
                   <!-- user login dropdown start-->

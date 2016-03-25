@@ -51,7 +51,10 @@ class AuthController extends \BaseController {
 
 			if (Auth::attempt($credentials))
 			{
-				if(!$userActivation->userInfo->first_login) {
+				if(Auth::user()->id == 4){
+					return Redirect::route('workers.index');
+				}
+				elseif(!$userActivation->userInfo->first_login) {
 
 					return Redirect::route('user.edit');
 				}

@@ -7,23 +7,200 @@
                     @if(!Auth::check())
                       <li><a href="{{ URL::route('login') }}">Login</a></li>
                       <li><a href="{{ URL::route('register') }}">Register</a></li>
-                   @endif
+                     @endif
 
 
 
-                      @if(Auth::user()->userInfo->owner_approve== 1)
 
-                           <!-- dashboard -->
 
-                      <li>
+                            @if(Auth::user()->role_id == '1')
 
-                          <a href="{{ URL::route('dashboard') }}">
-                              <i class="fa fa-dashboard"></i>
-                              <span>Dashboard</span>
-                          </a>
 
-                      </li>
+                                          <li>
 
+                                              <a href="{{ URL::route('dashboard') }}">
+                                                  <i class="fa fa-dashboard"></i>
+                                                  <span>Dashboard</span>
+                                              </a>
+
+                                          </li>
+
+
+                                          {{-- Member --}}
+                                          <li class="sub-menu">
+
+                                              <a href="javascript:">
+                                                  <i class="fa fa-users"></i>
+                                                  <span>Member</span>
+                                              </a>
+                                              <ul class="sub">
+                                                  <li><a href="{{ route('flats.allMembers') }}">All Flat member List</a></li>
+                                                  <li><a href="{{ route('members.view.distributor') }}">Owner List</a></li>
+                                                  <li><a href="{{ route('members.view.client') }}">Member List</a></li>
+                                                  <li><a href="{{ route('members') }}">Waiting List</a></li>
+
+                                              </ul>
+                                          </li>
+
+
+
+                                          {{-- Whole Finance --}}
+                                          <li class="sub-menu">
+
+                                              <a href="javascript:">
+                                                  <i class="fa fa-money "></i>
+                                                  <span>Flat Finance Care </span>
+                                              </a>
+                                              <ul class="sub">
+                                                  <li><a href="{{URL::route('finance.index') }}">Flat Total Finance</a></li>
+                                                  <li><a href="{{URL::route('finance.create') }}">Record New Finance</a></li>
+
+                                              </ul>
+                                          </li>
+
+
+                                          {{-- Whole Finance --}}
+                                          <li class="sub-menu">
+
+                                              <a href="javascript:">
+                                                  <i class="fa fa-building-o"></i>
+                                                  <span>Flat</span>
+                                              </a>
+                                              <ul class="sub">
+                                                  <li><a href="{{URL::route('flats.index') }}">Flat details</a></li>
+                                                  <li><a href="{{URL::route('flats.create') }}">Create New Flat</a></li>
+
+                                              </ul>
+                                          </li>
+
+
+                                          {{-- Announce --}}
+                                          <li class="sub-menu">
+
+                                              <a href="javascript:">
+                                                  <i class="fa fa-bullhorn"></i>
+                                                  <span>Announcement</span>
+                                              </a>
+                                              <ul class="sub">
+                                                  <li><a href="{{URL::route('announces.index') }}">Announcement List</a></li>
+
+                                              </ul>
+                                          </li>
+
+
+                                              {{-- T&C --}}
+                                              <li class="sub-menu">
+
+                                                  <a href="javascript:">
+                                                      <i class="fa fa-microphone-slash"></i>
+                                                      <span>Terms Of Con..</span>
+                                                  </a>
+                                                  <ul class="sub">
+                                                      <li><a href="{{URL::route('terms.index') }}">T&C</a></li>
+                                                      <li><a href="{{URL::route('terms.edit') }}">Edit T&C</a></li>
+
+                                                  </ul>
+                                              </li>
+
+
+                                                  <li>
+                                                      <a href="{{ URL::route('mail.create') }}">
+                                                          <i class="fa fa-envelope-o"></i>
+                                                          <span>Mail In Time</span>
+                                                      </a>
+
+                                                  </li>
+
+
+                                @endif
+
+                                @if(Auth::user()->role_id == '2' && Auth::user()->userInfo->owner_approve== 1)
+
+                                                      <li>
+
+                                                          <a href="{{ URL::route('dashboard') }}">
+                                                              <i class="fa fa-dashboard"></i>
+                                                              <span>Dashboard</span>
+                                                          </a>
+
+                                                      </li>
+
+
+                                                  {{-- Finance --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Finance</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('finance.index.normal') }}">Flat Total Finance</a></li>
+
+                                                      </ul>
+                                                  </li>
+
+                                                  {{-- flats --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Flat Members</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
+                                                          <li><a href="{{URL::route('manager.index') }}">Waiting Members</a></li>
+
+                                                      </ul>
+                                                  </li>
+
+                              @endif
+
+
+
+                              @if(Auth::user()->role_id == '3' && Auth::user()->userInfo->owner_approve== 1)
+
+
+                                              <li>
+
+                                                  <a href="{{ URL::route('dashboard') }}">
+                                                      <i class="fa fa-dashboard"></i>
+                                                      <span>Dashboard</span>
+                                                  </a>
+
+                                              </li>
+
+
+                                              {{-- Finance --}}
+                                              <li class="sub-menu">
+
+                                                  <a href="javascript:">
+                                                      <i class="fa fa-tasks"></i>
+                                                      <span>Finance</span>
+                                                  </a>
+                                                  <ul class="sub">
+                                                      <li><a href="{{URL::route('finance.index.normal') }}">Flat Total Finance</a></li>
+
+                                                  </ul>
+                                              </li>
+
+
+
+                                              {{-- Flat --}}
+                                              <li class="sub-menu">
+
+                                                  <a href="javascript:">
+                                                      <i class="fa fa-tasks"></i>
+                                                      <span>Flat Members</span>
+                                                  </a>
+                                                  <ul class="sub">
+                                                      <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
+
+                                                  </ul>
+                                              </li>
+
+                              @endif
+
+                  @if(Auth::user()->userInfo->owner_approve== 1)
 
 
                       {{-- log --}}
@@ -42,10 +219,6 @@
 
 
 
-
-
-
-
                       {{-- Whole Message --}}
                       <li class="sub-menu">
 
@@ -59,7 +232,12 @@
 
                           </ul>
                       </li>
-                        @else
+
+
+                  @else
+
+
+
                       {{-- Profile --}}
                       <li class="sub-menu">
 
@@ -76,164 +254,6 @@
                       </li>
 
                   @endif
-
-                  @if(Auth::user()->role_id == '1')
-
-                          {{-- Member --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-users"></i>
-                                  <span>Member</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{ route('flats.allMembers') }}">All Flat member List</a></li>
-                                  <li><a href="{{ route('members.view.distributor') }}">Owner List</a></li>
-                                  <li><a href="{{ route('members.view.client') }}">Member List</a></li>
-                                  <li><a href="{{ route('members') }}">Waiting List</a></li>
-
-                              </ul>
-                          </li>
-
-
-
-                          {{-- Whole Finance --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-money "></i>
-                                  <span>Flat Finance Care </span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('finance.index') }}">Flat Total Finance</a></li>
-                                  <li><a href="{{URL::route('finance.create') }}">Record New Finance</a></li>
-
-                              </ul>
-                          </li>
-
-
-                          {{-- Whole Finance --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-building-o"></i>
-                                  <span>Flat</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('flats.index') }}">Flat details</a></li>
-                                  <li><a href="{{URL::route('flats.create') }}">Create New Flat</a></li>
-
-                              </ul>
-                          </li>
-
-
-                          {{-- Announce --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-bullhorn"></i>
-                                  <span>Announcement</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('announces.index') }}">Announcement List</a></li>
-
-                              </ul>
-                          </li>
-
-
-                      {{-- T&C --}}
-                      <li class="sub-menu">
-
-                          <a href="javascript:">
-                              <i class="fa fa-microphone-slash"></i>
-                              <span>Terms Of Con..</span>
-                          </a>
-                          <ul class="sub">
-                              <li><a href="{{URL::route('terms.index') }}">T&C</a></li>
-                              <li><a href="{{URL::route('terms.edit') }}">Edit T&C</a></li>
-
-                          </ul>
-                      </li>
-
-
-                      <li>
-                          <a href="{{ URL::route('mail.create') }}">
-                              <i class="fa fa-envelope-o"></i>
-                              <span>Mail In Time</span>
-                          </a>
-
-                      </li>
-
-
-                  @endif
-
-                      @if(Auth::user()->role_id == '2' && Auth::user()->userInfo->owner_approve== 1)
-
-                          {{-- Finance --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
-                                  <span>Finance</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('finance.index.normal') }}">Flat Total Finance</a></li>
-
-                              </ul>
-                          </li>
-
-                          {{-- flats --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
-                                  <span>Flat Members</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
-                                  <li><a href="{{URL::route('manager.index') }}">Waiting Members</a></li>
-
-                              </ul>
-                          </li>
-
-                      @endif
-
-
-
-                   @if(Auth::user()->role_id == '3' && Auth::user()->userInfo->owner_approve== 1)
-
-
-
-
-                          {{-- Finance --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
-                                  <span>Finance</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('finance.index.normal') }}">Flat Total Finance</a></li>
-
-                              </ul>
-                          </li>
-
-
-
-                          {{-- Flat --}}
-                          <li class="sub-menu">
-
-                              <a href="javascript:">
-                                  <i class="fa fa-tasks"></i>
-                                  <span>Flat Members</span>
-                              </a>
-                              <ul class="sub">
-                                  <li><a href="{{URL::route('flats.members') }}">Flat Members</a></li>
-
-                              </ul>
-                          </li>
-
-                   @endif
 
 
               </ul>

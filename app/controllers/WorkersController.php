@@ -3,11 +3,12 @@
 class WorkersController extends \BaseController {
 
 	//Worker index
+	// worker can see who and what type of work send by user
 	public function index()
 	{
 		$workers = Worker::all();
 
-		return View::make('workers.index', compact('workers'))->with('title','User Need');
+		return View::make('workers.index', compact('workers'))->with('title','User Problem');
 	}
 
 
@@ -21,7 +22,7 @@ class WorkersController extends \BaseController {
 
 
 
-
+   //thats for User who wants to create a eork for the worker
 	//for user view
 	public function create()
 	{
@@ -34,6 +35,7 @@ class WorkersController extends \BaseController {
 
 
 	//message/problem store
+	//which is covered byt user
 	public function store()
 	{
 		$validator = Validator::make($data = Input::all(), Worker::$rules);
@@ -51,7 +53,7 @@ class WorkersController extends \BaseController {
 		$worker->user_id = Auth::user()->id;
 
 		if($worker->save()){
-			return Redirect::route('workers.create')->with('success',"Message Sent Successfully");
+			return Redirect::route('workers.create')->with('success',"Problem sent  successfully");
 		}else{
 			return Redirect::route('workers.create')->with('error',"Something went wrong.Try again");
 		}
@@ -64,24 +66,21 @@ class WorkersController extends \BaseController {
 
 
 
-
+//work status change, work done or not
 //for changing  status
-	public function statusChange($id)
+	public function changeStatus($id)
 	{
+
 		try{
-			$worker = Worker::findOrFail($id);
+			$worker = Worker::find($id);
+			$worker->status = true;
 
-			if($worker->status== false){
-				$worker->update(['status'=>true]);
-			}
-			else{
-				$worker->update(['status'=>false]);
-			}
+			$worker->save();
 
-			return Redirect::route('workers.index')->with('success',"Status Change.");
+			return Redirect::back()->with('success',"Status Change.");
 		}
 		catch(Exception $e){
-			return Redirect::route('workers.index')->with('error',"Something went wrong.");
+			return Redirect::back()->with('error',"Something went wrong.");
 		}
 
 	}
