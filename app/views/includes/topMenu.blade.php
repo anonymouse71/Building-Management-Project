@@ -7,10 +7,10 @@
 
     @if(Auth::user()->id ==4)
           <!--logo start-->
-          <a href="#" class="logo" ><span  style="color:white">Building</span><span>Management</span></a>
+          <a href="#" class="logo" ><span  style="color:white">Uniliver</span><span> Building</span></a>
           <!--logo end-->
       @else
-        <a href="{{route('dashboard')}}" class="logo" ><span  style="color:white">Building</span><span>Management</span></a>
+        <a href="{{route('dashboard')}}" class="logo" ><span  style="color:white">Uniliver</span><span> Building</span></a>
       @endif
 
 
