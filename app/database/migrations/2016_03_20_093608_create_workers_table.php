@@ -19,7 +19,7 @@ class CreateWorkersTable extends Migration {
 			$table->text('details');
 			$table->integer('flat_id')->nullable();
 			$table->integer('user_id');
-			$table->boolean('notify')->default(true);
+			$table->boolean('notify')->default(false);
 			$table->boolean('status')->default(false);
 			$table->timestamps();
 		});

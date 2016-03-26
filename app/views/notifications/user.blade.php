@@ -54,6 +54,13 @@
                             @elseif($notification->type == 'manager_request')
                                 <a href="{{ route('members') }}">{{ $notification->subject }}</a>
 
+                            @elseif($notification->type == 'admin')
+                                <a href="{{ route('workers.index') }}">{{ $notification->subject }}</a>
+
+                            @elseif($notification->type == 'worker')
+                                <a href="{{ route('workers.index') }}">{{ $notification->subject }}</a>
+
+
 
                             @endif
 

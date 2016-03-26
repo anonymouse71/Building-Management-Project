@@ -27,6 +27,8 @@
                                {{Notification::managerNcount()}}
                           @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
                               {{Notification::userNcount()}}
+                           @elseif(Auth::user()->role_id==4 && Auth::user()->userInfo->owner_approve == 1)
+                                  {{Notification::workerNcount()}}
                            @else
                             {{0}}
 
@@ -47,6 +49,8 @@
                                   {{Notification::managerNcount()}}
                               @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
                                   {{Notification::userNcount()}}
+                              @elseif(Auth::user()->role_id==4 && Auth::user()->userInfo->owner_approve == 1)
+                                  {{Notification::workerNcount()}}
                               @else
                                   {{0}}
 
@@ -68,8 +72,10 @@
                                       <a href="{{ route('notifications.index') }}">
                                           @elseif(Auth::user()->role_id ==2)
                                               <a href="{{ route('notifications.manager') }}">
-                                                  @else
+                                                  @elseif(Auth::user()->role_id ==3)
                                                       <a href="{{ route('notifications.user') }}">
+                                                          @else
+                                                              <a href="{{ route('notifications.worker') }}">
                                                           @endif
 
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
@@ -90,8 +96,10 @@
                                       <a href="{{ route('notifications.index') }}">
                                           @elseif(Auth::user()->role_id ==2)
                                               <a href="{{ route('notifications.manager') }}">
-                                                  @else
+                                                  @elseif(Auth::user()->role_id ==3)
                                                       <a href="{{ route('notifications.user') }}">
+                                                          @else
+                                                              <a href="{{ route('notifications.worker') }}">
                                                           @endif
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                       {{str_limit($notification->subject, 13);}}
@@ -112,13 +120,36 @@
                                       <a href="{{ route('notifications.index') }}">
                                           @elseif(Auth::user()->role_id ==2)
                                               <a href="{{ route('notifications.manager') }}">
-                                                  @else
+                                                  @elseif(Auth::user()->role_id ==3)
                                                       <a href="{{ route('notifications.user') }}">
+                                                          @else
+                                                              <a href="{{ route('notifications.worker') }}">
                                                           @endif
                                       <span class="label label-danger"><i class="fa fa-bolt"></i></span>
                                       {{str_limit($notification->subject, 13);}}
                                       <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
                                   </a>
+                              </li>
+                          @endforeach
+
+
+     @elseif(Auth::user()->role_id==4 && Auth::user()->userInfo->owner_approve == 1)
+
+                          @foreach(Notification::workerNoty() as $notification)
+                              <li>
+                                  @if(Auth::user()->role_id ==1)
+                                      <a href="{{ route('notifications.index') }}">
+                                          @elseif(Auth::user()->role_id ==2)
+                                              <a href="{{ route('notifications.manager') }}">
+                                                  @elseif(Auth::user()->role_id ==3)
+                                                      <a href="{{ route('notifications.user') }}">
+                                                     @else
+                                                        <a href="{{ route('notifications.worker') }}">
+                                                          @endif
+                                                          <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                                          {{str_limit($notification->subject, 13);}}
+                                                          <span class="small italic"> {{$notification->created_at->diffForHumans()}}</span>
+                                                      </a>
                               </li>
                           @endforeach
 
@@ -144,8 +175,10 @@
                                 <a href="{{ route('notifications.index') }}">See all notifications</a>
                           @elseif(Auth::user()->role_id ==2)
                                 <a href="{{ route('notifications.manager') }}">See all notifications</a>
+                          @elseif(Auth::user()->role_id ==3)
+                              <a href="{{ route('notifications.user') }}">See all notifications</a>
                            @else
-                                <a href="{{ route('notifications.user') }}">See all notifications</a>
+                                <a href="{{ route('notifications.worker') }}">See all notifications</a>
                            @endif
                       </li>
                   </ul>

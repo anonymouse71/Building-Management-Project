@@ -112,15 +112,23 @@
                                                   </li>
 
 
-                                                      <li>
-                                                          <a href="{{ URL::route('workers.create') }}">
-                                                              <i class="fa fa-dashboard"></i>
-                                                              <span>Problem??</span>
-                                                          </a>
-                                                      </li>
+                                                  {{-- Works --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Any Problem??</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
+                                                          <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+
+                                                      </ul>
+                                                  </li>
 
 
-                                @endif
+
+                  @endif
 
                                 @if(Auth::user()->role_id == '2' && Auth::user()->userInfo->owner_approve== 1)
 
@@ -161,14 +169,23 @@
                                                       </ul>
                                                   </li>
 
-                                                      <li>
-                                                          <a href="{{ URL::route('workers.create') }}">
-                                                              <i class="fa fa-dashboard"></i>
-                                                              <span>Problem??</span>
-                                                          </a>
-                                                      </li>
 
-                              @endif
+                                                  {{-- Works --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Any Problem??</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
+                                                          <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+
+                                                      </ul>
+                                                  </li>
+
+
+                  @endif
 
 
 
@@ -214,12 +231,22 @@
                                               </li>
 
 
-                                                  <li>
-                                                      <a href="{{ URL::route('workers.create') }}">
-                                                          <i class="fa fa-dashboard"></i>
-                                                          <span>Problem??</span>
-                                                      </a>
-                                                  </li>
+                                          {{-- Works --}}
+                                          <li class="sub-menu">
+
+                                              <a href="javascript:">
+                                                  <i class="fa fa-tasks"></i>
+                                                  <span>Any Problem??</span>
+                                              </a>
+                                              <ul class="sub">
+                                                  <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
+                                                  <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+
+                                              </ul>
+                                          </li>
+
+
+
                              @endif
 
                                @if(Auth::user()->role_id == '4' && Auth::user()->userInfo->owner_approve== 1)
@@ -227,7 +254,7 @@
                                                   <li>
                                                       <a href="{{ URL::route('workers.index') }}">
                                                           <i class="fa fa-dashboard"></i>
-                                                          <span>Flat Problem</span>
+                                                          <span>Flat Problems</span>
                                                       </a>
                                                   </li>
 

@@ -44,6 +44,7 @@ class Notification extends \Eloquent {
 	//admin notification count
 	public static function adminNcount(){
 		$countNoti = Notification::where('type','=','manager_request')
+			->orWhere('type','=','admin')
 			->count();
 		return $countNoti;
 	}
@@ -51,8 +52,9 @@ class Notification extends \Eloquent {
 //admin notification list
 	public static function adminNoty(){
 		$countNoti = Notification::where('type','=','manager_request')
+			 ->orWhere('type','=','admin')
 			 ->orderBy('created_at','desc')
-			->get();
+			 ->get();
 		return $countNoti;
 	}
 
@@ -62,17 +64,18 @@ class Notification extends \Eloquent {
 
 	//manager notification count
 	public static function managerNcount(){
-		$countNoti = Notification::where('flat_id','=',Auth::user()->flat_id)
-			                     ->orWhere('type','=','announce')
-			                     ->orWhere('type','=','user_request')
-			                    ->count();
+		$countNoti = Notification::where('type','=','announce')
+			//  ->OrWhere('flat_id','=',Auth::user()->flat_id)
+			    ->orWhere('type','=','user_request')
+			    ->orderBy('created_at','desc')
+			    ->count();
 		return $countNoti;
 	}
 
 //manager notification list
 	public static function managerNoty(){
-		$countNoti = Notification::where('flat_id','=',Auth::user()->flat_id)
-			->orWhere('type','=','announce')
+		$countNoti = Notification::where('type','=','announce')
+		//  ->OrWhere('flat_id','=',Auth::user()->flat_id)
 			->orWhere('type','=','user_request')
 			->orderBy('created_at','desc')
 			->get();
@@ -85,16 +88,37 @@ class Notification extends \Eloquent {
 
 	//user notification count
 	public static function userNcount(){
-		$countNoti = Notification::where('flat_id','=',Auth::user()->flat_id)
-			->orWhere('type','=','announce')
+		$countNoti =Notification::where('type','=','announce')
+		//  ->OrWhere('flat_id','=',Auth::user()->flat_id)
 			->count();
 		return $countNoti;
 	}
 
 	//user notification list
 	public static function userNoty(){
-		$countNoti = Notification::where('flat_id','=',Auth::user()->flat_id)
-			->orWhere('type','=','announce')
+		$countNoti = Notification::where('type','=','announce')
+		//  ->OrWhere('flat_id','=',Auth::user()->flat_id)
+			->orderBy('created_at','desc')
+			->get();
+		return $countNoti;
+	}
+
+
+
+
+
+	//worker notification count
+	public static function workerNcount(){
+		$countNoti = Notification::where('type','=','worker')
+			->orderBy('created_at','desc')
+			->count();
+		return $countNoti;
+	}
+
+
+//worker notification list
+	public static function workerNoty(){
+		$countNoti = Notification::where('type','=','worker')
 			->orderBy('created_at','desc')
 			->get();
 		return $countNoti;

@@ -13,11 +13,11 @@ class WorkersController extends \BaseController {
 
 
 	//for worker individual problem show
-	public function show($id)
+	public function show()
 	{
-		$worker = Worker::findOrFail($id);
+		$workers = Worker::where('user_id',Auth::user()->id)->get();
 
-		return View::make('workers.show', compact('worker'));
+		return View::make('workers.show', compact('workers'))->with('title','Your  Problem list');
 	}
 
 
@@ -75,9 +75,27 @@ class WorkersController extends \BaseController {
 			$worker = Worker::find($id);
 			$worker->status = true;
 
-			$worker->save();
+			if($worker->save()){
+				$notify= new Notification();
+				$notify->type='worker';
+				$notify->flat_id= Auth::user()->flat_id;
+				$notify->user_id= Null;
+				$notify->role_id= 4;
+				$notify->subject='Work Status Change';
+				$notify->body= 'Work not completed perfectly';
+				$notify->is_read=0;
+				if($notify->save()){
+					User::where('role_id',4)->update(['notify'=>'y']);
 
-			return Redirect::back()->with('success',"Status Change.");
+					return Redirect::back()->with('success',"Task complete successfully.");
+				}
+				else{
+					return Redirect::back()->with('error',"Something went wrong.");
+				}
+			}
+			else{
+				return Redirect::back()->with('error',"Something went wrong.");
+			}
 		}
 		catch(Exception $e){
 			return Redirect::back()->with('error',"Something went wrong.");
@@ -85,6 +103,50 @@ class WorkersController extends \BaseController {
 
 	}
 
+
+
+
+
+
+//work work not perfectly done then if user
+//for changing  status
+	public function complain($id)
+	{
+
+		try{
+
+			$worker = Worker::find($id);
+			$worker->notify = true;
+
+			if($worker->save()){
+				$notify= new Notification();
+				$notify->type='admin';
+				$notify->flat_id= Auth::user()->flat_id;
+				$notify->user_id= Null;
+				$notify->role_id= 1;
+				$notify->subject='Complain from flat members/managers';
+				$notify->body= 'Work not completed perfectly,Please do something';
+				$notify->is_read=0;
+				if($notify->save()){
+					User::where('role_id',1)->update(['notify'=>'y']);
+
+					return Redirect::back()->with('success',"Complain Sent successfully.");
+				}
+				else{
+					return Redirect::back()->with('error',"Something went wrong.");
+				}
+
+			}
+			else{
+				return Redirect::back()->with('error',"Something went wrong.");
+			}
+
+		}
+		catch(Exception $e){
+			return Redirect::back()->with('error',"Something went wrong.");
+		}
+
+	}
 
 
 

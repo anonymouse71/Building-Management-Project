@@ -10,9 +10,6 @@
 
 
                 {{$title}}
-
-
-
             </div>
 
             <table class="display table table-bordered table-striped" id="example">

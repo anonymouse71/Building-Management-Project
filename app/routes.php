@@ -110,17 +110,19 @@ Route::group(array('before' => 'auth'), function()
 
 
 	//Notifications
-	Route::get('notification',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
-	Route::get('notification',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
-	Route::get('notification',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
+	Route::get('notificationA',['as' => 'notifications.index', 'uses' => 'NotificationsController@admin']);
+	Route::get('notificationM',['as' => 'notifications.manager', 'uses' => 'NotificationsController@manager']);
+	Route::get('notificationU',['as' => 'notifications.user', 'uses' => 'NotificationsController@user']);
+	Route::get('notificationW',['as' => 'notifications.worker', 'uses' => 'NotificationsController@worker']);
 
 
    //for worker role_id==4
 	Route::get('work/index', ['as' => 'workers.index', 'uses' => 'WorkersController@index']);
 	Route::get('work/create', ['as' => 'workers.create', 'uses' => 'WorkersController@create']);
 	Route::post('work/', ['as' => 'workers.store', 'uses' => 'WorkersController@store']);
+	Route::get('work/show', ['as' => 'workers.show', 'uses' => 'WorkersController@show']);
 	Route::get('work/{id}/status', ['as' => 'workers.status', 'uses' => 'WorkersController@changeStatus']);
-	Route::get('work/{id}/show', ['as' => 'workers.show', 'uses' => 'WorkersController@show']);
+	Route::get('work/{id}/complain', ['as' => 'workers.complain', 'uses' => 'WorkersController@complain']);
 
 });
 

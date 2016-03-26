@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-
+@include('includes.alert')
     <div>
         @if(count($workers))
 
@@ -11,20 +11,20 @@
             </div>
 
 
-
             <table class="display table table-bordered table-striped" id="example">
                 <thead>
                 <tr>
-
                     <th class="text-center">id</th>
                     <th>Flat</th>
                     <th>User</th>
                     <th>Subject</th>
                     <th>Details</th>
+
+                    @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
                     <th>Status</th>
+                    <th>Complain</th>
+                    @endif
                     <th>Show</th>
-
-
                 </tr>
                 </thead>
 
@@ -44,11 +44,37 @@
                         <td>{{str_limit($worker->subject, 15) }}</td>
                         <td>{{str_limit($worker->details, 32)}}</td>
 
-                        @if($worker->status == true )
-                            <td style="color:green">Complete</td>
-                        @else
-                            <td><a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
+
+
+                        @if(Auth::user()->role_id==4)
+
+                            @if($worker->status == true )
+                                <td style="color:green">Complete</td>
+                            @else
+                                <td style="color:yellowgreen">Pending</td>
+                            @endif
+
                         @endif
+
+
+
+                    @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
+
+                            @if($worker->status == true )
+                                <td style="color:green">Complete</td>
+                            @else
+                                <td><a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
+
+                            @endif
+
+
+                         @if($worker->notify == true )
+                            <td style="color:indianred">Complain sent</td>
+                        @else
+                            <td><a href="{{route('workers.complain', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Complain to Admin</button></a></td>
+                        @endif
+                    @endif
+
 
 
                         <td> <a><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal_{{$worker->id}}" >Details</button></a></td>
