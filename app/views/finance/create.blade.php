@@ -63,7 +63,7 @@
                     <div class="form-group col-md-6">
                         {{ Form::label('date', 'Date', array('class' => 'control-label')) }}
 
-                        {{ Form::text('date', '', array('class' => 'form-control', 'placeholder' => '','id'=>'date', 'required'   => 'required')) }}
+                        {{ Form::text('date', '', array('class' => 'form-control', 'placeholder' => 'Select Date','id'=>'date', 'required'   => 'required')) }}
 
                     </div>
 
@@ -109,10 +109,7 @@
                 radioClass: 'iradio_flat-red',
                 increaseArea: '20%'
             });
-            $("#date").datepicker({
-                format: 'yyyy-mm-dd'
-            });
-            $( "#date" ).datepicker( "setDate", new Date() );
+
 
             $('#type').on('change', function() {
               var type = this.value ; 
@@ -125,6 +122,20 @@
                 $("#title").val(""); 
               }
             });
+
+        });
+
+
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#date").datepicker({
+                format: 'yyyy-mm-dd'
+            });
+            $( "#date" ).datepicker( "setDate", new Date() );
+
 
         });
 

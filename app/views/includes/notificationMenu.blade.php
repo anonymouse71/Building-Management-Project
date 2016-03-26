@@ -18,7 +18,7 @@
                                  </script>
 
 
- @if(Auth::user()->notify == 'y')
+            @if(Auth::user()->notify == 'y')
 
                         @if(Auth::user()->role_id==1 )
                               {{Notification::adminNcount()}}
@@ -33,15 +33,16 @@
                             {{0}}
 
                           @endif
-@else
+            @else
                                          {{0}}
- @endif
+            @endif
                       </span>
                   </a>
                   <ul class="dropdown-menu extended notification">
                       <div class="notify-arrow notify-arrow-yellow"></div>
                       <li>
                           <p class="yellow">You have
+                     @if(Auth::user()->notify == 'y')
                               @if(Auth::user()->role_id==1 )
                                   {{Notification::adminNcount()}}
 
@@ -55,7 +56,9 @@
                                   {{0}}
 
                               @endif
-
+                      @else
+                                  {{0}}
+                      @endif
                               new notifications</p>
                       </li>
 
@@ -64,7 +67,7 @@
 
 
 
-   @if(Auth::user()->role_id==1)
+                @if(Auth::user()->role_id==1)
 
                       @foreach(Notification::adminNoty() as $notification)
                               <li>
@@ -86,7 +89,7 @@
                           @endforeach
 
 
-    @elseif(Auth::user()->role_id==2 && Auth::user()->userInfo->owner_approve == 1)
+                @elseif(Auth::user()->role_id==2 && Auth::user()->userInfo->owner_approve == 1)
 
 
 
@@ -111,7 +114,7 @@
 
 
 
-    @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
+                 @elseif(Auth::user()->role_id==3 && Auth::user()->userInfo->owner_approve == 1)
 
 
                           @foreach(Notification::userNoty() as $notification)
@@ -133,7 +136,7 @@
                           @endforeach
 
 
-     @elseif(Auth::user()->role_id==4 && Auth::user()->userInfo->owner_approve == 1)
+              @elseif(Auth::user()->role_id==4 && Auth::user()->userInfo->owner_approve == 1)
 
                           @foreach(Notification::workerNoty() as $notification)
                               <li>
@@ -153,7 +156,7 @@
                               </li>
                           @endforeach
 
-    @else
+             @else
                           <li>
                               <a href="#{{-- route('manager.index') --}}">
                                   <span class="label label-danger"><i class="fa fa-bolt"></i></span>
@@ -161,7 +164,7 @@
                                   <span class="small italic"> {{--$notification->created_at->diffForHumans()--}}</span>
                               </a>
                           </li>
-    @endif
+            @endif
 
 
 
