@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('content')
-    @include('includes.alert')
+@include('includes.alert')
     <div>
         @if(count($workers))
 
@@ -21,11 +21,8 @@
                     <th>Details</th>
 
                     @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
-                        <th>Status</th>
-                        <th>Complain</th>
-
-                    @elseif(Auth::user()->role_id ==1 )
-                        <th>Status</th>
+                    <th>Status</th>
+                    <th>Complain</th>
                     @endif
                     <th>Show</th>
                 </tr>
@@ -37,7 +34,7 @@
                         <td>{{ $worker->id }}</td>
 
                         @if($worker->user_id== 1)
-                            <td>{{'Admin' }}</td>
+                        <td>{{'Admin' }}</td>
 
                         @else
                             <td> {{ Flat::where('id',$worker->flat_id)->pluck('name') }}</td>
@@ -61,30 +58,22 @@
 
 
 
-                        @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
+                    @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
 
                             @if($worker->status == true )
                                 <td style="color:green">Complete</td>
                             @else
-                                <td><a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
+                                <td><a href="{{route('workerTask.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
 
                             @endif
 
 
-                            @if($worker->notify == true )
-                                <td style="color:indianred">Complain sent</td>
-                            @else
-                                <td><a href="{{route('workers.complain', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Complain to Admin</button></a></td>
-                            @endif
-                        @elseif(Auth::user()->id ==1)
-                            @if($worker->status == true )
-                                <td style="color:green">Complete</td>
-                            @else
-                                <td><a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
-                            @endif
+                         @if($worker->notify == true )
+                            <td style="color:indianred">Complain sent</td>
+                        @else
+                            <td><a href="{{route('workerTask.complain', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Complain to Admin</button></a></td>
                         @endif
-
-
+                    @endif
 
 
 
@@ -112,21 +101,21 @@
                                             </p>
 
                                             <p><b>Flat: </b>
-                                                @if($worker->user_id== 1)
-                                                    <a>{{'Null' }}</a>
-                                                @else
-                                                    <a> {{ Flat::where('id',$worker->flat_id)->pluck('name') }}</a>
-                                                @endif
+                                            @if($worker->user_id== 1)
+                                                <a>{{'Null' }}</a>
+                                            @else
+                                                <a> {{ Flat::where('id',$worker->flat_id)->pluck('name') }}</a>
+                                            @endif
                                             </p>
 
                                             <p><b>Description: </b>{{ $worker->details}}</p>
 
                                             <p><b>Status: </b>
-                                                @if($worker->status == true )
-                                                    <a style="color:green">Complete</a>
-                                                @else
-                                                    <a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a>
-                                                @endif
+                                             @if($worker->status == true )
+                                                <a style="color:green">Complete</a>
+                                             @else
+                                                <a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a>
+                                             @endif
                                             </p>
 
                                         </div>

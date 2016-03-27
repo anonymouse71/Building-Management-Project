@@ -7,6 +7,7 @@ class UserInfo extends \Eloquent {
 
     protected $guarded = ['id'];
 
+    //user 
     public function user(){
         return $this->belongsTo('User','user_id','id');
     }

@@ -162,10 +162,14 @@ class FlatsController extends \BaseController {
 	}
 
 
+
+
+
+   //show terms and conditons by all user which associate with their flat
 	public function show($id)
 	{
 		$flat= Flat::where('id',$id)->first();
-		return View::make('flats.terms', compact('flat'))->with('title'," - Flat Terms and Condition");
+		return View::make('flats.terms', compact('flat'))->with('title',"Flat Terms and Condition");
 	}
 
 

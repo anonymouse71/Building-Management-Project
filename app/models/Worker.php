@@ -1,16 +1,20 @@
 <?php
 
 class Worker extends \Eloquent {
-
-	// Add your validation rules here
-	public static $rules = [
-		 'subject' => 'required',
-		 'details' => 'required'
-	];
-
-	// Don't forget to fill this array
 	protected $fillable = [];
 
-	protected $table= 'workers';
+	protected $table= 'worker';
 
+   //user
+	public function user(){
+		return $this->belongsTo('User','user_id','id');
+	}
+
+	//types
+	protected $types = [
+			''            => '----Select----',
+			'Electrician' => 'Electrician',
+			'Plumber'     => 'Plumber',
+			'Cleaner'     => 'Cleaner'
+		];
 }

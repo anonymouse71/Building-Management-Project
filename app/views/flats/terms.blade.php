@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="action">
                     <div class="col-sm-12">
-                        <h1 class="title">{{ $flat->name }}{{$title}}</h1>
+                        <h1 class="title">{{ $flat->name }} - {{$title}}</h1>
                         <p>Stay close</p>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateWorkersTable extends Migration {
+class CreateWorkersTaskTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateWorkersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('workers', function(Blueprint $table)
+		Schema::create('workers_task', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->string('subject');
@@ -33,7 +33,7 @@ class CreateWorkersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('workers');
+		Schema::drop('workers_task');
 	}
 
 }

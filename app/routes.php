@@ -117,12 +117,12 @@ Route::group(array('before' => 'auth'), function()
 
 
    //for worker role_id==4
-	Route::get('work/index', ['as' => 'workers.index', 'uses' => 'WorkersController@index']);
-	Route::get('work/create', ['as' => 'workers.create', 'uses' => 'WorkersController@create']);
-	Route::post('work/', ['as' => 'workers.store', 'uses' => 'WorkersController@store']);
-	Route::get('work/show', ['as' => 'workers.show', 'uses' => 'WorkersController@show']);
-	Route::get('work/{id}/status', ['as' => 'workers.status', 'uses' => 'WorkersController@changeStatus']);
-	Route::get('work/{id}/complain', ['as' => 'workers.complain', 'uses' => 'WorkersController@complain']);
+	Route::get('work/index', ['as' => 'workerTask.index', 'uses' => 'WorkersTaskController@index']);
+	Route::get('work/create', ['as' => 'workerTask.create', 'uses' => 'WorkersTaskController@create']);
+	Route::post('work/', ['as' => 'workerTask.store', 'uses' => 'WorkersTaskController@store']);
+	Route::get('work/show', ['as' => 'workerTask.show', 'uses' => 'WorkersTaskController@show']);
+	Route::get('work/{id}/status', ['as' => 'workerTask.status', 'uses' => 'WorkersTaskController@changeStatus']);
+	Route::get('work/{id}/complain', ['as' => 'workerTask.complain', 'uses' => 'WorkersTaskController@complain']);
 
 });
 
@@ -196,6 +196,17 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::post('mailSend',['as' => 'mail.send', 'uses' => 'MailController@mailSender']);
 
 
+	//create Worker
+	Route::get('worker',['as' => 'worker.index', 'uses' => 'WorkerController@index']);
+	Route::get('worker/create',['as' => 'worker.create', 'uses' => 'WorkerController@create']);
+	Route::post('worker/',['as' => 'worker.store', 'uses' => 'WorkerController@store']);
+	Route::get('worker/{id}/edit',['as' => 'worker.edit', 'uses' => 'WorkerController@edit']);
+	Route::put('worker/{id}',['as' => 'worker.update', 'uses' => 'WorkerController@update']);
+	Route::delete('worker/{id}',['as' => 'worker.delete', 'uses' => 'WorkerController@destroy']);
+
+
+
+
 });
 	//terms of Condition
    Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
@@ -220,9 +231,10 @@ Route::group(array('before' => 'auth|admin'), function()
 
 
 	Route::get('time',function(){
-		return $countNoti = Notification::where('type','=','money')
-		->orWhere('type','=','announce')
-		->count();
+
+		$created = new Carbon\Carbon(User::where('id',1)->first()->created_at);
+		 $now = Carbon\Carbon::now();
+	     return 	$difference = ($created->diff($now)->days < 1) ? 'today' : $created->diffForHumans($now);
 
 	});
 

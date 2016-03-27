@@ -159,57 +159,7 @@ class UserInfoTableSeeder extends Seeder {
 
 				'created_at' => date('Y-m-d H:i:s'),
 				'updated_at' => date('Y-m-d H:i:s')
-			],
-
-			[
-				'user_id'   =>'4',
-
-
-				'activation' =>true,
-				'activation_key' => null,
-				'first_login' => true,
-				'owner_status' => true,
-				'owner_approve' => 1,
-				'recovery_code' => null,
-
-				'fullName' => 'Worker 1',
-				'father' => 'eh5we5wh5',
-				'mother' => 'jkagbrjkrg',
-				'father_contact' => '0192423466',
-				'father_occup' => 'job',
-				'mother_contact' => '0193428566',
-				'mother_occup' => 'Housewife',
-				'gender' => 'male',
-				'date_of_birth' => '1993-06-28',
-
-				'phone' => '98075355',
-				'fb_account' => 'talha08.cse',
-
-				'division' =>'w3',
-				'district' =>'323',
-				'sub_district' => '323 Sadar',
-				'village' => '33 Para',
-				'house' => '12/124,yqw,yr',
-				'city_corpo' => false,
-
-
-				'study_level' => 'nai',
-				'reg' => null,
-				'institute' => null,
-				'department' => null,
-				'session' => null,
-				'cgpa' => null,
-
-
-				'avatar_url' => 'uploads/image/defaultAvatar.png',
-				'icon_url'     => 'uploads/image/defaultAvatar.png',
-
-
-				'created_at' => date('Y-m-d H:i:s'),
-				'updated_at' => date('Y-m-d H:i:s')
-			],
-
-
+			]
 
 
 		];

@@ -1,23 +1,23 @@
 <?php
 
-class WorkersController extends \BaseController {
+class WorkersTaskController extends \BaseController {
 
 	//Worker index
 	// worker can see who and what type of work send by user
 	public function index()
 	{
-		$workers = Worker::all();
+		$workers = WorkerTask::all();
 
-		return View::make('workers.index', compact('workers'))->with('title','User Problem');
+		return View::make('workerTask.index', compact('workers'))->with('title','User Problem');
 	}
 
 
 	//for worker individual problem show
 	public function show()
 	{
-		$workers = Worker::where('user_id',Auth::user()->id)->get();
+		$workers = WorkerTask::where('user_id',Auth::user()->id)->get();
 
-		return View::make('workers.show', compact('workers'))->with('title','Your  Problem list');
+		return View::make('workerTask.show', compact('workers'))->with('title','Your  Problem list');
 	}
 
 
@@ -26,7 +26,7 @@ class WorkersController extends \BaseController {
 	//for user view
 	public function create()
 	{
-		return View::make('workers.create')->with('title','Say your Problem to the building Worker: ');
+		return View::make('workerTask.create')->with('title','Say your Problem to the building Worker: ');
 	}
 
 
@@ -38,14 +38,14 @@ class WorkersController extends \BaseController {
 	//which is covered byt user
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Worker::$rules);
+		$validator = Validator::make($data = Input::all(), WorkerTask::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$worker = new Worker();
+		$worker = new WorkerTask();
 
 		$worker->subject = $data['subject'];
 		$worker->details = $data['details'];
@@ -53,9 +53,9 @@ class WorkersController extends \BaseController {
 		$worker->user_id = Auth::user()->id;
 
 		if($worker->save()){
-			return Redirect::route('workers.create')->with('success',"Problem sent  successfully");
+			return Redirect::route('workerTask.create')->with('success',"Problem sent  successfully");
 		}else{
-			return Redirect::route('workers.create')->with('error',"Something went wrong.Try again");
+			return Redirect::route('workerTask.create')->with('error',"Something went wrong.Try again");
 		}
 
 
@@ -72,7 +72,7 @@ class WorkersController extends \BaseController {
 	{
 
 		try{
-			$worker = Worker::find($id);
+			$worker = WorkerTask::find($id);
 			$worker->status = true;
 
 			if($worker->save()){
@@ -115,7 +115,7 @@ class WorkersController extends \BaseController {
 
 		try{
 
-			$worker = Worker::find($id);
+			$worker = WorkerTask::find($id);
 			$worker->notify = true;
 
 			if($worker->save()){
@@ -155,9 +155,9 @@ class WorkersController extends \BaseController {
 
 	public function destroy($id)
 	{
-		Worker::destroy($id);
+		WorkerTask::destroy($id);
 
-		return Redirect::route('workers.index');
+		return Redirect::route('workerTask.index');
 	}
 
 }

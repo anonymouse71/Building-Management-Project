@@ -41,18 +41,9 @@ class UsersTableSeeder extends Seeder {
 				'notify' =>'y',
 			'created_at' => date('Y-m-d H:i:s'),
 			'updated_at' => date('Y-m-d H:i:s')
-		],
+		]
 
-			[
-				'email'      => 'worker@gmail.com',
-				'password'   => Hash::make('a'),
-				'name'   => 'Worker',
-				'role_id' =>'4',
-				'flat_id' =>Null,
-				'notify' =>'y',
-				'created_at' => date('Y-m-d H:i:s'),
-				'updated_at' => date('Y-m-d H:i:s')
-			]
+
 
 
 		];

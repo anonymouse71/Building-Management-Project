@@ -120,8 +120,8 @@
                                                           <span>Any Problem??</span>
                                                       </a>
                                                       <ul class="sub">
-                                                          <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
-                                                          <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+                                                          <li><a href="{{URL::route('workerTask.create') }}">Say Problem</a></li>
+                                                          <li><a href="{{URL::route('workerTask.show') }}">Problem List</a></li>
 
                                                       </ul>
                                                   </li>
@@ -178,8 +178,8 @@
                                                           <span>Any Problem??</span>
                                                       </a>
                                                       <ul class="sub">
-                                                          <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
-                                                          <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+                                                          <li><a href="{{URL::route('workerTask.create') }}">Say Problem</a></li>
+                                                          <li><a href="{{URL::route('workerTask.show') }}">Problem List</a></li>
 
                                                       </ul>
                                                   </li>
@@ -239,8 +239,8 @@
                                                   <span>Any Problem??</span>
                                               </a>
                                               <ul class="sub">
-                                                  <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
-                                                  <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
+                                                  <li><a href="{{URL::route('workerTask.create') }}">Say Problem</a></li>
+                                                  <li><a href="{{URL::route('workerTask.show') }}">Problem List</a></li>
 
                                               </ul>
                                           </li>
@@ -252,7 +252,7 @@
                                @if(Auth::user()->role_id == '4' && Auth::user()->userInfo->owner_approve== 1)
 
                                                   <li>
-                                                      <a href="{{ URL::route('workers.index') }}">
+                                                      <a href="{{ URL::route('workerTask.index') }}">
                                                           <i class="fa fa-dashboard"></i>
                                                           <span>Flat Problems</span>
                                                       </a>

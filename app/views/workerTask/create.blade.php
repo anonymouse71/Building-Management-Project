@@ -23,7 +23,7 @@
             <div class="col-md-8">
                 <section class="panel">
 
-                    {{ Form::open(array('route' => 'workers.store')) }}
+                    {{ Form::open(array('route' => 'workerTask.store')) }}
                     <div class="form-group">
                         {{ Form::text('subject', null, array('class' => 'form-control', 'placeholder' => 'Enter Problem Subject')) }}
 
