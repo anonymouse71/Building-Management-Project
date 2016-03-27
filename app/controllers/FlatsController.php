@@ -62,12 +62,7 @@ class FlatsController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
-	{
-		//$flat = Flat::findOrFail($id);
 
-		//return View::make('flats.show', compact('flat'))->with('success',"Flat Added")->with('title',"Flat ");
-	}
 
 	/**
 	 * Show the form for editing the specified flat.
@@ -79,7 +74,7 @@ class FlatsController extends \BaseController {
 	{
 		$flat = Flat::find($id);
 
-		return View::make('flats.edit', compact('flat'))->with('success',"Flat Added")->with('title',"Flat");
+		return View::make('flats.edit', compact('flat'))->with('title',"Flat");
 	}
 
 	/**
@@ -125,6 +120,9 @@ class FlatsController extends \BaseController {
 		return Redirect::route('flats.index')->with('success',"Flat Added")->with('title',"Flat ");
 	}
 
+
+
+
 //button click payment
 	public function paymentVerification($id){
 		try {
@@ -155,6 +153,20 @@ class FlatsController extends \BaseController {
 
 
 
+
+
+	//flats own terms and condition
+	public function flatTermsAndCondition(){
+		$flat= Flat::where('id', Auth::user()->flat_id)->first();
+		return View::make('flats.terms', compact('flat'))->with('title'," - Flat Terms and Condition");
+	}
+
+
+	public function show($id)
+	{
+		$flat= Flat::where('id',$id)->first();
+		return View::make('flats.terms', compact('flat'))->with('title'," - Flat Terms and Condition");
+	}
 
 
 }

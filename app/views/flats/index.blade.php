@@ -21,28 +21,21 @@
             <table class="display table table-bordered table-striped" id="example">
                 <thead>
                 <tr>
-
-                    <th class="text-center">id</th>
-
                     <th>Flat Name</th>
                     <th>Flat Details</th>
                     <th>Rent Amount/Month</th>
                     <th>Payment</th>
-                    <th class="text-center">Edit</th>
-                    <th class="text-center">Delete</th>
-
-
+                    <th>Show</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($flats as $flats)
                     <tr>
-                        <td>{{ $flats->id }}</td>
                         <td>{{ $flats->name }}</td>
-
-                        <td>{{ $flats->flat_details }}</td>
+                        <td>{{str_limit($flats->flat_details, 150)}}</td>
                         <td>{{ $flats->rent_amount }} Taka</td>
-
 
                         @if($flats->payment_status == true )
                             <td style="color:green">Paymet Complete</td>
@@ -50,11 +43,7 @@
                             <td><a href="{{ route('flats.payment', $flats->id) }}"><button class="btn btn-warning btn-xs btn-archive createBtn">Payment Incomplete</button></a></td>
                         @endif
 
-
-
-                        <td>{{-- $flats->created_at->format('Y-m-d') --}}</td>
-
-
+                        <td><a class="btn btn-success btn-xs btn-archive editBtn" href="{{route('flats.show',$flats->id)}}"  style="margin-right: 3px;">Show</a></td>
                         <td><a class="btn btn-info btn-xs btn-archive editBtn" href="{{route('flats.edit',$flats->id)}}"  style="margin-right: 3px;">Edit</a></td>
                         <td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $flats->id }}">Delete</a></td>
                     </tr>
@@ -118,7 +107,4 @@
 
         });
     </script>
-
-
-
 @stop

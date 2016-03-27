@@ -164,6 +164,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('announces/{id}',['as' => 'announces.delete', 'uses' => 'AnnouncesController@destroy']);
 
 
+
 	Route::get('flats',['as' => 'flats.index', 'uses' => 'FlatsController@index']);
 	Route::get('flats/create',['as' => 'flats.create', 'uses' => 'FlatsController@create']);
 	Route::post('flats',['as' => 'flats.store', 'uses' => 'FlatsController@store']);
@@ -172,6 +173,10 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('flats/{id}',['as' => 'flats.delete', 'uses' => 'FlatsController@destroy']);
 	//payment from flat page
 	Route::get('flats/{id}/payment',['as' => 'flats.payment', 'uses' => 'FlatsController@paymentVerification']);
+	Route::get('flats/{id}/show',['as' => 'flats.show', 'uses' => 'FlatsController@show']);
+
+
+
 
 
 	//all members
@@ -195,8 +200,8 @@ Route::group(array('before' => 'auth|admin'), function()
 	//terms of Condition
    Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
 
-
-
+	//Own flats terms and condition
+   Route::get('flats/terms',['as' => 'flats.terms', 'uses' => 'FlatsController@flatTermsAndCondition']);
 
 
 	//for unknown url

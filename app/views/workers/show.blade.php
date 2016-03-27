@@ -23,6 +23,9 @@
                     @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
                         <th>Status</th>
                         <th>Complain</th>
+
+                    @elseif(Auth::user()->role_id ==1 )
+                        <th>Status</th>
                     @endif
                     <th>Show</th>
                 </tr>
@@ -73,7 +76,15 @@
                             @else
                                 <td><a href="{{route('workers.complain', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Complain to Admin</button></a></td>
                             @endif
+                        @elseif(Auth::user()->id ==1)
+                            @if($worker->status == true )
+                                <td style="color:green">Complete</td>
+                            @else
+                                <td><a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a></td>
+                            @endif
                         @endif
+
+
 
 
 
