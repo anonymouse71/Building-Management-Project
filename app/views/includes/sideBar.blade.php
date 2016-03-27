@@ -83,7 +83,7 @@
                                               </a>
                                               <ul class="sub">
                                                   <li><a href="{{URL::route('announces.index') }}">Announcement List</a></li>
-
+                                                  <li><a href="{{URL::route('announces.create') }}">Create Announcement</a></li>
                                               </ul>
                                           </li>
 
@@ -121,8 +121,8 @@
                                                       </a>
                                                       <ul class="sub">
                                                           <li><a href="{{URL::route('workers.create') }}">Say Problem</a></li>
-                                                          <li><a href="{{URL::route('workers.show') }}">Problem List</a></li>
-
+                                                          <li><a href="{{URL::route('workers.show') }}">My Problem List</a></li>
+                                                          <li><a href="{{URL::route('workers.index') }}">User Problem List</a></li>
                                                       </ul>
                                                   </li>
 

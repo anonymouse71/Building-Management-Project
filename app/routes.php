@@ -215,9 +215,7 @@ Route::group(array('before' => 'auth|admin'), function()
 
 
 	Route::get('time',function(){
-		return $countNoti = Notification::where('type','=','money')
-		->orWhere('type','=','announce')
-		->count();
+		return 'QFq';
 
 	});
 
