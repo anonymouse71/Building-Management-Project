@@ -2,17 +2,8 @@
 
 @section('content')
     <div>
-
-        @if(count($notify))
-
-
-            <div class="panel-heading">
-
-
-{{$title}}
-
-
-
+        <div class="panel-heading">
+                {{$title}}
             </div>
 
             <table class="display table table-bordered table-striped" id="example">
@@ -20,14 +11,10 @@
                 <tr>
 
                     <th class="text-center">id</th>
-
                     <th>Type</th>
                     <th>Subject</th>
                     <th>Body</th>
                     <th>Created at</th>
-
-
-
                 </tr>
                 </thead>
                 <tbody>
@@ -69,18 +56,11 @@
                         <td>{{ $notification->body }}</td>
 
                         <td>{{ $notification->created_at->format('Y-m-d') }}</td>
-
-
-
                     </tr>
 
                 @endforeach
                 </tbody>
             </table>
-
-        @else
-            No Data Found
-        @endif
     </div>
 
 
@@ -101,10 +81,6 @@
         $(document).ready(function() {
             $('#example').dataTable({
             });
-
-
-
-
 
         });
     </script>

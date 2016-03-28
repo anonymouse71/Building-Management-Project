@@ -3,7 +3,7 @@
 @section('content')
     @include('includes.alert')
     <div>
-        @if(count($workers))
+
 
             <div class="panel-heading">
                 {{$title}}
@@ -144,10 +144,6 @@
                 @endforeach
                 </tbody>
             </table>
-
-        @else
-            No Data Found
-        @endif
     </div>
 
 

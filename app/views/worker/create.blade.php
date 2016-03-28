@@ -31,6 +31,7 @@
                         <br><br>
                     </div>
 
+
                     <div class="form-group">
                         {{ Form::label('rent_amount', 'Rent Amount/Month* :', array('class' => 'col-md-2 control-label')) }}
                         <div class="col-md-8">
@@ -47,11 +48,19 @@
                         </div>
                         <br><br>
                     </div>
-                    
 
 
 
 
+                    <div class="form-group has-success has-feedback">
+                        <label class="control-label" for="inputGroupSuccess1">Input group with success</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">@</span>
+                            <input type="text" class="form-control" id="inputGroupSuccess1" aria-describedby="inputGroupSuccess1Status">
+                        </div>
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputGroupSuccess1Status" class="sr-only">(success)</span>
+                    </div>
 
 
 

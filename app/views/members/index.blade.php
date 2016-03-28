@@ -8,7 +8,7 @@
 			</h3>
 		</div>
 		@include('includes.alert')
-		<table class="table table-bordered table-striped">
+		<table class="display table table-bordered table-striped" id="example">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -16,7 +16,7 @@
 					<th>Email</th>
 					<th>Role</th>
 					<th>Flat</th>
-					<th colspan="3">Action</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -39,7 +39,8 @@
 					        	<span class="glyphicon glyphicon-zoom-in"></span>
 							</a>
 						</td>
-						<td><a href="{{ route('members.delete', $member->id) }}"><button class="btn btn-danger">Delete</button></a></td>
+						<td><a href="#" class="btn btn-danger btn-xs btn-archive deleteBtn" data-toggle="modal" data-target="#deleteConfirm" deleteId="{{ $member->id }}">Delete</a></td>
+
 					</tr>
 				@endforeach
 			</tbody>
@@ -69,17 +70,31 @@
 		</div>
 	</div>
 
-	<script type="text/javascript">
-	$(document).ready(function() {
-		
-		// delete a member
-		$('.deleteBtn').click(function() {
-			var deleteMember = $(this).attr('deleteMember');
-			var url = "<?php echo URL::route('members'); ?>";
-			$(".deleteForm").attr("action", url+'/'+deleteMember);
-		});
 
-	});
+
+@stop
+
+@section('script')
+	{{ HTML::script('assets/data-tables/jquery.dataTables.js') }}
+	{{ HTML::script('assets/data-tables/DT_bootstrap.js') }}
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+			$('#example').dataTable({
+			});
+		});
 	</script>
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			// delete a member
+			$('.deleteBtn').click(function() {
+				var deleteId = $(this).attr('deleteId');
+				var url = "<?php echo URL::route('members'); ?>";
+				$(".deleteForm").attr("action", url+'/'+deleteId);
+			});
+
+		});
+	</script>
 @stop

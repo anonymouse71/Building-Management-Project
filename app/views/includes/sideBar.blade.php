@@ -83,6 +83,7 @@
                                               </a>
                                               <ul class="sub">
                                                   <li><a href="{{URL::route('announces.index') }}">Announcement List</a></li>
+                                                  <li><a href="{{URL::route('announces.create') }}">Create Announcement</a></li>
 
                                               </ul>
                                           </li>
@@ -117,6 +118,21 @@
 
                                                       <a href="javascript:">
                                                           <i class="fa fa-tasks"></i>
+                                                          <span>Worker</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="#">Create Worker</a></li>
+                                                          <li><a href="#">Worker List</a></li>
+
+                                                      </ul>
+                                                  </li>
+
+
+                                                  {{-- Works --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
                                                           <span>Any Problem??</span>
                                                       </a>
                                                       <ul class="sub">
@@ -125,6 +141,9 @@
 
                                                       </ul>
                                                   </li>
+
+
+
 
 
 

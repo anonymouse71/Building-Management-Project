@@ -72,8 +72,7 @@ class MemberController extends BaseController {
 
 
 	public function viewClient(){
-
-		$members = User::where('role_id', '!=', '1'  )->get();
+		$members = User::where('role_id', '=', '3')->get();
 		return View::make('members.client')
 			->with('members', $members)
 			->with('title', "View All Members");
