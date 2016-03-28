@@ -10,11 +10,5 @@ class Worker extends \Eloquent {
 		return $this->belongsTo('User','user_id','id');
 	}
 
-	//types
-	protected $types = [
-			''            => '----Select----',
-			'Electrician' => 'Electrician',
-			'Plumber'     => 'Plumber',
-			'Cleaner'     => 'Cleaner'
-		];
+
 }

@@ -134,13 +134,10 @@
         <div class="form-group">
             {{ Form::label('role_id', 'Want To Register As : *') }}
 
-
-            {{-- Form::radio('role_id','1') --}}
-            {{-- Form::label('role_id','Admin') --}}
             <br>
 
     <span>
-            {{ Form::radio('role_id','2') }}
+        {{ Form::radio('role_id','2') }}
         {{ Form::label('role_id','Manager        ') }}
 
 
@@ -152,7 +149,7 @@
         </div>
 
 
-<br>
+
 
 
 
@@ -167,8 +164,6 @@
 
 -->
 
-<br>
-
 
 
 
@@ -179,7 +174,7 @@
                         <td>{{Form::checkbox('agree', null)}}</td>
 
                         <td>{{ Form::label('agree', '.') }}</td>
-                        <td><a href="{{URL::route('terms.index') }}">I agree to this Terms of Service and Privacy Policy</a></td>
+                        <td><a href="{{URL::route('terms.index') }}">I agree to this Terms of Service and Privacy Policy.</a></td>
                     </tr>
                 </table>
 		 		</span>
@@ -246,7 +241,7 @@
 
     {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
     {{ HTML::script('assets/icheck/icheck.min.js') }}
-    {{ HTML::script('js/ckeditor/ckeditor.js') }}
+
 
 
 
@@ -255,13 +250,9 @@
 </html>
 
 <script>
-
-
     $('#status').select2();
 
     $(document).ready(function(){
-
-
 
     });
 </script>
