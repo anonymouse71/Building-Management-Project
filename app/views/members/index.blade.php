@@ -46,7 +46,7 @@
 			</tbody>
 		</table>
 
-		<div class="text-center">{{ $members->links() }}</div>
+
 	</div>
 
 	<!-- Modal -->

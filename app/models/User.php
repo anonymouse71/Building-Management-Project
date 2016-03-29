@@ -53,7 +53,7 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
 
 	//Worker Model
-	public function worker(){
+	public function workers(){
 		return $this->hasOne('Worker','user_id','id');
 	}
 

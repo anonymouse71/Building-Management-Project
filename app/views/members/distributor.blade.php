@@ -52,7 +52,7 @@
 					Are you sure to delete this Member?
 		      	</div>
 		      	<div class="modal-footer">
-		        	{{ Form::open(array('route' => array('owner.delete',0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
+		        	{{ Form::open(array('route' => array('members.delete',0), 'method'=> 'delete', 'class' => 'deleteForm')) }}
 		        		<button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
 		        		{{ Form::submit('Yes, Delete', array('class' => 'btn btn-success')) }}
 		        	{{ Form::close() }}
@@ -83,7 +83,7 @@
 			// delete a member
 			$('.deleteBtn').click(function() {
 				var deleteId = $(this).attr('deleteId');
-				var url = "<?php echo URL::route('members.view.distributor'); ?>";
+				var url = "<?php echo URL::route('members'); ?>";
 				$(".deleteForm").attr("action", url+'/'+deleteId);
 			});
 

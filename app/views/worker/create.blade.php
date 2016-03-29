@@ -77,21 +77,29 @@
 @stop
 
 @section('style')
-
     {{ HTML::style('css/chosen_dropdown/chosen.css') }}
-    {{ HTML::style('assets/icheck/skins/square/green.css') }}
+    {{ HTML::style('//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css') }}
+    {{ HTML::style('css/style.css') }}
+    {{ HTML::style('css/style-responsive.css') }}
+
 @stop
 
 @section('script')
-
     {{ HTML::script('js/chosen_dropdown/chosen.jquery.min.js') }}
-    {{ HTML::script('assets/icheck/icheck.min.js') }}
+    {{ HTML::script('js/ckeditor/ckeditor.js') }}
 
+    <script type="text/javascript">
+        $(document).ready(function() {
 
-    <script>
-        $('#status').select2();
-        $(document).ready(function(){
+            CKEDITOR.replace( 'editor', {
+                "filebrowserImageUploadUrl": "{{asset('js/ckeditor/plugins/imgupload.php')}}"
+            } );
+            $("#status").chosen();
+
 
         });
+
+
+
     </script>
 @stop

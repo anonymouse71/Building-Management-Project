@@ -43,8 +43,7 @@ if( Auth::check() && Auth::user()->role_id == 4){
 });
 
 
-   Route::get('contact',['as'=>'contact','uses'=>'ContactController@viewContact']);
-   Route::post('contact','ContactController@getContactUsForm');
+
 
 Route::group(['before' => 'guest'], function(){
 
@@ -58,6 +57,9 @@ Route::group(['before' => 'guest'], function(){
 	Route::get('activationRequest', ['as'=>'activationRequest', 'uses'=>'ActivationController@viewActivationRequest']);
 	Route::post('sendActivationLink',['as'=>'sendActivationLink','uses'=>'ActivationController@sendActivationLink']);
 	Route::get('index', array('as' => 'index', 'uses' => 'HomeController@home'));
+	Route::get('developer', array('as' => 'developer', 'uses' => 'HomeController@developer'));
+	Route::get('contact',['as'=>'contact','uses'=>'ContactController@viewContact']);
+	Route::post('contact','ContactController@getContactUsForm');
 });
 
 
@@ -135,9 +137,8 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('view-allOwner', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
 	Route::get('view-Members', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
 	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@acceptManager'));
-	Route::delete('view-members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
-	Route::delete('members/{id}', array('as' => 'client.delete', 'uses' => 'MemberController@clientDelete'));
-	Route::delete('members/{id}', array('as' => 'owner.delete', 'uses' => 'MemberController@ownerDelete'));
+	Route::delete('members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
+
 
 
 	Route::get('issuedepts',['as' => 'issuedept.index', 'uses' => 'IssueDeptsController@index']);

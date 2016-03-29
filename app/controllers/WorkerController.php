@@ -46,8 +46,6 @@ class WorkerController extends \BaseController {
 			'email'                 => 'required|email|unique:users',
 			'password'              => 'required',
 			'name'                  =>'required|unique:users',
-
-
 		];
 
 		$data = Input::all();
@@ -58,10 +56,9 @@ class WorkerController extends \BaseController {
 			return Redirect::back()->withErrors($validation)->withInput(Input::except('password', 'password_confirmation'));
 		}else{
 
-			$confirmation_code = str_random(30);
+			if(Worker::where('worker_type','=',$data['worker_type'])->count() == 0){
 
 			$user = new User();
-
 			$user->email     = $data['email'];
 			$user->name      = $data['name'];
 			$user->password  = Hash::make($data['password']);
@@ -97,14 +94,19 @@ class WorkerController extends \BaseController {
 					}
 
 				}else{
-					return Redirect::back()->withInput()->withErrors($validation);
+					return Redirect::back()->with('error',"Something went wrong");
 				}
 
 			}else{
-				return Redirect::back()->withInput()->withErrors($validation);
+				return Redirect::back()->with('error',"Something went wrong");
+			}
+		}else{
+				return Redirect::back()->with('error',"Worker type has already assigned, Try with another one");
 			}
 		}
 	}
+
+
 
 	/**
 	 * Display the specified resource.

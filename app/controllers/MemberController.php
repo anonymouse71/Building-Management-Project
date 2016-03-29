@@ -8,10 +8,12 @@ class MemberController extends BaseController {
 
 	public function index()
 	{
-	$members = UserInfo::Where('activation','=',true)
-			->Where('owner_status','=',1)
-			->Where('owner_approve','=',0)
-			->paginate(10);
+		$members =	DB::table('users')
+			->join('userinfo', 'users.id', '=', 'userinfo.user_id')
+			->Where('userinfo.owner_status','=',1)
+			->Where('userinfo.owner_approve','=',0)
+			->Where('users.role_id','!=',4)
+			->get();
 
 		return View::make('members.index')
 			->with('title', 'View All members')
@@ -26,38 +28,6 @@ class MemberController extends BaseController {
 
 
 
-	public function userDelete($id)
-	{
-		$member = User::findOrFail($id);
-		if($member->delete())
-			return Redirect::route('members')->with('success', "The member has been deleted.");
-		else
-			return Redirect::route('members')->with('errors', 'Some error occured. Try again.');
-	}
-
-
-
-
-	public function clientDelete($id){
-		$member =User::findOrFail($id);
-		if($member->delete())
-			return Redirect::route('members.view.client')
-				->with('success', "The member has been deleted.");
-		else
-			return Redirect::route('members.view.client')
-				->with('errors', 'Some error occured. Try again.');
-	}
-
-
-	public function ownerDelete($id){
-			$member = User::findOrFail($id);
-		if($member->delete())
-			return Redirect::route('members.view.distributor')
-				->with('success', "The member has been deleted.");
-		else
-			return Redirect::route('members.view.distributor')
-				->with('errors', 'Some error occured. Try again.');
-	}
 
 
 
@@ -142,9 +112,17 @@ class MemberController extends BaseController {
 	}
 
 
-	public function member(){
 
+
+	public function userDelete($id)
+	{
+		$member = User::findOrFail($id);
+		if($member->delete())
+			return Redirect::route('members')->with('success', "The member has been deleted.");
+		else
+			return Redirect::route('members')->with('errors', 'Some error occured. Try again.');
 	}
+
 
 
 

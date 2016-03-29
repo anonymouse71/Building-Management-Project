@@ -76,7 +76,7 @@ class UserInfoTableSeeder extends Seeder {
 
 				'fullName' => 'Adam Gilly',
 				'father' => 'Md. q4tq4t Islam',
-				'mother' => 'Most.Amew4tyqbia Begum',
+				'mother' => 'Most.Amew4tyqbia wy',
 				'father_contact' => '0192423466',
 				'father_occup' => 'job',
 				'mother_contact' => '0193428566',
@@ -126,7 +126,7 @@ class UserInfoTableSeeder extends Seeder {
 
 				'fullName' => 'James Anderson',
 				'father' => 'Md. erweh Islam',
-				'mother' => 'Most.ewhqh Begum',
+				'mother' => 'Most.ewhqh rw',
 				'father_contact' => '0192423466',
 				'father_occup' => 'job',
 				'mother_contact' => '0193428566',

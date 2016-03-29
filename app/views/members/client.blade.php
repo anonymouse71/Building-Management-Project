@@ -87,7 +87,7 @@
 			// delete a member
 			$('.deleteBtn').click(function() {
 				var deleteId = $(this).attr('deleteId');
-				var url = "<?php echo URL::route('members.view.client'); ?>";
+				var url = "<?php echo URL::route('members'); ?>";
 				$(".deleteForm").attr("action", url+'/'+deleteId);
 			});
 

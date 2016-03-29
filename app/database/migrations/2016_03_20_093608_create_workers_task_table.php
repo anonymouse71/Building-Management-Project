@@ -17,6 +17,7 @@ class CreateWorkersTaskTable extends Migration {
 			$table->increments('id');
 			$table->string('subject');
 			$table->text('details');
+			$table->string('worker_type');
 			$table->integer('flat_id')->nullable();
 			$table->integer('user_id');
 			$table->boolean('notify')->default(false);

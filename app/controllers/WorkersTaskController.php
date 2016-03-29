@@ -26,7 +26,12 @@ class WorkersTaskController extends \BaseController {
 	//for user view
 	public function create()
 	{
-		return View::make('workerTask.create')->with('title','Say your Problem to the building Worker: ');
+		try {
+			$types = Worker::lists('worker_type', 'id');
+			return View::make('workerTask.create', compact('types'))->with('title', 'Say your Problem to the building Worker: ');
+		}catch(Exception $e){
+			 return  "No Worker Available now" ;
+		}
 	}
 
 
@@ -47,6 +52,8 @@ class WorkersTaskController extends \BaseController {
 
 		$worker = new WorkerTask();
 
+        $type = Worker::where('id','=',$data['worker_type'])->pluck('worker_type');
+		$worker->worker_type = $type;
 		$worker->subject = $data['subject'];
 		$worker->details = $data['details'];
 		$worker->flat_id = Auth::user()->flat_id;

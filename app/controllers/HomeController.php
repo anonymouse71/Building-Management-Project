@@ -22,6 +22,13 @@ class HomeController extends BaseController {
 			->with('title','Uniliver || Home');
 	}
 
+	public function developer(){
+		return View::make('developer')
+			->with('title','Uniliver || Developer');
+	}
+
+
+
 	public  function missing(){
 		return View::make('errors.404')
 			->with('title','Error!!');

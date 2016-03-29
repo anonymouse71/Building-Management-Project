@@ -24,6 +24,18 @@
                 <section class="panel">
 
                     {{ Form::open(array('route' => 'workerTask.store')) }}
+
+
+                    <div class="form-group">
+                        {{ Form::label('worker_type', 'Type of Worker:', array('class' => 'col-md-2 control-label')) }}
+                        <div class="col-md-8">
+                            {{ Form::select('worker_type',$types,'' ,array('class' => 'form-control','id' => 'status' , 'placeholder' => 'Select User Type')) }}
+                        </div>
+                        <br><br>
+                    </div>
+
+
+
                     <div class="form-group">
                         {{ Form::text('subject', null, array('class' => 'form-control', 'placeholder' => 'Enter Problem Subject')) }}
 
