@@ -13,7 +13,8 @@
 
                 <div class="panel-body">
 
-                    {{ Form::open(array('route' => 'worker.store')) }}
+
+                    {{Form::model($user,['route' => ['worker.update',$user->id],  'method' => 'put' ])}}
 
 
 
@@ -39,31 +40,19 @@
                     <div class="form-group">
                         {{ Form::label('phone', 'Worker Contact* :', array('class' => 'col-md-2 control-label')) }}
                         <div class="col-md-8">
-                            {{ Form::text('phone', null, array('class' => 'form-control', 'placeholder' => 'Enter contact number of  worker')) }}
+                            {{ Form::text('phone', $user->userInfo->phone, array('class' => 'form-control', 'placeholder' => 'Enter contact number of  worker')) }}
                         </div>
                         <br><br>
                     </div>
-
-
-
-                    <div class="form-group">
-                        {{ Form::label('password', 'Worker Password* :', array('class' => 'col-md-2 control-label')) }}
-                        <div class="col-md-8">
-                            {{ Form::text('password', null, array('class' => 'form-control', 'placeholder' => 'Enter Worker Password')) }}
-                        </div>
-                        <br><br>
-                    </div>
-
 
 
                     <div class="form-group">
                         {{ Form::label('worker_type', 'Type of Worker:', array('class' => 'col-md-2 control-label')) }}
                         <div class="col-md-8">
-                            {{ Form::select('worker_type',$types,'' ,array('class' => 'form-control','id' => 'status' , 'placeholder' => 'Select User Type')) }}
+                            {{ Form::select('worker_type',$types,$worker_type ,array('class' => 'form-control','id' => 'status' , 'placeholder' => 'Select User Type')) }}
                         </div>
                         <br><br>
                     </div>
-
 
 
 

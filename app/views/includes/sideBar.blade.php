@@ -122,7 +122,7 @@
                                                       </a>
                                                       <ul class="sub">
                                                           <li><a href="{{URL::route('worker.create')}}">Create Worker</a></li>
-                                                          <li><a href="{{--URL::route('worker.index')--}}">Worker List</a></li>
+                                                          <li><a href="{{URL::route('worker.index')}}">Worker List</a></li>
 
                                                       </ul>
                                                   </li>

@@ -203,7 +203,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::post('worker/',['as' => 'worker.store', 'uses' => 'WorkerController@store']);
 	Route::get('worker/{id}/edit',['as' => 'worker.edit', 'uses' => 'WorkerController@edit']);
 	Route::put('worker/{id}',['as' => 'worker.update', 'uses' => 'WorkerController@update']);
-	Route::delete('worker/{id}',['as' => 'worker.delete', 'uses' => 'WorkerController@destroy']);
+	Route::delete('worker/{id}',['as' => 'worker.delete', 'uses' => 'WorkerController@workerDelete']);
 
 
 
