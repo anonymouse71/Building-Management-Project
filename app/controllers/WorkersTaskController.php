@@ -4,21 +4,26 @@ class WorkersTaskController extends \BaseController {
 
 	//Worker index
 	// worker can see who and what type of work send by user
+	//Worker Task
 	public function index()
 	{
-		$workers = WorkerTask::all();
+		$workers = WorkerTask::where('worker_type','=',Auth::user()->workers->worker_type)->get();
 
 		return View::make('workerTask.index', compact('workers'))->with('title','User Problem');
 	}
 
 
-	//for worker individual problem show
+
+
+	//Flat User Individual work
 	public function show()
 	{
 		$workers = WorkerTask::where('user_id',Auth::user()->id)->get();
 
 		return View::make('workerTask.show', compact('workers'))->with('title','Your  Problem list');
 	}
+
+
 
 
 

@@ -53,7 +53,7 @@ class WorkerController extends \BaseController {
 		$validation = Validator::make($data,$rules);
 
 		if($validation->fails()){
-			return Redirect::back()->withErrors($validation)->withInput(Input::except('password', 'password_confirmation'));
+			return Redirect::back()->withErrors($validation)->withInput(Input::except('password'));
 		}else{
 
 			if(Worker::where('worker_type','=',$data['worker_type'])->count() == 0){
@@ -77,6 +77,7 @@ class WorkerController extends \BaseController {
 				$user_info->first_login = true;
 				$user_info->owner_status = false;
 				$user_info->owner_status = true;
+				$user_info->owner_approve = true;
 				//set a default avatar
 				$user_info->icon_url = 'uploads/image/defaultAvatar.png';
 				$user_info->avatar_url = 'uploads/image/defaultAvatar.png';
@@ -132,6 +133,8 @@ class WorkerController extends \BaseController {
 		//
 	}
 
+
+
 	/**
 	 * Update the specified resource in storage.
 	 * PUT /worker/{id}
@@ -141,7 +144,50 @@ class WorkerController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$rules =[
+			'email'                 => 'required|email|unique:users',
+			'password'              => 'required',
+			'name'                  =>'required|unique:users',
+		];
+
+		$data = Input::all();
+
+		$validation = Validator::make($data,$rules);
+
+		if($validation->fails()){
+			return Redirect::back()->withErrors($validation)->withInput(Input::except('password'));
+		}else{
+
+			if(Worker::where('worker_type','=',$data['worker_type'])->count() == 0){
+
+				$user =User::findOrfail($id);
+				$user->email     = $data['email'];
+				$user->name      = $data['name'];
+				$user->password  = Hash::make($data['password']);
+				$user->role_id   = 4;
+				$user->flat_id   = Null;
+
+				if($user->save()){
+
+					    $worker = new Worker();
+						$worker->user_id = $user->id;
+						$worker->worker_type =$data['worker_type'] ;
+						if($worker->save()){
+							return Redirect::back()->with('success',"Worker Create Successfully");
+						}
+						else{
+							return Redirect::back()->withInput()->withErrors($validation);
+						}
+
+
+
+				}else{
+					return Redirect::back()->with('error',"Something went wrong");
+				}
+			}else{
+				return Redirect::back()->with('error',"Worker type has already assigned, Try with another one");
+			}
+		}
 	}
 
 	/**

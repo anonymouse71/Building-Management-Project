@@ -26,7 +26,7 @@ Route::get('/',function(){
 	//for worker mode
 if( Auth::check() && Auth::user()->role_id == 4){
 
-	return Redirect::route('workers.index');
+	return Redirect::route('workerTask.index');
 
 }
 
@@ -204,7 +204,6 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('worker/{id}/edit',['as' => 'worker.edit', 'uses' => 'WorkerController@edit']);
 	Route::put('worker/{id}',['as' => 'worker.update', 'uses' => 'WorkerController@update']);
 	Route::delete('worker/{id}',['as' => 'worker.delete', 'uses' => 'WorkerController@destroy']);
-
 
 
 

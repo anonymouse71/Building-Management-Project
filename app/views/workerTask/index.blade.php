@@ -23,6 +23,8 @@
                                 @if(Auth::user()->role_id ==2 || Auth::user()->role_id ==3)
                                 <th>Status</th>
                                 <th>Complain</th>
+                                @elseif(Auth::user()->role_id==4)
+                                    <th>Status</th>
                                 @endif
                                 <th>Show</th>
                             </tr>
@@ -46,15 +48,7 @@
 
 
 
-                                        @if(Auth::user()->role_id==4)
 
-                                            @if($worker->status == true )
-                                                <td style="color:green">Complete</td>
-                                            @else
-                                                <td style="color:yellowgreen">Pending</td>
-                                            @endif
-
-                                        @endif
 
 
 
@@ -73,7 +67,14 @@
                                         @else
                                             <td><a href="{{route('workerTask.complain', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Complain to Admin</button></a></td>
                                         @endif
-                                    @endif
+                                    @elseif(Auth::user()->role_id==4)
+
+                                            @if($worker->status == true )
+                                                <td style="color:green">Complete</td>
+                                            @else
+                                                <td style="color:yellowgreen">Pending</td>
+                                            @endif
+                                     @endif
 
 
 
@@ -114,7 +115,7 @@
                                                              @if($worker->status == true )
                                                                 <a style="color:green">Complete</a>
                                                              @else
-                                                                <a href="{{route('workers.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a>
+                                                                <a href="{{route('workerTask.status', $worker->id)}}"><button class="btn btn-warning btn-xs btn-archive createBtn">Pending</button></a>
                                                              @endif
                                                             </p>
 

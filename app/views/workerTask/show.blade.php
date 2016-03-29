@@ -14,7 +14,7 @@
             <table class="display table table-bordered table-striped" id="example">
                 <thead>
                 <tr>
-                    <th class="text-center">id</th>
+
                     <th>Flat</th>
                     <th>User</th>
                     <th>Subject</th>
@@ -34,11 +34,8 @@
                 <tbody>
                 @foreach ($workers as $worker)
                     <tr>
-                        <td>{{ $worker->id }}</td>
-
                         @if($worker->user_id== 1)
                             <td>{{'Admin' }}</td>
-
                         @else
                             <td> {{ Flat::where('id',$worker->flat_id)->pluck('name') }}</td>
                         @endif
