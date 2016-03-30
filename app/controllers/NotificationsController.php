@@ -52,7 +52,8 @@ class NotificationsController extends \BaseController {
 
     //worker notification list
     public static function worker(){
-        $notify = Notification::where('type','=','worker')
+        $type = Worker::where('worker_type','=',Auth::user()->workers->worker_type)->pluck('worker_type');
+        $notify = Notification::where('type','=',$type)
             ->orderBy('created_at','desc')
             ->get();
         return View::make('notifications.index')
