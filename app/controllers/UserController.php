@@ -60,7 +60,7 @@ class UserController extends \BaseController {
 				$user_info = new UserInfo();
 				$user_info->user_id = $user->id;
 				$user_info->activation = false;
-				$user_info->first_login = false;
+				$user_info->first_login = true;
 
 
 

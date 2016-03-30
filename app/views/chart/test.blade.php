@@ -6,23 +6,24 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-11">
             <ul class="nav nav-pills ranges">
                 <li><a href="#" data-range='7'>7 Days</a></li>
-                <li><a href="#" data-range='30'>30 Days</a></li>
-                <li><a href="#" data-range='60'>60 Days</a></li>
+                <li><a href="#" data-range='15'>30 Days</a></li>
+                <li><a href="#" data-range='30'>60 Days</a></li>
                 <li><a href="#" data-range='90'>90 Days</a></li>
             </ul>
         </div>
     </div>
     <br> <br>
     <br>  <br>
-
+<center>
     <div class="row">
         <div class="col-lg-12">
-            <div id="stats-container" style="height: 250px;"></div>
+            <div id="stats-container" style="height: 350px; width:450px; color: #002b36" ></div>
         </div>
     </div>
+</center>
 </div>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

@@ -5,15 +5,16 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class MemberController extends BaseController {
 
 
-
+// for manager waiting list
 	public function index()
 	{
-		$members =	DB::table('users')
-			->join('userinfo', 'users.id', '=', 'userinfo.user_id')
+
+		$members = UserInfo::join('users','userinfo.id','=','users.id')
+			->Where('userinfo.activation','=',true)
 			->Where('userinfo.owner_status','=',1)
 			->Where('userinfo.owner_approve','=',0)
-			->Where('users.role_id','!=',4)
-			->get();
+			->Where('users.role_id','=',2)
+			->paginate(10);
 
 		return View::make('members.index')
 			->with('title', 'View All members')
@@ -26,12 +27,7 @@ class MemberController extends BaseController {
 
 
 
-
-
-
-
-
-
+//view all Manager
 	public function viewDistributor(){
 		$members = User::where('role_id', '=', 2)->get();
 		return View::make('members.distributor')
@@ -41,6 +37,8 @@ class MemberController extends BaseController {
 
 
 
+
+//View all members
 	public function viewClient(){
 		$members = User::where('role_id', '=', '3')->get();
 		return View::make('members.client')
@@ -55,26 +53,6 @@ class MemberController extends BaseController {
 
 
 
-	public function acceptManager($id)
-	{
-
-		if(UserInfo::find($id)->update(['owner_approve'=>'1'])){
-
-			$userData = User::find($id);
-			$data = ['email'=>$userData->email];
-			//send mail
-			Mail::send('emails.adminverify',$data,function($message) use ($data) {
-				$message->to($data['email'])->subject('Verified By Admin');
-			});
-			return Redirect::route('dashboard')
-				->with('success', "Member Added Sussessfully.");
-		}
-
-		else
-			return Redirect::route('dashboard')
-				->with('error', 'Some error occured. Try again.');
-
-	}
 
 
 
@@ -118,12 +96,59 @@ class MemberController extends BaseController {
 	{
 		$member = User::findOrFail($id);
 		if($member->delete())
-			return Redirect::route('members')->with('success', "The member has been deleted.");
+			return Redirect::back()->with('success', "The member has been deleted.");
 		else
-			return Redirect::route('members')->with('errors', 'Some error occured. Try again.');
+			return Redirect::back()->with('errors', 'Some error occured. Try again.');
 	}
 
 
+
+
+
+
+//all waiting member
+	public function waitingMember()
+	{
+		$members = UserInfo::join('users','userinfo.id','=','users.id')
+			->Where('userinfo.activation','=',true)
+			->Where('userinfo.owner_status','=',0)
+			->Where('userinfo.owner_approve','=',0)
+			->Where('users.flat_id','=',Auth::user()->flat_id)
+			->paginate(10);
+
+		return View::make('manager.index')
+			->with('title', 'View All waiting members')
+			->with('members', $members);
+	}
+
+
+//accept member
+	public function acceptMember($id)
+	{
+       try{
+		   if(UserInfo::find($id)->update(['owner_approve'=>'1'])){
+
+			   $userData = User::find($id);
+			   $data = ['email'=>$userData->email];
+			   //send mail
+			   Mail::send('emails.adminverify',$data,function($message) use ($data) {
+				   $message->to($data['email'])->subject('Verified By Admin');
+			   });
+			   return Redirect::back()
+				   ->with('success', "Member Added Sussessfully.");
+		   }
+
+		   else
+			   return Redirect::back()
+				   ->with('error', 'Some error occured. Try again.');
+	   }
+	   catch(Exception $e){
+		   return Redirect::back()
+			   ->with('error', 'Some error occured. Try again.');
+	   }
+
+
+	}
 
 
 

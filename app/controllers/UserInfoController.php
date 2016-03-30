@@ -5,12 +5,15 @@ class UserInfoController extends \BaseController{
 
     public function getIndex()
     {
-        return View::make('chart.test')->with('title','bvcjfj');
+        return View::make('chart.test')->with('title','User Chart');
     }
+
+
     public function getApi()
     {
         $days = Input::get('days', 100);
         $range = \Carbon\Carbon::now()->subDays($days);
+
 
         $stats = User::where('created_at', '>=', $range)
             ->groupBy('role_id')

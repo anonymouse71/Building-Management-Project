@@ -11,22 +11,23 @@
 		<table class="display table table-bordered table-striped" id="example">
 			<thead>
 				<tr>
-					<th>Id</th>
+
 					<th>Username</th>
 					<th>Email</th>
 					<th>Role</th>
 					<th>Flat</th>
-					<th>Action</th>
+					<th>Add manager</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($members as $member)
 					<tr>
 
-						<td>{{ $member->id}}</td>
+
 						<td>{{ $member->fullName }}</td>
 						<td>{{ $member->user->email }}</td>
-						<td>{{ $member->user->role_id }}</td>
+						<td>{{ 'Manager' }}</td>
 
 						<td class="text-center">
 							<a class="btn btn-xs btn-success btn-edit" >{{$member->user->flats->name}}</a>

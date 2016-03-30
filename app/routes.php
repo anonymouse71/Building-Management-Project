@@ -105,9 +105,8 @@ Route::group(array('before' => 'auth'), function()
 	Route::put('messages/{id}', ['as' => 'messages.update', 'uses' => 'MessagesController@update']);
 	Route::get('Messages/{id}', ['as' => 'messages.all', 'uses' => 'MessagesController@all']);
 
-	//for member waiting list and approval
-	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
-	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptMember'));
+
+
 
 
 
@@ -126,6 +125,12 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('work/{id}/status', ['as' => 'workerTask.status', 'uses' => 'WorkersTaskController@changeStatus']);
 	Route::get('work/{id}/complain', ['as' => 'workerTask.complain', 'uses' => 'WorkersTaskController@complain']);
 
+
+
+	//for member waiting list and approval
+	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'MemberController@waitingMember']);
+	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@acceptMember'));
+	Route::delete('waitingMember/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
 });
 
 
@@ -136,7 +141,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::get('members', array('as' => 'members', 'uses' => 'MemberController@index'));
 	Route::get('view-allOwner', array('as' => 'members.view.distributor', 'uses' => 'MemberController@viewDistributor'));
 	Route::get('view-Members', array('as' => 'members.view.client', 'uses' => 'MemberController@viewClient'));
-	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'MemberController@acceptManager'));
+	Route::get('manager/add/{id}', array('as' => 'manager.add', 'uses' => 'ManagerController@acceptManager'));
 	Route::delete('members/{id}', array('as' => 'members.delete', 'uses' => 'MemberController@userDelete'));
 
 
@@ -185,7 +190,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	//Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@flatMember']);
 
 
-	Route::get('1', 'UserInfoController@getIndex');
+	Route::get('userGraph', 'UserInfoController@getIndex');
 	Route::get('api', 'UserInfoController@getApi');
 
 	//terms and condition
@@ -205,9 +210,8 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::put('worker/{id}',['as' => 'worker.update', 'uses' => 'WorkerController@update']);
 	Route::delete('worker/{id}',['as' => 'worker.delete', 'uses' => 'WorkerController@workerDelete']);
 
-
-
 });
+
 	//terms of Condition
    Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
 
