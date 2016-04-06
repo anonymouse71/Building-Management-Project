@@ -111,7 +111,9 @@
     <div class="contact-form bottom">
 
         <br>
+       <p><b>  {{'Rent Amount: $'}} </b>{{$flat->rent_amount}}</p>
 
+        <br>
         {{$flat->flat_details}}
 
 

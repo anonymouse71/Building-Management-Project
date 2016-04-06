@@ -32,7 +32,7 @@ class MemberController extends BaseController {
 		$members = User::where('role_id', '=', 2)->get();
 		return View::make('members.distributor')
 			->with('members', $members)
-			->with('title', "View All Owner");
+			->with('title', "View All Manager");
 	}
 
 
@@ -140,7 +140,7 @@ class MemberController extends BaseController {
 
 		   else
 			   return Redirect::back()
-				   ->with('error', 'Some error occured. Try again.');
+				   ->with('success', 'Some error occured. Try again.');
 	   }
 	   catch(Exception $e){
 		   return Redirect::back()
@@ -149,6 +149,9 @@ class MemberController extends BaseController {
 
 
 	}
+
+
+
 
 
 

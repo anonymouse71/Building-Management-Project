@@ -35,7 +35,7 @@
                                               </a>
                                               <ul class="sub">
                                                   <li><a href="{{ route('flats.allMembers') }}">All Flat member List</a></li>
-                                                  <li><a href="{{ route('members.view.distributor') }}">Owner List</a></li>
+                                                  <li><a href="{{ route('members.view.distributor') }}">Manager List</a></li>
                                                   <li><a href="{{ route('members.view.client') }}">Member List</a></li>
                                                   <li><a href="{{ route('members') }}">Waiting List</a></li>
 
@@ -189,6 +189,23 @@
                                                   </li>
 
 
+                                              
+
+                                          {{-- Works --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Terms & Condition</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('flats.terms') }}">Terms & Condition </a></li>
+
+                                                      </ul>
+                                                  </li>
+
+
+
                                                   {{-- Works --}}
                                                   <li class="sub-menu">
 
@@ -248,6 +265,22 @@
 
                                                   </ul>
                                               </li>
+
+
+                                               {{-- Works --}}
+                                                  <li class="sub-menu">
+
+                                                      <a href="javascript:">
+                                                          <i class="fa fa-tasks"></i>
+                                                          <span>Terms & Condition</span>
+                                                      </a>
+                                                      <ul class="sub">
+                                                          <li><a href="{{URL::route('flats.terms') }}">Terms & Condition </a></li>
+
+                                                      </ul>
+                                                  </li>
+
+
 
 
                                           {{-- Works --}}

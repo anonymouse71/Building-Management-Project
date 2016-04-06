@@ -31,12 +31,12 @@
                     <br><br>
                 </div>
 
-
+                
 
                 <div class="form-group">
                     {{ Form::label('flat_details', 'Flat Terms and condition/Details* :', array('class' => 'col-md-2 control-label')) }}
                     <div class="col-md-8">
-                        {{ Form::textarea('flat_details', null, array('class' => 'form-control', 'placeholder' => 'Enter Flat Details','id' => 'editor')) }}
+                        {{ Form::textarea('flat_details', TermsCondition::findOrfail(1)->pluck('details'), array('class' => 'form-control', 'placeholder' => 'Enter Flat Details','id' => 'editor')) }}
                     </div>
                     <br><br>
                 </div>

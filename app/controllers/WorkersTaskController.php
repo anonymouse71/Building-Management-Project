@@ -55,21 +55,27 @@ class WorkersTaskController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$worker = new WorkerTask();
+			try{
+				$worker = new WorkerTask();
 
-        $type = Worker::where('id','=',$data['worker_type'])->pluck('worker_type');
-		$worker->worker_type = $type;
-		$worker->subject = $data['subject'];
-		$worker->details = $data['details'];
-		$worker->flat_id = Auth::user()->flat_id;
-		$worker->user_id = Auth::user()->id;
+			        $type = Worker::where('id','=',$data['worker_type'])->pluck('worker_type');
+					$worker->worker_type = $type;
+					$worker->subject = $data['subject'];
+					$worker->details = $data['details'];
+					$worker->flat_id = Auth::user()->flat_id;
+					$worker->user_id = Auth::user()->id;
 
-		if($worker->save()){
-			return Redirect::route('workerTask.create')->with('success',"Problem sent  successfully");
-		}else{
-			return Redirect::route('workerTask.create')->with('error',"Something went wrong.Try again");
-		}
+					if($worker->save()){
+						return Redirect::route('workerTask.create')->with('success',"Problem sent  successfully");
+					}else{
+						return Redirect::route('workerTask.create')->with('error',"Something went wrong.Try again");
+					}
 
+			}
+			catch(Exception $e){
+				return Redirect::back()->with('error',"Something went wrong, Please try again");
+			}
+		
 
 
 	}

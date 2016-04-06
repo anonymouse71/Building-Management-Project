@@ -61,7 +61,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-10">
-                            {{ Form::submit('Create Worker', array('class' => 'btn btn-success')) }}
+                            {{ Form::submit('Update Worker', array('class' => 'btn btn-success')) }}
                         </div>
                     </div>
 
