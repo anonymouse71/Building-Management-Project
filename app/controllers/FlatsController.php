@@ -117,7 +117,7 @@ class FlatsController extends \BaseController {
 	{
 		Flat::destroy($id);
 
-		return Redirect::route('flats.index')->with('success',"Flat Added")->with('title',"Flat ");
+		return Redirect::route('flats.index')->with('error',"Flat successfully deleted");
 	}
 
 

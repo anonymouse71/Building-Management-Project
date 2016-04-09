@@ -67,13 +67,6 @@
 
                     </div>
 
-
-
-
-
-
-
-
                 </div>
                 <div class="box-footer col-md-6 col-md-offset-3" align=center>
                     {{ Form::submit('Record Transaction', array('class' => 'btn btn-success')) }}
@@ -103,33 +96,14 @@
     <script type="text/javascript">
         $('#status').select2();
         $(document).ready(function() {
-
             $('input').iCheck({
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_flat-red',
                 increaseArea: '20%'
             });
 
-
-            $('#type').on('change', function() {
-              var type = this.value ; 
-              if(type === "debit"){
-                $("#method").val("Bank");
-                $("#title").val("Cash"); 
-              }
-              if(type === "credit"){
-                $("#method").val("CentralDeposit");
-                $("#title").val(""); 
-              }
-            });
-
         });
 
-
-
-    </script>
-
-    <script type="text/javascript">
         $(document).ready(function() {
             $("#date").datepicker({
                 format: 'yyyy-mm-dd'
