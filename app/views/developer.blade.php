@@ -79,7 +79,7 @@
                 <div class="action">
                     <div class="col-sm-12">
                         <h1 class="title">About This Project</h1>
-                        <p>At a Glance</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <img src="https://www.kiu.edu.pk/img/profile-default.gif" class="img-responsive" alt="">
+                <img src="uploads/image/defaultAvatar.png" class="img-responsive" alt="">
             </div>
             <div class="col-sm-6">
                 <div class="project-name overflow">
@@ -123,7 +123,7 @@
                 <div class="portfolio-wrapper">
                     <div class="portfolio-single">
                         <div class="portfolio-thumb">
-                            <img src="https://www.kiu.edu.pk/img/profile-default.gif" class="img-responsive" alt="">
+                            <img src="uploads/image/defaultAvatar.png" class="img-responsive" alt="">
                         </div>
                         <div class="portfolio-view">
                             <ul class="nav nav-pills">
@@ -150,7 +150,7 @@
                 <div class="portfolio-wrapper">
                     <div class="portfolio-single">
                         <div class="portfolio-thumb">
-                            <img src="https://www.kiu.edu.pk/img/profile-default.gif" class="img-responsive" alt="">
+                            <img src="uploads/image/defaultAvatar.png" class="img-responsive" alt="">
                         </div>
                         <div class="portfolio-view">
                             <ul class="nav nav-pills">

@@ -7,13 +7,14 @@
             <h2 align="center">
              {{$title}}
          </h2><br><br>
+         @include('includes.alert')
          <div align="center">
          <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.index') }}">Full Financial Transaction History</a>
          <a class="btn btn-success btn-sm btn-new-user" href="{{ URL::route('finance.list') }}">Report by Flat List</a>
          </div>
 
 
-            @include('includes.alert')
+            
             <div class=" box-info">
 
                 {{ Form::open(['route' => 'finance.store', 'method' => 'post']) }}

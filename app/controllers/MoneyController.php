@@ -145,7 +145,10 @@ class MoneyController extends \BaseController {
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
 
-		$money = new Money();
+
+        if(User::where('flat_id','=',$data['flat_id'])->count() !=0){
+
+        	$money = new Money();
 
 		$money->title = $data['title'];
 		$money->type = $data['type'];
@@ -174,6 +177,11 @@ class MoneyController extends \BaseController {
 		}else{
 			return Redirect::route('finance.create')->with('error',"Something went wrong.Try again");
 		}
+        }
+        else{
+        	return Redirect::back()->with('error',"Sorry,There is no Member/Manager in this Flat");
+        }
+		
 	}
 
 
