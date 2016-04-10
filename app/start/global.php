@@ -79,8 +79,8 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
-/*
+
 // For All Missing Page
 App::missing(function() {
 	return Response::make(View::make('errors.404'), 404);
-});*/
+});
