@@ -41,7 +41,7 @@
                 </section>
             </div>
 
-@else
+            @else
 
                 <div class="col-lg-3 col-sm-6">
                     <section class="panel">
@@ -60,22 +60,47 @@
                 </div>
             @endif
 
+         @if(Auth::user()->id ==1)
             <!--User-->
             <div class="col-lg-3 col-sm-6">
                 <section class="panel">
                     <div class="symbol yellow">
-                        <i class="fa fa-envelope"></i>
+                        <i class="fa fa-bullhorn "></i>
                     </div>
                     <div class="value">
                         <h1 class=" count3">
-                         {{DB::table('participants')->where('user_id', '=', Auth::user()->id)->count();}}
+                         {{DB::table('workers_task')->where('notify', '=', 1)->count();}}
 
                         </h1>
-                        <p>New Messages</p>
+                        <p>User Complain</p>
                     </div>
                 </section>
             </div>
             <!--User-->
+     @else
+        <!--User-->
+                <div class="col-lg-3 col-sm-6">
+                    <section class="panel">
+                        <div class="symbol yellow">
+                            <i class="fa fa-bullhorn "></i>
+                        </div>
+                        <div class="value">
+                            <h1 class=" count3">
+                                {{DB::table('workers_task')->where('notify', '=', 1)
+                                  ->where('user_id', Auth::user()->id)
+                                  ->count();}}
+
+                            </h1>
+                            <p>Own Complain</p>
+                        </div>
+                    </section>
+                </div>
+                <!--User-->
+
+    @endif
+
+
+
             @if(Auth::user()->role_id ==1)
 
                 <div class="col-lg-3 col-sm-6">

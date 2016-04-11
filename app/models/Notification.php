@@ -132,6 +132,7 @@ class Notification extends \Eloquent {
 
 
 
+
 	public static function zeroToOne($id, $nCount){
 		//User::where('id','=',$id)
 		//	->update(['notify'=> 'n']);
@@ -141,6 +142,7 @@ class Notification extends \Eloquent {
 		$users->save();
 	}
 
+	
 
 
 

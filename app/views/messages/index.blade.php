@@ -11,7 +11,7 @@
 
 
         @foreach($threads as $thread)
-            @if(Auth::user()->name == $thread->creator()->name && $thread->participantsString(Auth::id()) )
+            @if(Auth::user()->name == $thread->creator()->name || $thread->participantsString(Auth::id()) )
 
         {{ $class = $thread->isUnread($currentUserId) ? 'alert-info' : ''; }}
 

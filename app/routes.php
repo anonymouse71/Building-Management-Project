@@ -24,19 +24,19 @@
 Route::get('/',function(){
 
 	//for worker mode
-if( Auth::check() && Auth::user()->role_id == 4){
+	if( Auth::check() && Auth::user()->role_id == 4){
 
-	return Redirect::route('workerTask.index');
+		return Redirect::route('workerTask.index');
 
-}
+	}
 
- elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 1){
-	 return Redirect::route('dashboard');
- }
+	elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 1){
+		return Redirect::route('dashboard');
+	}
 
- elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 0){
-	 return Redirect::route('user.show');
- }
+	elseif(Auth::check() && Auth::user()->userInfo->owner_approve== 0){
+		return Redirect::route('user.show');
+	}
 
 	else
 		return Redirect::route('index');
@@ -93,10 +93,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('myfinance',['as' => 'finance.index.normal', 'uses' => 'MoneyController@index_normal']);
 
 
-   //My flat members
+	//My flat members
 	Route::get('flat-members',['as' => 'flats.members', 'uses' => 'UserController@member']);
 
-    //mesenger system
+	//mesenger system
 	//group message
 	Route::get('messages', ['as' => 'messages', 'uses' => 'MessagesController@index']);
 	Route::get('messages/create', ['as' => 'messages.create', 'uses' => 'MessagesController@create']);
@@ -108,8 +108,8 @@ Route::group(array('before' => 'auth'), function()
 	//for member waiting list and approval
 	Route::get('waitingMember',['as' => 'manager.index', 'uses' => 'ManagerController@waitingMember']);
 	Route::get('members/add/{id}', array('as' => 'members.add', 'uses' => 'ManagerController@acceptManager'));
-// Auth Falt Terms And Condition 
-     Route::get('flats/terms',['as' => 'flats.terms', 'uses' => 'FlatsController@flatTermsAndCondition']);
+// Auth Falt Terms And Condition
+	Route::get('flats/terms',['as' => 'flats.terms', 'uses' => 'FlatsController@flatTermsAndCondition']);
 
 
 	//Notifications
@@ -119,7 +119,7 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('notificationW',['as' => 'notifications.worker', 'uses' => 'NotificationsController@worker']);
 
 
-   //for worker role_id==4
+	//for worker role_id==4
 	Route::get('work/index', ['as' => 'workerTask.index', 'uses' => 'WorkersTaskController@index']);
 	Route::get('work/create', ['as' => 'workerTask.create', 'uses' => 'WorkersTaskController@create']);
 	Route::post('work/', ['as' => 'workerTask.store', 'uses' => 'WorkersTaskController@store']);
@@ -150,7 +150,7 @@ Route::group(array('before' => 'auth|admin'), function()
 	Route::delete('issuedepts/{id}',['as' => 'issuedept.delete', 'uses' => 'IssueDeptsController@destroy']);
 
 
-   //Flat Based Finance Module
+	//Flat Based Finance Module
 	Route::get('finance',['as' => 'finance.index', 'uses' => 'MoneyController@index']);
 	Route::get('finance/list',['as' => 'finance.list', 'uses' => 'MoneyController@devlist']);
 	Route::get('finance/show/{id}',['as' => 'finance.show', 'uses' => 'MoneyController@show']);
@@ -209,32 +209,32 @@ Route::group(array('before' => 'auth|admin'), function()
 
 
 });
-	//terms of Condition
-   Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
+//terms of Condition
+Route::get('termsOfConditions',['as' => 'terms.index', 'uses' => 'TermsController@index']);
 
-	//Own flats terms and condition
-   
-
-
-	//for unknown url
-	Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
-    Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);
+//Own flats terms and condition
 
 
-	 // for user accept mail sending
-	Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
-	Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
+
+//for unknown url
+Route::get('missing',['as' => 'error.404', 'uses' => 'HomeController@missing']);
+Route::get('errors',['as' => 'error.500', 'uses' => 'HomeController@error']);
 
 
+// for user accept mail sending
+Route::get("sendmail/{key}",['as'=>'mail.varification','uses'=>'MemberController@varifyMail']);
+Route::get("recover/{key}",['as'=>'mail.recovery','uses'=>'MemberController@mailRecover']);
 
 
 
 
 
-	Route::get('time',function(){
 
-		return User::where('flat_id','=',6)->count();
-	});
+
+Route::get('time',function(){
+
+	return User::where('flat_id','=',6)->count();
+});
 
 
 

@@ -53,7 +53,7 @@
             </table>
 
         @else
-            No Data Found
+            No Data Found.
         @endif
     </div>
 

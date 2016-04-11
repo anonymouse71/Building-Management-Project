@@ -84,7 +84,10 @@
                                               <ul class="sub">
                                                   <li><a href="{{URL::route('announces.index') }}">Announcement List</a></li>
                                                   <li><a href="{{URL::route('announces.create') }}">Create Announcement</a></li>
+<<<<<<< HEAD
 
+=======
+>>>>>>> talha
                                               </ul>
                                           </li>
 
@@ -127,7 +130,6 @@
                                                       </ul>
                                                   </li>
 
-
                                                   {{-- Works --}}
                                                   <li class="sub-menu">
 
@@ -141,6 +143,8 @@
 
                                                       </ul>
                                                   </li>
+
+
 
 
 
@@ -331,19 +335,19 @@
 
 
 
-                      {{-- Whole Message --}}
-                      <li class="sub-menu">
+               {{-- Whole Message --}}
+<!--                      <li class="sub-menu">
 
                           <a href="javascript:">
                               <i class="fa fa-laptop "></i>
                               <span>Messenger</span>
                           </a>
                           <ul class="sub">
-                              <li><a href="{{URL::route('messages') }}">All Message</a></li>
-                              <li><a href="{{URL::route('messages.create') }}">New message</a></li>
+                              <li><a href="{{--URL::route('messages') }}">All Message</a></li>
+                              <li><a href="{{URL::route('messages.create') --}}">New message</a></li>
 
                           </ul>
-                      </li>
+                      </li> -->
 
 
 

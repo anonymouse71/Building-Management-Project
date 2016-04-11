@@ -34,7 +34,7 @@ class MessagesController extends BaseController
 
     public function index()
     {
-           $currentUserId = Auth::user()->id;
+        $currentUserId = Auth::user()->id;
 
         // All threads, ignore deleted/archived participants
         $threads = Thread::getAllLatest()->get();
